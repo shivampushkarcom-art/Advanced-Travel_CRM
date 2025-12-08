@@ -1,0 +1,489 @@
+/**
+ * ATC Stories - Instagram/Facebook Stories-like Feature
+ * Mobile-first responsive design
+ */
+
+/* Stories List Container - Horizontal Scroll */
+.atc-stories-container {
+    width: 100%;
+    margin: 20px 0;
+    padding: 0;
+}
+
+.atc-stories-list {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 12px 10px;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+
+.atc-stories-list::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+}
+
+/* Story Item (Avatar Circle) */
+.atc-story-item {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease;
+    min-width: 60px; /* fits 4–6 per row on laptops */
+}
+
+.atc-story-item:hover {
+    transform: scale(1.05);
+}
+
+.atc-story-avatar {
+    width: 60px;
+    height: 60px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #D4AF37 100%);
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    isolation: isolate;
+    transition: all 0.3s ease;
+}
+
+.atc-story-item:hover .atc-story-avatar {
+    border-color: #D4AF37;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+.atc-story-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    position: relative;
+    z-index: 1;
+}
+
+.atc-story-avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+.atc-story-title {
+    font-size: 10px; /* smaller to avoid wrapping */
+    font-weight: 500;
+    text-align: center;
+    color: #1E3A5F;
+    max-width: 60px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Story Viewer Modal - Full Screen */
+.atc-story-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    z-index: 2147483000;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.atc-story-viewer.active {
+    display: flex;
+}
+
+/* Story Progress Bar Container */
+.atc-story-progress-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 15px;
+    z-index: 10;
+    display: flex;
+    gap: 4px;
+}
+
+.atc-story-progress-bar {
+    flex: 1;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.atc-story-progress-fill {
+    height: 100%;
+    background: #ffffff;
+    border-radius: 2px;
+    width: 0%;
+    transition: width linear;
+}
+
+.atc-story-progress-bar.active .atc-story-progress-fill {
+    animation: storyProgress linear;
+}
+
+@keyframes storyProgress {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Story Media Container */
+.atc-story-media-container {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #000;
+}
+
+.atc-story-media {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.atc-story-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.atc-story-media video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* Story Content Overlay (Package Details) */
+.atc-story-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px 20px 80px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
+    z-index: 5;
+    color: #ffffff;
+}
+
+.atc-story-content-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 10px 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.atc-story-content-description {
+    font-size: 16px;
+    margin: 0 0 15px 0;
+    line-height: 1.5;
+    opacity: 0.95;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.atc-story-content-price {
+    font-size: 28px;
+    font-weight: 800;
+    color: #D4AF37;
+    margin: 0 0 20px 0;
+    text-shadow: 0 2px 8px rgba(212, 175, 55, 0.5);
+}
+
+.atc-story-content-button {
+    display: inline-block;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.5);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.atc-story-content-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(102, 126, 234, 0.7);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Navigation Controls */
+.atc-story-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.atc-story-nav:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.atc-story-nav-prev {
+    left: 15px;
+}
+
+.atc-story-nav-next {
+    right: 15px;
+}
+
+.atc-story-nav-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.atc-story-nav-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.atc-story-sound-toggle {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.45);
+    color: #fff;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: all 0.3s ease;
+}
+
+.atc-story-sound-toggle .atc-story-sound-icon::before {
+    content: "🔊";
+    font-size: 20px;
+    line-height: 1;
+}
+
+.atc-story-sound-toggle.is-sound-off .atc-story-sound-icon::before {
+    content: "🔇";
+}
+
+.atc-story-sound-toggle:hover {
+    background: rgba(0, 0, 0, 0.65);
+    transform: scale(1.05);
+}
+
+.atc-story-viewer.atc-story-has-video .atc-story-sound-toggle {
+    display: flex;
+}
+
+/* When viewer is open, hide floating contact/query buttons */
+body.atc-story-viewer-open .atc-floating-query-button,
+body.atc-story-viewer-open .atc-contact-popup-button {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+    transition: opacity 0.2s ease;
+}
+
+body.atc-story-viewer-open .atc-floating-query-modal,
+body.atc-story-viewer-open .atc-contact-popup-modal {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    z-index: 0 !important;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .atc-stories-list {
+        gap: 12px;
+        padding: 12px 10px;
+    }
+    
+    /* Target ~4–5 visible stories on a mobile screen */
+    .atc-story-item {
+        min-width: 70px;
+    }
+    
+    .atc-story-avatar {
+        width: 64px;
+        height: 64px;
+    }
+    
+    .atc-story-title {
+        font-size: 10px;
+        max-width: 70px;
+    }
+    
+    .atc-story-content {
+        padding: 25px 15px 60px;
+    }
+    
+    .atc-story-content-title {
+        font-size: 20px;
+    }
+    
+    .atc-story-content-description {
+        font-size: 14px;
+    }
+    
+    .atc-story-content-price {
+        font-size: 24px;
+    }
+    
+    .atc-story-content-button {
+        padding: 12px 28px;
+        font-size: 14px;
+    }
+    
+    .atc-story-nav {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .atc-story-nav-prev {
+        left: 10px;
+    }
+    
+    .atc-story-nav-next {
+        right: 10px;
+    }
+    
+    .atc-story-nav-close {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+        top: 10px;
+        right: 10px;
+    }
+    
+    .atc-story-sound-toggle {
+        width: 42px;
+        height: 42px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* Touch-friendly tap targets */
+@media (max-width: 768px) {
+    .atc-story-nav,
+    .atc-story-nav-close {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}
+
+/* Loading State */
+.atc-story-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 18px;
+    z-index: 1;
+}
+
+/* Empty State */
+.atc-stories-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: #666;
+}
+
+/* Accessibility */
+.atc-story-nav:focus,
+.atc-story-nav-close:focus {
+    outline: 3px solid rgba(212, 175, 55, 0.6);
+    outline-offset: 2px;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .atc-story-progress-fill {
+        transition: none;
+        animation: none;
+    }
+    
+    .atc-story-item,
+    .atc-story-nav,
+    .atc-story-nav-close,
+    .atc-story-content-button {
+        transition: none;
+    }
+}
+

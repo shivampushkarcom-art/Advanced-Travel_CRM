@@ -1,0 +1,830 @@
+/**
+ * Hotels Package Details Page - Booking.com Style
+ * Premium, Enterprise-Level Design
+ */
+
+/* ============================================
+   CSS VARIABLES (Service-Specific Colors)
+   ============================================ */
+:root {
+    --atc-hotels-primary: #003580;
+    --atc-hotels-secondary: #006ce4;
+    --atc-hotels-accent: #ffb700;
+    --atc-hotels-bg: #f5f7fa;
+    --atc-hotels-text: #1a1a1a;
+    --atc-hotels-text-light: #666;
+}
+
+/* ============================================
+   MAIN CONTAINER & LAYOUT
+   ============================================ */
+.atc-package-details-hotels {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--atc-hotels-bg);
+    min-height: 100vh;
+    color: var(--atc-hotels-text);
+}
+
+.atc-package-details-hotels-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* ============================================
+   BREADCRUMB NAVIGATION
+   ============================================ */
+.atc-hotels-breadcrumb {
+    background: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.atc-hotels-breadcrumb-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.atc-hotels-breadcrumb-inner a {
+    color: var(--atc-hotels-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.atc-hotels-breadcrumb-inner a:hover {
+    color: var(--atc-hotels-primary);
+    text-decoration: underline;
+}
+
+.atc-breadcrumb-separator {
+    color: var(--atc-hotels-text-light);
+}
+
+.atc-breadcrumb-current {
+    color: var(--atc-hotels-text);
+    font-weight: 500;
+}
+
+/* ============================================
+   HERO SECTION WITH GALLERY
+   ============================================ */
+.atc-hotels-hero {
+    background: #fff;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.atc-hotels-gallery {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.atc-hotels-main-image {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f0f0f0;
+}
+
+.atc-hotels-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.atc-hotels-main-image:hover img {
+    transform: scale(1.05);
+}
+
+.atc-hotels-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.atc-hotels-thumb {
+    position: relative;
+    height: 120px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+    background: #f0f0f0;
+}
+
+.atc-hotels-thumb:hover {
+    border-color: var(--atc-hotels-secondary);
+    transform: translateY(-3px);
+}
+
+.atc-hotels-thumb.active {
+    border-color: var(--atc-hotels-accent);
+}
+
+.atc-hotels-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.atc-hotels-thumb-more {
+    height: 120px;
+    border-radius: 8px;
+    background: rgba(0, 53, 128, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.atc-hotels-thumb-more:hover {
+    background: rgba(0, 53, 128, 0.9);
+}
+
+/* ============================================
+   HOTEL HEADER INFO
+   ============================================ */
+.atc-hotels-header {
+    background: #fff;
+    padding: 30px 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.atc-hotels-header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.atc-hotels-title {
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    color: var(--atc-hotels-primary);
+}
+
+.atc-hotels-location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    color: var(--atc-hotels-text-light);
+    margin-bottom: 20px;
+}
+
+.atc-location-icon {
+    font-size: 20px;
+}
+
+.atc-hotels-rating-meta {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.atc-star-rating {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.atc-star {
+    font-size: 20px;
+    color: #ddd;
+}
+
+.atc-star.filled {
+    color: var(--atc-hotels-accent);
+}
+
+.atc-rating-text {
+    margin-left: 8px;
+    font-weight: 600;
+    color: var(--atc-hotels-text);
+}
+
+.atc-guest-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--atc-hotels-primary);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.atc-rating-score {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.atc-rating-label {
+    font-size: 14px;
+}
+
+.atc-reviews-count {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* ============================================
+   CONTENT WRAPPER (Two-Column Layout)
+   ============================================ */
+.atc-hotels-content-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 30px;
+    align-items: start;
+}
+
+/* ============================================
+   MAIN CONTENT (Left Column)
+   ============================================ */
+.atc-hotels-main-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.atc-hotels-section {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.atc-hotels-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.atc-hotels-section-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 25px 0;
+    color: var(--atc-hotels-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ============================================
+   ROOM TYPES GRID
+   ============================================ */
+.atc-hotels-rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.atc-hotels-room-card {
+    background: linear-gradient(135deg, var(--atc-hotels-primary) 0%, var(--atc-hotels-secondary) 100%);
+    color: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 53, 128, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.atc-hotels-room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 53, 128, 0.3);
+}
+
+.atc-room-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.atc-room-name {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* ============================================
+   AMENITIES GRID
+   ============================================ */
+.atc-hotels-amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.atc-hotels-amenity-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border-left: 4px solid var(--atc-hotels-accent);
+    transition: all 0.3s ease;
+}
+
+.atc-hotels-amenity-item:hover {
+    background: #f1f5f9;
+    transform: translateX(5px);
+}
+
+.atc-amenity-icon {
+    color: var(--atc-hotels-accent);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.atc-amenity-text {
+    flex: 1;
+    line-height: 1.6;
+}
+
+/* ============================================
+   DESCRIPTION
+   ============================================ */
+.atc-hotels-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--atc-hotels-text);
+}
+
+.atc-hotels-description p {
+    margin-bottom: 15px;
+}
+
+/* ============================================
+   HIGHLIGHTS
+   ============================================ */
+.atc-hotels-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.atc-hotels-highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 8px;
+    border-left: 4px solid var(--atc-hotels-secondary);
+}
+
+.atc-highlight-icon {
+    color: var(--atc-hotels-secondary);
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 2px;
+}
+
+.atc-highlight-text {
+    flex: 1;
+    line-height: 1.6;
+}
+
+/* ============================================
+   LOCATION INFO
+   ============================================ */
+.atc-hotels-location-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.atc-location-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: #f8fafc;
+    border-radius: 8px;
+}
+
+.atc-location-label {
+    font-weight: 600;
+    color: var(--atc-hotels-primary);
+    min-width: 150px;
+}
+
+.atc-location-value {
+    flex: 1;
+    color: var(--atc-hotels-text);
+}
+
+/* ============================================
+   TIMING (CHECK-IN/CHECK-OUT)
+   ============================================ */
+.atc-hotels-timing {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.atc-timing-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 8px;
+    flex: 1;
+}
+
+.atc-timing-label {
+    font-size: 14px;
+    color: var(--atc-hotels-text-light);
+    font-weight: 500;
+}
+
+.atc-timing-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--atc-hotels-primary);
+}
+
+/* ============================================
+   INCLUSIONS & EXCLUSIONS
+   ============================================ */
+.atc-hotels-inclusions-exclusions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.atc-inclusions,
+.atc-exclusions {
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 8px;
+}
+
+.atc-inclusions {
+    border-left: 4px solid #10b981;
+}
+
+.atc-exclusions {
+    border-left: 4px solid #ef4444;
+}
+
+.atc-inclusions h3,
+.atc-exclusions h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 15px 0;
+}
+
+.atc-inclusions ul,
+.atc-exclusions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.atc-inclusions li,
+.atc-exclusions li {
+    padding: 8px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.atc-inclusions li:last-child,
+.atc-exclusions li:last-child {
+    border-bottom: none;
+}
+
+/* ============================================
+   TERMS & CONDITIONS / CANCELLATION
+   ============================================ */
+.atc-hotels-terms,
+.atc-hotels-cancellation {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--atc-hotels-text);
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 4px solid var(--atc-hotels-secondary);
+}
+
+/* ============================================
+   BOOKING CARD (Right Column - Sticky)
+   ============================================ */
+.atc-hotels-booking-card {
+    position: sticky;
+    top: 20px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border: 1px solid #e2e8f0;
+}
+
+.atc-hotels-price-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.atc-hotels-price-label {
+    font-size: 14px;
+    color: var(--atc-hotels-text-light);
+    margin-bottom: 10px;
+}
+
+.atc-hotels-price-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.atc-hotels-price-original {
+    font-size: 18px;
+    color: var(--atc-hotels-text-light);
+    text-decoration: line-through;
+}
+
+.atc-hotels-price-current {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--atc-hotels-primary);
+}
+
+.atc-hotels-price-unit {
+    font-size: 16px;
+    color: var(--atc-hotels-text-light);
+}
+
+.atc-hotels-discount-badge {
+    display: inline-block;
+    background: var(--atc-hotels-accent);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* ============================================
+   TRUST BADGES
+   ============================================ */
+.atc-hotels-trust-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.atc-trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: #f8fafc;
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--atc-hotels-text);
+}
+
+.atc-badge-icon {
+    font-size: 18px;
+}
+
+/* ============================================
+   BOOKING BUTTON
+   ============================================ */
+.atc-hotels-booking-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--atc-hotels-primary) 0%, var(--atc-hotels-secondary) 100%);
+    color: #fff;
+    border: none;
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.atc-hotels-booking-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 53, 128, 0.4);
+}
+
+.atc-hotels-booking-btn:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   SIMILAR HOTELS
+   ============================================ */
+.atc-hotels-similar {
+    background: #fff;
+    padding: 40px 20px;
+    margin-top: 40px;
+}
+
+.atc-similar-hotels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.atc-similar-loading {
+    text-align: center;
+    padding: 40px;
+    color: var(--atc-hotels-text-light);
+}
+
+/* ============================================
+   MOBILE STICKY BOOKING BAR
+   ============================================ */
+.atc-hotels-mobile-booking-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-top: 1px solid #e2e8f0;
+}
+
+.atc-mobile-booking-price {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.atc-mobile-price-label {
+    font-size: 12px;
+    color: var(--atc-hotels-text-light);
+}
+
+.atc-mobile-price-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--atc-hotels-primary);
+}
+
+.atc-mobile-price-unit {
+    font-size: 12px;
+    color: var(--atc-hotels-text-light);
+}
+
+.atc-mobile-booking-btn {
+    background: linear-gradient(135deg, var(--atc-hotels-primary) 0%, var(--atc-hotels-secondary) 100%);
+    color: #fff;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.atc-mobile-booking-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 53, 128, 0.3);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+    .atc-hotels-content-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .atc-hotels-booking-card {
+        position: relative;
+        top: 0;
+    }
+    
+    .atc-hotels-title {
+        font-size: 28px;
+    }
+    
+    .atc-hotels-inclusions-exclusions {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .atc-hotels-main-image {
+        height: 300px;
+    }
+    
+    .atc-hotels-thumbnails {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .atc-hotels-thumb {
+        height: 100px;
+    }
+    
+    .atc-hotels-title {
+        font-size: 24px;
+    }
+    
+    .atc-hotels-location {
+        font-size: 16px;
+    }
+    
+    .atc-hotels-rating-meta {
+        flex-direction: column;
+        gap: 15px;
+        align-items: flex-start;
+    }
+    
+    .atc-hotels-content-wrapper {
+        padding: 20px 15px;
+    }
+    
+    .atc-hotels-main-content {
+        padding: 20px;
+    }
+    
+    .atc-hotels-section-title {
+        font-size: 20px;
+    }
+    
+    .atc-hotels-rooms-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .atc-hotels-amenities-grid,
+    .atc-hotels-highlights {
+        grid-template-columns: 1fr;
+    }
+    
+    .atc-hotels-timing {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .atc-hotels-mobile-booking-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .atc-hotels-booking-card {
+        margin-bottom: 80px; /* Space for mobile booking bar */
+    }
+}
+
+@media (max-width: 480px) {
+    .atc-hotels-breadcrumb-inner {
+        font-size: 12px;
+        padding: 0 15px;
+    }
+    
+    .atc-hotels-title {
+        font-size: 20px;
+    }
+    
+    .atc-hotels-price-current {
+        font-size: 28px;
+    }
+    
+    .atc-room-name {
+        font-size: 16px;
+    }
+}
+

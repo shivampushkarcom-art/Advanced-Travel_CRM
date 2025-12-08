@@ -1,0 +1,45 @@
+/**
+ * ATC Stories Admin Styles
+ */
+
+.atc-stories-admin {
+    max-width: 1200px;
+}
+
+.atc-stories-admin h1 {
+    margin-bottom: 10px;
+}
+
+.atc-stories-admin .form-table th {
+    width: 200px;
+}
+
+.atc-stories-admin .atc-expired-story {
+    opacity: 0.6;
+}
+
+.atc-stories-admin .atc-expired-story td {
+    color: #999;
+}
+
+.atc-stories-admin .atc-media-preview,
+.atc-stories-admin .atc-thumbnail-preview {
+    margin-top: 10px;
+}
+
+.atc-stories-admin .atc-media-preview img,
+.atc-stories-admin .atc-media-preview video {
+    max-width: 300px;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.atc-stories-admin .atc-thumbnail-preview img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+}
+

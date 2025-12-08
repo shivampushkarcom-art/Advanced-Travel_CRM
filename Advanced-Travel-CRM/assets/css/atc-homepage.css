@@ -1,0 +1,431 @@
+/**
+ * ATC Homepage Styles
+ * Gold Background + Blue Accents Theme
+ */
+
+/* ==================== HERO SECTION ==================== */
+.atc-homepage-hero {
+    min-height: 600px;
+    background: #FAFBFC;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px;
+    overflow: hidden;
+}
+
+.atc-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(212, 175, 55, 0.1);
+    z-index: 1;
+}
+
+.atc-hero-content {
+    max-width: 1200px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.atc-hero-text {
+    margin-bottom: 50px;
+}
+
+.atc-hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--atc-primary);
+    margin: 0 0 20px 0;
+    font-family: var(--atc-font-heading);
+    text-shadow: 2px 2px 4px rgba(30, 58, 95, 0.1);
+}
+
+.atc-hero-subtitle {
+    font-size: 20px;
+    color: var(--atc-text-dark);
+    margin: 0 0 40px 0;
+    line-height: 1.6;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.atc-hero-cta {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.atc-hero-search {
+    margin-top: 50px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(30, 58, 95, 0.2);
+}
+
+/* ==================== SERVICES GRID SECTION ==================== */
+.atc-homepage-services {
+    background: var(--atc-white);
+    padding: var(--atc-section-padding) 20px;
+}
+
+.atc-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--atc-grid-gap);
+    margin-top: 50px;
+}
+
+.atc-service-card {
+    background: var(--atc-white);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(10, 31, 68, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.atc-service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--atc-primary) 0%, var(--atc-primary-light) 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.atc-service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(30, 58, 95, 0.2);
+    border-color: var(--atc-primary);
+}
+
+.atc-service-card:hover::before {
+    transform: scaleX(1);
+}
+
+.atc-service-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.atc-service-card h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--atc-primary);
+    margin: 0 0 15px 0;
+    font-family: var(--atc-font-heading);
+}
+
+.atc-service-card p {
+    font-size: 15px;
+    color: var(--atc-text-gray);
+    margin: 0 0 20px 0;
+    line-height: 1.6;
+}
+
+.atc-service-link {
+    color: var(--atc-primary);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.atc-service-link:hover {
+    color: var(--atc-primary-light);
+    gap: 12px;
+}
+
+/* ==================== FEATURED PACKAGES SECTION ==================== */
+.atc-homepage-featured {
+    background: #FAFBFC;
+    padding: var(--atc-section-padding) 20px;
+}
+
+.atc-featured-packages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--atc-grid-gap);
+    margin-top: 50px;
+}
+
+.atc-package-card {
+    background: var(--atc-white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(10, 31, 68, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.atc-package-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(30, 58, 95, 0.2);
+    border-color: var(--atc-primary);
+}
+
+.atc-package-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.atc-package-content {
+    padding: 25px;
+}
+
+.atc-package-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--atc-primary);
+    margin: 0 0 10px 0;
+    font-family: var(--atc-font-heading);
+}
+
+.atc-package-description {
+    font-size: 14px;
+    color: var(--atc-text-gray);
+    margin: 0 0 15px 0;
+    line-height: 1.6;
+}
+
+.atc-package-price {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--atc-primary);
+    margin: 0 0 15px 0;
+}
+
+.atc-package-button {
+    width: 100%;
+    text-align: center;
+}
+
+/* ==================== WHY CHOOSE US SECTION ==================== */
+.atc-homepage-why {
+    background: var(--atc-white);
+    padding: var(--atc-section-padding) 20px;
+}
+
+.atc-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--atc-grid-gap);
+    margin-top: 50px;
+}
+
+.atc-feature-card {
+    background: #FFFFFF;
+    padding: 35px 25px;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(10, 31, 68, 0.06);
+    border-left: 4px solid var(--atc-primary);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.atc-feature-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 20px rgba(30, 58, 95, 0.15);
+}
+
+.atc-feature-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.atc-feature-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--atc-primary);
+    margin: 0 0 12px 0;
+    font-family: var(--atc-font-heading);
+}
+
+.atc-feature-card p {
+    font-size: 15px;
+    color: var(--atc-text-dark);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ==================== TESTIMONIALS SECTION ==================== */
+.atc-homepage-testimonials {
+    background: var(--atc-primary);
+    padding: var(--atc-section-padding) 20px;
+    color: var(--atc-white);
+}
+
+.atc-homepage-testimonials .atc-section-title {
+    color: var(--atc-white);
+}
+
+.atc-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--atc-grid-gap);
+    margin-top: 50px;
+}
+
+.atc-testimonial-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.atc-testimonial-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.atc-testimonial-text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+    color: var(--atc-white);
+    font-style: italic;
+}
+
+.atc-testimonial-author {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--atc-secondary-light);
+}
+
+.atc-testimonial-rating {
+    color: var(--atc-secondary);
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* ==================== STATISTICS SECTION ==================== */
+.atc-homepage-statistics {
+    background: #FAFBFC;
+    padding: var(--atc-section-padding) 20px;
+}
+
+.atc-statistics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--atc-grid-gap);
+    margin-top: 50px;
+}
+
+.atc-stat-card {
+    text-align: center;
+    padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.atc-stat-card:hover {
+    transform: scale(1.05);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.atc-stat-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--atc-primary);
+    margin: 0 0 10px 0;
+    font-family: var(--atc-font-heading);
+}
+
+.atc-stat-label {
+    font-size: 16px;
+    color: var(--atc-text-dark);
+    font-weight: 600;
+}
+
+/* ==================== CTA SECTION ==================== */
+.atc-homepage-cta {
+    background: var(--atc-white);
+    padding: var(--atc-section-padding) 20px;
+}
+
+.atc-cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    background: #FAFBFC;
+    padding: 60px 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(30, 58, 95, 0.2);
+}
+
+.atc-cta-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--atc-primary);
+    margin: 0 0 20px 0;
+    font-family: var(--atc-font-heading);
+}
+
+.atc-cta-subtitle {
+    font-size: 18px;
+    color: var(--atc-text-dark);
+    margin: 0 0 30px 0;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .atc-homepage-hero {
+        min-height: 500px;
+        padding: 60px 20px;
+    }
+    
+    .atc-hero-title {
+        font-size: 32px;
+    }
+    
+    .atc-hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .atc-hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .atc-hero-search {
+        padding: 20px;
+    }
+    
+    .atc-services-grid,
+    .atc-featured-packages-grid,
+    .atc-features-grid,
+    .atc-testimonials-grid,
+    .atc-statistics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .atc-stat-number {
+        font-size: 36px;
+    }
+}
+

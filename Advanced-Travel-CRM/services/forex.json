@@ -1,0 +1,269 @@
+{
+  "label": "Forex",
+  "icon": "currency",
+  "theme": {
+    "package_details_style": "financial",
+    "color_scheme": {
+      "primary": "#1e3a8a",
+      "secondary": "#3b82f6",
+      "accent": "#10b981"
+    },
+    "layout": "single-column"
+  },
+  "search_fields": [
+    {
+      "id": "currency_from",
+      "label": "From",
+      "type": "select",
+      "options": ["INR", "USD", "EUR", "GBP", "JPY", "AUD", "CAD", "SGD", "AED", "SAR", "THB", "MYR"],
+      "default": "INR",
+      "required": true
+    },
+    {
+      "id": "currency_to",
+      "label": "To",
+      "type": "select",
+      "options": ["USD", "EUR", "GBP", "JPY", "AUD", "CAD", "SGD", "AED", "SAR", "THB", "MYR", "INR"],
+      "default": "USD",
+      "required": true
+    },
+    {
+      "id": "amount",
+      "label": "Amount",
+      "type": "number",
+      "min": 1,
+      "default": 1000
+    },
+    {
+      "id": "transaction_type",
+      "label": "Transaction Type",
+      "type": "select",
+      "options": ["Buy", "Sell", "Both"],
+      "default": "Buy"
+    }
+  ],
+  "booking_fields": [
+    {
+      "id": "name",
+      "label": "Full Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "email",
+      "label": "Email",
+      "type": "email",
+      "required": true
+    },
+    {
+      "id": "phone",
+      "label": "Phone",
+      "type": "tel",
+      "required": true
+    },
+    {
+      "id": "amount",
+      "label": "Amount to Exchange",
+      "type": "number",
+      "min": 1,
+      "required": true
+    },
+    {
+      "id": "currency_from",
+      "label": "From Currency",
+      "type": "select",
+      "options": ["INR", "USD", "EUR", "GBP", "JPY", "AUD", "CAD", "SGD", "AED", "SAR", "THB", "MYR"],
+      "required": true
+    },
+    {
+      "id": "currency_to",
+      "label": "To Currency",
+      "type": "select",
+      "options": ["USD", "EUR", "GBP", "JPY", "AUD", "CAD", "SGD", "AED", "SAR", "THB", "MYR", "INR"],
+      "required": true
+    },
+    {
+      "id": "transaction_type",
+      "label": "Transaction Type",
+      "type": "select",
+      "options": ["Buy", "Sell"],
+      "required": true
+    },
+    {
+      "id": "delivery_method",
+      "label": "Delivery Method",
+      "type": "select",
+      "options": ["Home Delivery", "Branch Pickup", "Airport Pickup"],
+      "default": "Branch Pickup"
+    },
+    {
+      "id": "id_proof",
+      "label": "ID Proof Type",
+      "type": "select",
+      "options": ["Aadhaar", "PAN", "Passport", "Driving License", "Voter ID"],
+      "required": true
+    }
+  ],
+  "package_fields": [
+    {
+      "id": "currency_pair",
+      "label": "Currency Pair",
+      "type": "text",
+      "required": true,
+      "placeholder": "e.g., INR to USD"
+    },
+    {
+      "id": "exchange_rate",
+      "label": "Exchange Rate",
+      "type": "number",
+      "step": 0.0001,
+      "placeholder": "Current exchange rate"
+    },
+    {
+      "id": "buy_rate",
+      "label": "Buy Rate",
+      "type": "number",
+      "step": 0.0001,
+      "placeholder": "Rate for buying currency"
+    },
+    {
+      "id": "sell_rate",
+      "label": "Sell Rate",
+      "type": "number",
+      "step": 0.0001,
+      "placeholder": "Rate for selling currency"
+    },
+    {
+      "id": "minimum_amount",
+      "label": "Minimum Amount",
+      "type": "number",
+      "min": 0,
+      "placeholder": "Minimum transaction amount"
+    },
+    {
+      "id": "maximum_amount",
+      "label": "Maximum Amount",
+      "type": "number",
+      "min": 0,
+      "placeholder": "Maximum transaction amount (if applicable)"
+    },
+    {
+      "id": "conversion_fee_percent",
+      "label": "Conversion Fee (%)",
+      "type": "number",
+      "step": 0.01,
+      "min": 0,
+      "placeholder": "Service charge percentage"
+    },
+    {
+      "id": "conversion_fee_fixed",
+      "label": "Fixed Conversion Fee",
+      "type": "number",
+      "min": 0,
+      "placeholder": "Fixed service charge (if applicable)"
+    },
+    {
+      "id": "delivery_options",
+      "label": "Delivery Options",
+      "type": "textarea",
+      "placeholder": "Home Delivery, Branch Pickup, Airport Pickup (one per line)"
+    },
+    {
+      "id": "required_documents",
+      "label": "Required Documents",
+      "type": "textarea",
+      "placeholder": "Aadhaar, PAN, Passport, etc. (one per line)"
+    },
+    {
+      "id": "terms_conditions",
+      "label": "Terms & Conditions",
+      "type": "textarea",
+      "placeholder": "Important terms and conditions"
+    },
+    {
+      "id": "cancellation_policy",
+      "label": "Cancellation Policy",
+      "type": "textarea",
+      "placeholder": "Cancellation terms and charges"
+    },
+    {
+      "id": "refund_policy",
+      "label": "Refund Policy",
+      "type": "textarea",
+      "placeholder": "Refund terms and conditions"
+    }
+  ],
+  "query_fields": [
+    {
+      "id": "currency_from",
+      "label": "From Currency",
+      "type": "select",
+      "section": "service_specific",
+      "options": ["INR", "USD", "EUR", "GBP", "JPY", "AUD", "CAD", "SGD", "AED", "SAR", "THB", "MYR"],
+      "default": "INR",
+      "required": true
+    },
+    {
+      "id": "currency_to",
+      "label": "To Currency",
+      "type": "select",
+      "section": "service_specific",
+      "options": ["USD", "EUR", "GBP", "JPY", "AUD", "CAD", "SGD", "AED", "SAR", "THB", "MYR", "INR"],
+      "default": "USD",
+      "required": true
+    },
+    {
+      "id": "amount",
+      "label": "Amount to Exchange",
+      "type": "number",
+      "section": "service_specific",
+      "min": 1,
+      "required": true,
+      "placeholder": "Enter amount"
+    },
+    {
+      "id": "transaction_type",
+      "label": "Transaction Type",
+      "type": "select",
+      "section": "service_specific",
+      "options": ["Buy", "Sell"],
+      "default": "Buy",
+      "required": true
+    },
+    {
+      "id": "transaction_date",
+      "label": "Preferred Transaction Date",
+      "type": "date",
+      "section": "service_specific",
+      "required": true
+    },
+    {
+      "id": "delivery_method",
+      "label": "Preferred Delivery Method",
+      "type": "select",
+      "section": "service_specific",
+      "options": ["Home Delivery", "Branch Pickup", "Airport Pickup"],
+      "default": "Branch Pickup"
+    },
+    {
+      "id": "urgency",
+      "label": "Urgency Level",
+      "type": "select",
+      "section": "service_specific",
+      "options": ["Normal", "Urgent", "Same Day"],
+      "default": "Normal"
+    },
+    {
+      "id": "special_requirements",
+      "label": "Special Requirements",
+      "type": "textarea",
+      "section": "additional",
+      "placeholder": "Any special requirements or questions about the transaction"
+    }
+  ],
+  "pricing": {
+    "conversion_fee_percent": 2.5,
+    "conversion_fee_fixed": 0,
+    "currency": "INR"
+  }
+}

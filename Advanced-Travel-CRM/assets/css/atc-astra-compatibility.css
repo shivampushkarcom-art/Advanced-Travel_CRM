@@ -1,0 +1,110 @@
+/**
+ * ATC Astra Theme Compatibility
+ */
+
+/* Ensure ATC styles work with Astra */
+/* Body background removed to allow Astra Customizer settings to take effect */
+/* body.atc-astra-theme {
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFF 50%, #F0F4FF 100%) !important;
+} */
+
+/* Astra Header Integration - EXACT SAME golden gradient and animation as widgets */
+/* Target all possible Astra header elements with highest specificity */
+body.atc-astra-theme .ast-header-wrapper,
+body.atc-astra-theme .ast-primary-header,
+body.atc-astra-theme .ast-header-bar,
+body.atc-astra-theme .ast-primary-header-bar,
+body.atc-astra-theme .ast-header-break-point .ast-header-wrapper,
+body.atc-astra-theme .ast-header-break-point .ast-primary-header,
+body.atc-astra-theme header.site-header,
+body.atc-astra-theme .ast-header {
+    /* Premium Golden Animated Background - EXACT SAME as Search Widget, Service Grid, Contact Us */
+    background: linear-gradient(135deg, 
+        #F4D03F 0%,      /* Light Gold */
+        #D4AF37 25%,     /* Gold */
+        #F4E4C1 50%,     /* Cream Gold */
+        #D4AF37 75%,     /* Gold */
+        #F4D03F 100%     /* Light Gold */
+    ) !important;
+    background-size: 400% 400% !important;
+    animation: goldenShimmer 8s ease infinite !important;
+    /* Removed all borders, shadows - just the gradient background */
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Remove any extra overlays or borders from Astra header */
+body.atc-astra-theme .ast-header-wrapper::before,
+body.atc-astra-theme .ast-header-wrapper::after,
+body.atc-astra-theme .ast-primary-header::before,
+body.atc-astra-theme .ast-primary-header::after,
+body.atc-astra-theme .ast-header-bar::before,
+body.atc-astra-theme .ast-header-bar::after {
+    display: none !important;
+}
+
+/* Also target header without body class for maximum compatibility */
+.ast-header-wrapper,
+.ast-primary-header,
+.ast-header-bar,
+.ast-primary-header-bar {
+    /* Premium Golden Animated Background - EXACT SAME as Search Widget, Service Grid, Contact Us */
+    background: linear-gradient(135deg, 
+        #F4D03F 0%,      /* Light Gold */
+        #D4AF37 25%,     /* Gold */
+        #F4E4C1 50%,     /* Cream Gold */
+        #D4AF37 75%,     /* Gold */
+        #F4D03F 100%     /* Light Gold */
+    ) !important;
+    background-size: 400% 400% !important;
+    animation: goldenShimmer 8s ease infinite !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Golden shimmer animation - EXACT SAME as Search Widget, Service Grid, Contact Us */
+@keyframes goldenShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+body.atc-astra-theme .ast-header-wrapper .main-navigation a,
+body.atc-astra-theme .ast-header-wrapper .main-navigation .menu-item a {
+    color: var(--atc-primary) !important;
+    font-weight: 600 !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+body.atc-astra-theme .ast-header-wrapper .main-navigation a:hover,
+body.atc-astra-theme .ast-header-wrapper .main-navigation .menu-item a:hover {
+    color: var(--atc-primary-dark) !important;
+}
+
+/* Astra Footer Integration - Footer visible (removed hiding per user request) */
+/* Footer is now visible and styled by theme */
+
+/* Astra Button Compatibility */
+body.atc-astra-theme .ast-button,
+body.atc-astra-theme .button,
+body.atc-astra-theme button {
+    background: var(--atc-primary) !important;
+    border-color: var(--atc-primary) !important;
+    color: #fff !important;
+}
+
+body.atc-astra-theme .ast-button:hover,
+body.atc-astra-theme .button:hover,
+body.atc-astra-theme button:hover {
+    background: var(--atc-primary-light) !important;
+}
+
+/* Astra Widget Compatibility */
+body.atc-astra-theme .widget-title {
+    color: var(--atc-primary) !important;
+}
+
+/* Astra Container Compatibility */
+body.atc-astra-theme .ast-container {
+    max-width: var(--atc-container-max-width, 1200px) !important;
+}
+

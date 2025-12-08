@@ -1,0 +1,246 @@
+{
+  "label": "Jungle Safari",
+  "icon": "camera",
+  "theme": {
+    "package_details_style": "wildlife",
+    "color_scheme": {
+      "primary": "#2d5016",
+      "secondary": "#4a7c2a",
+      "accent": "#f4a460"
+    },
+    "layout": "two-column"
+  },
+  "search_fields": [
+    {
+      "id": "park_name",
+      "label": "National Park",
+      "type": "text",
+      "placeholder": "Enter park name",
+      "required": true
+    },
+    {
+      "id": "safari_date",
+      "label": "Safari Date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "id": "slot",
+      "label": "Time Slot",
+      "type": "select",
+      "options": ["Morning", "Evening", "Full Day"],
+      "default": "Morning"
+    },
+    {
+      "id": "people",
+      "label": "Number of People",
+      "type": "number",
+      "min": 1,
+      "default": 2
+    }
+  ],
+  "booking_fields": [
+    {
+      "id": "name",
+      "label": "Full Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "email",
+      "label": "Email",
+      "type": "email",
+      "required": true
+    },
+    {
+      "id": "phone",
+      "label": "Phone",
+      "type": "tel",
+      "required": true
+    },
+    {
+      "id": "adults",
+      "label": "Adults",
+      "type": "number",
+      "min": 1,
+      "default": 2
+    },
+    {
+      "id": "children",
+      "label": "Children",
+      "type": "number",
+      "min": 0,
+      "default": 0
+    },
+    {
+      "id": "vehicle_type",
+      "label": "Vehicle Type",
+      "type": "select",
+      "options": ["Jeep", "Canter", "Bus"],
+      "default": "Jeep"
+    },
+    {
+      "id": "camera_equipment",
+      "label": "Camera Equipment",
+      "type": "select",
+      "options": ["Basic", "Professional", "No Camera"],
+      "default": "Basic"
+    }
+  ],
+  "package_fields": [
+    {
+      "id": "park_name",
+      "label": "National Park Name",
+      "type": "text",
+      "required": true,
+      "placeholder": "e.g., Jim Corbett National Park"
+    },
+    {
+      "id": "park_location",
+      "label": "Park Location",
+      "type": "text",
+      "required": true,
+      "placeholder": "State, District"
+    },
+    {
+      "id": "safari_type",
+      "label": "Safari Type",
+      "type": "select",
+      "options": ["Morning Safari", "Evening Safari", "Full Day Safari", "Night Safari"],
+      "required": true
+    },
+    {
+      "id": "safari_duration",
+      "label": "Safari Duration",
+      "type": "text",
+      "placeholder": "e.g., 3-4 hours"
+    },
+    {
+      "id": "vehicle_type",
+      "label": "Vehicle Type",
+      "type": "select",
+      "options": ["Jeep (4-6 people)", "Canter (15-20 people)", "Bus (30+ people)"],
+      "required": true
+    },
+    {
+      "id": "wildlife_species",
+      "label": "Wildlife Species",
+      "type": "textarea",
+      "placeholder": "Tiger, Elephant, Deer, etc. (one per line)"
+    },
+    {
+      "id": "best_time_to_visit",
+      "label": "Best Time to Visit",
+      "type": "text",
+      "placeholder": "e.g., October to June"
+    },
+    {
+      "id": "safari_zones",
+      "label": "Safari Zones",
+      "type": "textarea",
+      "placeholder": "Available zones for safari"
+    },
+    {
+      "id": "camera_charges",
+      "label": "Camera Charges",
+      "type": "textarea",
+      "placeholder": "Still camera: ₹200, Video camera: ₹500"
+    },
+    {
+      "id": "safety_guidelines",
+      "label": "Safety Guidelines",
+      "type": "textarea",
+      "placeholder": "Important safety rules and guidelines"
+    },
+    {
+      "id": "what_to_carry",
+      "label": "What to Carry",
+      "type": "textarea",
+      "placeholder": "Binoculars, camera, water bottle, etc."
+    },
+    {
+      "id": "cancellation_policy",
+      "label": "Cancellation Policy",
+      "type": "textarea",
+      "placeholder": "Cancellation terms and charges"
+    }
+  ],
+  "query_fields": [
+    {
+      "id": "park_name",
+      "label": "National Park",
+      "type": "text",
+      "section": "service_specific",
+      "required": true
+    },
+    {
+      "id": "safari_date",
+      "label": "Safari Date",
+      "type": "date",
+      "section": "service_specific",
+      "required": true
+    },
+    {
+      "id": "time_slot",
+      "label": "Preferred Time Slot",
+      "type": "select",
+      "section": "service_specific",
+      "options": ["Morning", "Evening", "Full Day"],
+      "default": "Morning",
+      "required": true
+    },
+    {
+      "id": "adults",
+      "label": "Number of Adults",
+      "type": "number",
+      "section": "service_specific",
+      "min": 1,
+      "default": 2,
+      "required": true
+    },
+    {
+      "id": "children",
+      "label": "Number of Children",
+      "type": "number",
+      "section": "service_specific",
+      "min": 0,
+      "default": 0
+    },
+    {
+      "id": "vehicle_preference",
+      "label": "Vehicle Preference",
+      "type": "select",
+      "section": "service_specific",
+      "options": ["Jeep", "Canter", "Bus", "No Preference"],
+      "default": "Jeep"
+    },
+    {
+      "id": "wildlife_interests",
+      "label": "Wildlife Interests",
+      "type": "textarea",
+      "section": "additional",
+      "placeholder": "What wildlife are you interested in seeing? (e.g., Tiger, Elephant, Birds)"
+    },
+    {
+      "id": "photography_requirements",
+      "label": "Photography Requirements",
+      "type": "select",
+      "section": "additional",
+      "options": ["Basic Photography", "Professional Photography", "No Photography"],
+      "default": "Basic Photography"
+    },
+    {
+      "id": "group_size",
+      "label": "Group Size",
+      "type": "number",
+      "section": "additional",
+      "min": 1,
+      "placeholder": "Total number of people in your group"
+    }
+  ],
+  "pricing": {
+    "adult_rate": 2500,
+    "child_discount": 0.3,
+    "currency": "INR"
+  }
+}

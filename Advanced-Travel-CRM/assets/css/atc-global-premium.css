@@ -1,0 +1,173 @@
+/**
+ * ATC Global Premium Styles
+ * White Bluish Background + Blue Accents Theme
+ */
+
+/* ==================== CSS VARIABLES ==================== */
+:root {
+    /* Color Scheme - White Bluish Background, Blue Accents */
+    --atc-primary: #1E3A5F;        /* Dark Sky Blue - Buttons, Headers */
+    --atc-primary-dark: #0A1F44;   /* Navy Blue - Dark sections */
+    --atc-primary-light: #2E4A7F;  /* Light Blue - Hover states */
+    --atc-secondary: #F0F4FF;      /* White Bluish - Backgrounds */
+    --atc-secondary-light: #F8FAFF; /* Light White Bluish - Light backgrounds */
+    --atc-secondary-dark: #EDF2FF;  /* Darker White Bluish - Darker backgrounds */
+    --atc-white: #FFFFFF;
+    --atc-light-gray: #F8FAFC;
+    --atc-text-gray: #CBD5E1;      /* Light gray for dark background */
+    --atc-text-dark: #E2E8F0;      /* Light text for dark background */
+    --atc-text-light: #F1F5F9;     /* Very light text */
+    
+    /* Spacing */
+    --atc-section-padding: 80px;
+    --atc-container-max-width: 1200px;
+    --atc-grid-gap: 30px;
+    
+    /* Typography */
+    --atc-font-heading: 'Poppins', 'Montserrat', Arial, sans-serif;
+    --atc-font-body: 'Inter', 'Open Sans', Arial, sans-serif;
+}
+
+/* (Global styles continue below) */
+
+/* ==================== BUTTONS ==================== */
+.atc-btn-primary {
+    background: linear-gradient(135deg, var(--atc-primary) 0%, var(--atc-primary-dark) 100%);
+    color: #FFFFFF !important;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: 2px solid #1E3A5F;
+    box-shadow: 0 4px 15px rgba(30, 58, 95, 0.3);
+}
+
+.atc-btn-primary:hover {
+    background: linear-gradient(135deg, var(--atc-primary-dark) 0%, var(--atc-primary) 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(30, 58, 95, 0.4);
+    border-color: #2E4A7F;
+    color: #FFFFFF !important;
+}
+
+.atc-btn-secondary {
+    background: transparent;
+    color: var(--atc-primary);
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border: 2px solid var(--atc-primary);
+}
+
+.atc-btn-secondary:hover {
+    background: var(--atc-primary);
+    color: var(--atc-white);
+    transform: translateY(-2px);
+}
+
+/* ==================== CARDS ==================== */
+.atc-card {
+    background: var(--atc-white);
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 4px 20px rgba(10, 31, 68, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.atc-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(30, 58, 95, 0.2);
+    border-color: var(--atc-primary);
+}
+
+/* ==================== SECTIONS ==================== */
+.atc-section {
+    padding: var(--atc-section-padding) 20px;
+    position: relative;
+}
+
+.atc-section-container {
+    max-width: var(--atc-container-max-width);
+    margin: 0 auto;
+}
+
+.atc-section-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--atc-primary);
+    text-align: center;
+    margin: 0 0 20px 0;
+    font-family: var(--atc-font-heading);
+}
+
+.atc-section-subtitle {
+    font-size: 18px;
+    color: var(--atc-text-gray);
+    text-align: center;
+    margin: 0 0 50px 0;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    :root {
+        --atc-section-padding: 50px;
+        --atc-grid-gap: 20px;
+    }
+    
+    .atc-section-title {
+        font-size: 28px;
+    }
+    
+    .atc-section-subtitle {
+        font-size: 16px;
+    }
+    
+    .atc-btn-primary,
+    .atc-btn-secondary {
+        padding: 12px 25px;
+        font-size: 14px;
+    }
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.atc-fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+.atc-slide-up {
+    animation: slideUp 0.5s ease-out;
+}
+

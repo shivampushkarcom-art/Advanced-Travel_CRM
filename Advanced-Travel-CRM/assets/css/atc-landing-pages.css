@@ -1,0 +1,211 @@
+/**
+ * ATC Landing Pages Styles
+ * Gold Background + Blue Accents
+ */
+
+/* ==================== LANDING PAGE HERO ==================== */
+.atc-landing-page {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.atc-landing-hero {
+    background: #FAFBFC;
+    padding: 120px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.atc-landing-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(30,58,95,0.1)"/></svg>');
+    opacity: 0.3;
+}
+
+.atc-landing-hero .atc-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.atc-landing-hero .atc-hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--atc-primary);
+    margin: 0 0 20px 0;
+    font-family: var(--atc-font-heading);
+    text-shadow: 2px 2px 4px rgba(30, 58, 95, 0.1);
+}
+
+.atc-landing-hero .atc-hero-subtitle {
+    font-size: 20px;
+    color: var(--atc-text-dark);
+    margin: 0 0 40px 0;
+    line-height: 1.6;
+}
+
+.atc-landing-hero .atc-hero-cta {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ==================== LANDING SEARCH SECTION ==================== */
+.atc-landing-search {
+    background: var(--atc-white);
+    padding: 80px 20px;
+}
+
+/* ==================== LANDING PACKAGES SECTION ==================== */
+.atc-landing-packages {
+    background: #FAFBFC;
+    padding: 80px 20px;
+}
+
+.atc-landing-packages .atc-section-title {
+    color: var(--atc-primary);
+}
+
+/* ==================== LANDING FEATURES SECTION ==================== */
+.atc-landing-features {
+    background: var(--atc-white);
+    padding: 80px 20px;
+}
+
+.atc-landing-features .atc-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.atc-landing-features .atc-feature-card {
+    background: #FFFFFF;
+    padding: 35px 25px;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(10, 31, 68, 0.06);
+    border-left: 4px solid var(--atc-primary);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.atc-landing-features .atc-feature-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 20px rgba(30, 58, 95, 0.15);
+}
+
+.atc-landing-features .atc-feature-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.atc-landing-features .atc-feature-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--atc-primary);
+    margin: 0 0 12px 0;
+    font-family: var(--atc-font-heading);
+}
+
+.atc-landing-features .atc-feature-card p {
+    font-size: 15px;
+    color: var(--atc-text-dark);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ==================== LANDING TESTIMONIALS SECTION ==================== */
+.atc-landing-testimonials {
+    background: var(--atc-primary);
+    padding: 80px 20px;
+    color: var(--atc-white);
+}
+
+.atc-landing-testimonials .atc-section-title {
+    color: var(--atc-white);
+}
+
+.atc-landing-testimonials .atc-testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.atc-landing-testimonials .atc-testimonial-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.atc-landing-testimonials .atc-testimonial-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.atc-landing-testimonials .atc-testimonial-text {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+    color: var(--atc-white);
+    font-style: italic;
+}
+
+.atc-landing-testimonials .atc-testimonial-author {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--atc-secondary-light);
+}
+
+.atc-landing-testimonials .atc-testimonial-rating {
+    color: var(--atc-secondary);
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* ==================== LANDING CONTACT SECTION ==================== */
+.atc-landing-contact {
+    background: #FAFBFC;
+    padding: 80px 20px;
+}
+
+.atc-landing-contact .atc-section-title {
+    color: var(--atc-primary);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .atc-landing-hero {
+        padding: 60px 20px;
+    }
+    
+    .atc-landing-hero .atc-hero-title {
+        font-size: 32px;
+    }
+    
+    .atc-landing-hero .atc-hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .atc-landing-hero .atc-hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .atc-landing-features .atc-features-grid,
+    .atc-landing-testimonials .atc-testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
+

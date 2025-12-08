@@ -1,0 +1,686 @@
+/**
+ * Advanced Travel CRM - Premium Header Styles
+ * White bluish background with blue accents - Premium branding
+ * Standout premium header design
+ */
+
+/* ==================== PREMIUM HEADER WRAPPER ==================== */
+/* Exact same golden gradient background and animation as widgets (Search, Contact Us, Service Grid) */
+/* Target all possible Astra header elements */
+.site-header,
+.ast-header-wrapper,
+header.site-header,
+.ast-header,
+.ast-primary-header,
+.ast-header-bar,
+.ast-primary-header-bar,
+.ast-header-break-point .ast-header-wrapper,
+.ast-header-break-point .ast-primary-header,
+body .ast-header-wrapper,
+body .ast-primary-header {
+    /* Premium Golden Animated Background - EXACT SAME as Search Widget, Service Grid, Contact Us */
+    background: linear-gradient(135deg, 
+        #F4D03F 0%,      /* Light Gold */
+        #D4AF37 25%,     /* Gold */
+        #F4E4C1 50%,     /* Cream Gold */
+        #D4AF37 75%,     /* Gold */
+        #F4D03F 100%     /* Light Gold */
+    ) !important;
+    background-size: 400% 400% !important;
+    animation: goldenShimmer 8s ease infinite !important;
+    /* Removed all borders, shadows, and overlays - just the gradient background */
+}
+
+/* Golden shimmer animation - EXACT SAME as Search Widget, Service Grid, Contact Us */
+@keyframes goldenShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* Remove any extra overlays or borders */
+.site-header::before,
+.ast-header-wrapper::before,
+.site-header::after,
+.ast-header-wrapper::after {
+    display: none !important;
+}
+
+/* ==================== SITE BRANDING - PREMIUM ==================== */
+
+/* Main Branding Container - Perfectly Centered Horizontally on All Screens */
+.site-branding,
+.ast-site-identity,
+.ast-header-identity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+    padding: 20px 0;
+    position: relative;
+    margin: 0 auto !important; /* Absolutely centered horizontally */
+    max-width: 100%;
+    width: auto; /* Auto width to center content */
+    left: 50% !important;
+    transform: translateX(-50%) !important; /* Perfect horizontal centering */
+}
+
+/* Ensure logo and title are perfectly centered on all screen sizes */
+.site-branding .custom-logo-link,
+.ast-site-identity .custom-logo-link,
+.site-branding .site-title,
+.ast-site-identity .site-title,
+.site-branding .site-description,
+.ast-site-identity .site-description {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: center;
+}
+
+/* Force center alignment for all header branding elements - Absolutely centered horizontally */
+.site-header .site-branding,
+.ast-header .ast-site-identity,
+header .site-branding,
+.ast-header-wrapper .ast-site-identity,
+.ast-header-wrapper .site-branding {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: auto !important; /* Auto width for perfect centering */
+    margin: 0 auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important; /* Perfect horizontal centering */
+    z-index: 2 !important;
+}
+
+/* Ensure header container centers content absolutely from left and right */
+.ast-header-wrapper .ast-container,
+.site-header .site-header-inner,
+header .header-inner {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+/* Center header navigation if present */
+.ast-header-wrapper .ast-flex,
+.site-header .header-navigation {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+/* ==================== LOGO - GLASSMORPHISM EFFECT ==================== */
+
+/* Logo Container with White Bluish Background and Blue Accents */
+.site-branding .custom-logo-link,
+.ast-site-identity .custom-logo-link {
+    position: relative;
+    display: inline-block;
+    padding: 16px;
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFF 50%, #F0F4FF 100%);
+    border-radius: 24px;
+    border: 3px solid #1E3A5F;
+    box-shadow: 
+        0 8px 32px rgba(30, 58, 95, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8),
+        0 0 0 1px rgba(30, 58, 95, 0.15);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+}
+
+/* White Bluish Background with Blue Accent Overlay */
+.site-branding .custom-logo-link::before,
+.ast-site-identity .custom-logo-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(30, 58, 95, 0.1) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(30, 58, 95, 0.1) 100%
+    );
+    border-radius: 24px;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.site-branding .custom-logo-link:hover::before,
+.ast-site-identity .custom-logo-link:hover::before {
+    opacity: 1;
+}
+
+/* Logo Image Styling */
+.site-branding .custom-logo-link img,
+.ast-site-identity .custom-logo-link img,
+.site-branding .site-logo img {
+    max-height: 100px;
+    width: auto;
+    height: auto;
+    border-radius: 16px;
+    display: block;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+
+/* Hover Effects on Logo Container */
+.site-branding .custom-logo-link:hover,
+.ast-site-identity .custom-logo-link:hover {
+    transform: translateY(-4px) scale(1.02);
+    background: linear-gradient(135deg, #F8FAFF 0%, #F0F4FF 50%, #EDF2FF 100%);
+    border-color: #1E3A5F;
+    box-shadow: 
+        0 12px 48px rgba(30, 58, 95, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        0 0 0 2px rgba(30, 58, 95, 0.2);
+}
+
+.site-branding .custom-logo-link:hover img,
+.ast-site-identity .custom-logo-link:hover img {
+    transform: scale(1.05);
+}
+
+/* Shine Effect on Logo */
+.site-branding .custom-logo-link::after,
+.ast-site-identity .custom-logo-link::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 70%
+    );
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.site-branding .custom-logo-link:hover::after,
+.ast-site-identity .custom-logo-link:hover::after {
+    opacity: 1;
+    animation: shine 1.5s ease-in-out;
+}
+
+@keyframes shine {
+    0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
+}
+
+/* ==================== SITE TITLE - PREMIUM TYPOGRAPHY ==================== */
+
+.site-branding .site-title,
+.ast-site-identity .site-title {
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.site-branding .site-title a,
+.ast-site-identity .site-title a {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1E3A5F;
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+    background: linear-gradient(135deg, #1E3A5F 0%, #0A1F44 50%, #1E3A5F 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: all 0.4s ease;
+    text-shadow: 0 2px 8px rgba(30, 58, 95, 0.2);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.site-branding .site-title a:hover,
+.ast-site-identity .site-title a:hover {
+    background-position: 100% center;
+    transform: translateY(-2px);
+    filter: drop-shadow(0 4px 12px rgba(30, 58, 95, 0.4));
+}
+
+/* Title Underline Effect - Blue */
+.site-branding .site-title a::after,
+.ast-site-identity .site-title a::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 60%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #1E3A5F, transparent);
+    border-radius: 2px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.site-branding .site-title a:hover::after,
+.ast-site-identity .site-title a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* ==================== SITE DESCRIPTION - ELEGANT TAGLINE ==================== */
+
+.site-branding .site-description,
+.ast-site-identity .site-description {
+    font-size: 16px;
+    font-weight: 500;
+    color: #1E3A5F;
+    margin: 0 auto;
+    padding: 0;
+    display: block;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+    position: relative;
+    transition: all 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    max-width: none; /* Remove max-width restriction */
+    white-space: nowrap !important; /* Keep tagline in single line */
+    overflow: hidden; /* Hide overflow if text is too long */
+    text-overflow: ellipsis; /* Show ellipsis if text overflows */
+}
+
+.site-branding .site-description:hover,
+.ast-site-identity .site-description:hover {
+    color: #0A1F44;
+    transform: translateY(-1px);
+}
+
+/* Tagline with subtle gradient */
+.site-branding .site-description::before,
+.ast-site-identity .site-description::before {
+    content: '✈';
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 18px;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.site-branding .site-description:hover::before,
+.ast-site-identity .site-description:hover::before {
+    opacity: 1;
+    transform: rotate(15deg) scale(1.1);
+}
+
+/* ==================== HEADER ACCOUNT BUTTON - PREMIUM ==================== */
+
+.ast-header-account-wrap {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #1E3A5F 0%, #0A1F44 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 4px 16px rgba(30, 58, 95, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: 2px solid #1E3A5F;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Button Hover Background Animation */
+.ast-header-account-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.ast-header-account-wrap:hover::before {
+    left: 100%;
+}
+
+.ast-header-account-wrap:hover {
+    background: linear-gradient(135deg, #0A1F44 0%, #1E3A5F 100%);
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 24px rgba(30, 58, 95, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    border-color: #2E4A7F;
+}
+
+.ast-header-account-wrap:active {
+    transform: translateY(0);
+    box-shadow: 
+        0 2px 8px rgba(30, 58, 95, 0.4),
+        inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Account Icon Styling */
+.ast-header-account-wrap .ast-header-account-icon {
+    margin-right: 10px;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.ast-header-account-wrap:hover .ast-header-account-icon {
+    transform: rotate(15deg) scale(1.1);
+}
+
+/* ==================== PREMIUM HEADER NAVIGATION ==================== */
+/* Style navigation menu to match premium theme */
+.site-header .main-navigation,
+.ast-header-wrapper .main-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin: 0 auto;
+}
+
+.site-header .main-navigation a,
+.ast-header-wrapper .main-navigation a,
+.site-header .main-navigation .menu-item a,
+.ast-header-wrapper .main-navigation .menu-item a {
+    color: #1E3A5F !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    text-decoration: none !important;
+    padding: 10px 20px !important;
+    border-radius: 25px !important;
+    transition: all 0.3s ease !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+    position: relative !important;
+}
+
+.site-header .main-navigation a:hover,
+.ast-header-wrapper .main-navigation a:hover,
+.site-header .main-navigation .menu-item a:hover,
+.ast-header-wrapper .main-navigation .menu-item a:hover {
+    color: #0A1F44 !important;
+    background: rgba(30, 58, 95, 0.1) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .site-branding,
+    .ast-site-identity,
+    .ast-header-identity {
+        padding: 15px 0;
+        gap: 10px;
+        margin: 0 auto !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .site-branding .custom-logo-link,
+    .ast-site-identity .custom-logo-link {
+        margin: 0 auto !important;
+        display: block !important;
+    }
+    
+    .site-branding .custom-logo-link img,
+    .ast-site-identity .custom-logo-link img {
+        max-height: 85px;
+        margin: 0 auto !important;
+    }
+    
+    .site-branding .site-title,
+    .ast-site-identity .site-title {
+        margin: 0 auto !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+    
+    .site-branding .site-title a,
+    .ast-site-identity .site-title a {
+        font-size: 28px;
+        letter-spacing: 1.5px;
+        display: block !important;
+        text-align: center !important;
+        margin: 0 auto !important;
+    }
+    
+    .site-branding .site-description,
+    .ast-site-identity .site-description {
+        font-size: 15px;
+        margin: 0 auto !important;
+        text-align: center !important;
+        width: auto !important;
+        max-width: none !important;
+        white-space: nowrap !important; /* Keep tagline in single line on tablet */
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .site-branding,
+    .ast-site-identity,
+    .ast-header-identity {
+        gap: 10px;
+        padding: 15px 0;
+        margin: 0 auto !important;
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .site-branding .custom-logo-link,
+    .ast-site-identity .custom-logo-link {
+        padding: 12px;
+        border-radius: 20px;
+        margin: 0 auto !important;
+        display: block !important;
+    }
+    
+    .site-branding .custom-logo-link img,
+    .ast-site-identity .custom-logo-link img {
+        max-height: 70px;
+        margin: 0 auto !important;
+    }
+    
+    .site-branding .site-title,
+    .ast-site-identity .site-title {
+        margin: 0 auto !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+    
+    .site-branding .site-title a,
+    .ast-site-identity .site-title a {
+        font-size: 24px;
+        letter-spacing: 1px;
+        display: block !important;
+        text-align: center !important;
+        margin: 0 auto !important;
+    }
+    
+    .site-branding .site-description,
+    .ast-site-identity .site-description {
+        font-size: 14px;
+        margin: 0 auto !important;
+        text-align: center !important;
+        width: auto !important;
+        max-width: none !important;
+        white-space: nowrap !important; /* Keep tagline in single line on mobile */
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    
+    .ast-header-account-wrap {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .site-branding,
+    .ast-site-identity,
+    .ast-header-identity {
+        padding: 12px 0;
+        gap: 8px;
+        margin: 0 auto !important;
+        width: 100% !important;
+    }
+    
+    .site-branding .custom-logo-link img,
+    .ast-site-identity .custom-logo-link img {
+        max-height: 60px;
+        margin: 0 auto !important;
+    }
+    
+    .site-branding .site-title a,
+    .ast-site-identity .site-title a {
+        font-size: 20px;
+        display: block !important;
+        text-align: center !important;
+        margin: 0 auto !important;
+    }
+    
+    .site-branding .site-description,
+    .ast-site-identity .site-description {
+        font-size: 13px;
+        margin: 0 auto !important;
+        text-align: center !important;
+        width: auto !important;
+        max-width: none !important;
+        white-space: nowrap !important; /* Keep tagline in single line on small mobile */
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+}
+
+/* ==================== ANIMATIONS ==================== */
+
+/* Fade-in Animation on Load */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.site-branding .custom-logo-link,
+.ast-site-identity .custom-logo-link {
+    animation: fadeInUp 0.6s ease-out 0.1s both;
+}
+
+.site-branding .site-title,
+.ast-site-identity .site-title {
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.site-branding .site-description,
+.ast-site-identity .site-description {
+    animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+/* ==================== ADDITIONAL PREMIUM TOUCHES ==================== */
+
+/* Subtle Background Pattern (Optional) */
+.site-branding::before,
+.ast-site-identity::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(230, 57, 70, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(230, 57, 70, 0.03) 0%, transparent 50%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.site-branding:hover::before,
+.ast-site-identity:hover::before {
+    opacity: 1;
+}
+
+/* Focus States for Accessibility */
+.site-branding .site-title a:focus,
+.ast-site-identity .site-title a:focus,
+.ast-header-account-wrap:focus {
+    outline: 3px solid rgba(30, 58, 95, 0.5);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Print Styles */
+@media print {
+    .site-branding .custom-logo-link,
+    .ast-site-identity .custom-logo-link {
+        background: transparent;
+        backdrop-filter: none;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+    }
+    
+    .ast-header-account-wrap {
+        display: none;
+    }
+}
+

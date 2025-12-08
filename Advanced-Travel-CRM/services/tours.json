@@ -1,0 +1,233 @@
+{
+  "label": "Tour Packages",
+  "icon": "palmtree",
+  "theme": {
+    "package_details_style": "makemytrip",
+    "color_scheme": {
+      "primary": "#667eea",
+      "secondary": "#764ba2",
+      "accent": "#4ecdc4"
+    },
+    "layout": "two-column"
+  },
+  "search_fields": [
+    {
+      "id": "destination",
+      "label": "Destination",
+      "type": "text",
+      "placeholder": "Where do you want to go?",
+      "required": true
+    },
+    {
+      "id": "start_date",
+      "label": "Start Date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "id": "duration",
+      "label": "Duration (days)",
+      "type": "number",
+      "min": 1,
+      "default": 3
+    },
+    {
+      "id": "travelers",
+      "label": "Number of Travelers",
+      "type": "number",
+      "min": 1,
+      "default": 2
+    }
+  ],
+  "booking_fields": [
+    {
+      "id": "name",
+      "label": "Full Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "email",
+      "label": "Email",
+      "type": "email",
+      "required": true
+    },
+    {
+      "id": "phone",
+      "label": "Phone",
+      "type": "tel",
+      "required": true
+    },
+    {
+      "id": "adults",
+      "label": "Adults",
+      "type": "number",
+      "min": 1,
+      "default": 2
+    },
+    {
+      "id": "children",
+      "label": "Children",
+      "type": "number",
+      "min": 0,
+      "default": 0
+    },
+    {
+      "id": "package_type",
+      "label": "Package Type",
+      "type": "select",
+      "options": ["Budget", "Standard", "Luxury"],
+      "default": "Standard"
+    }
+  ],
+  "package_fields": [
+    {
+      "id": "destination",
+      "label": "Destination",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "duration_days",
+      "label": "Duration (Days)",
+      "type": "number",
+      "min": 1,
+      "required": true
+    },
+    {
+      "id": "duration_nights",
+      "label": "Duration (Nights)",
+      "type": "number",
+      "min": 0
+    },
+    {
+      "id": "package_type",
+      "label": "Package Type",
+      "type": "select",
+      "options": ["Budget", "Standard", "Luxury", "Premium", "Deluxe"],
+      "required": true
+    },
+    {
+      "id": "category",
+      "label": "Category",
+      "type": "select",
+      "options": ["Honeymoon", "Pilgrimage", "Adventure", "Family", "Solo", "Group", "Corporate"],
+      "required": true
+    },
+    {
+      "id": "highlights",
+      "label": "Highlights",
+      "type": "textarea",
+      "placeholder": "Key highlights of the package (one per line)"
+    },
+    {
+      "id": "inclusions",
+      "label": "Inclusions",
+      "type": "textarea",
+      "placeholder": "What's included (one per line)"
+    },
+    {
+      "id": "exclusions",
+      "label": "Exclusions",
+      "type": "textarea",
+      "placeholder": "What's not included (one per line)"
+    },
+    {
+      "id": "itinerary",
+      "label": "Day-wise Itinerary",
+      "type": "textarea",
+      "placeholder": "Detailed day-wise itinerary"
+    },
+    {
+      "id": "activities",
+      "label": "Activities",
+      "type": "text",
+      "placeholder": "Comma-separated list of activities"
+    },
+    {
+      "id": "best_time_to_visit",
+      "label": "Best Time to Visit",
+      "type": "text",
+      "placeholder": "e.g., October to March"
+    },
+    {
+      "id": "weather_info",
+      "label": "Weather Information",
+      "type": "textarea",
+      "placeholder": "Weather details for the destination"
+    }
+  ],
+  "query_fields": [
+    {
+      "id": "destination",
+      "label": "Destination",
+      "type": "text",
+      "section": "service_specific",
+      "required": true
+    },
+    {
+      "id": "travel_date",
+      "label": "Travel Date",
+      "type": "date",
+      "section": "service_specific",
+      "required": true
+    },
+    {
+      "id": "return_date",
+      "label": "Return Date",
+      "type": "date",
+      "section": "service_specific"
+    },
+    {
+      "id": "adults",
+      "label": "Number of Adults",
+      "type": "number",
+      "section": "service_specific",
+      "min": 1,
+      "default": 2,
+      "required": true
+    },
+    {
+      "id": "children",
+      "label": "Number of Children",
+      "type": "number",
+      "section": "service_specific",
+      "min": 0,
+      "default": 0
+    },
+    {
+      "id": "package_type",
+      "label": "Preferred Package Type",
+      "type": "select",
+      "section": "service_specific",
+      "options": ["Budget", "Standard", "Luxury", "Premium"],
+      "default": "Standard"
+    },
+    {
+      "id": "budget_range",
+      "label": "Budget Range",
+      "type": "text",
+      "section": "service_specific",
+      "placeholder": "e.g., ₹50,000 - ₹1,00,000"
+    },
+    {
+      "id": "special_requirements",
+      "label": "Special Requirements",
+      "type": "textarea",
+      "section": "additional",
+      "placeholder": "Any special requirements, dietary needs, accessibility needs, etc."
+    },
+    {
+      "id": "interests",
+      "label": "Travel Interests",
+      "type": "textarea",
+      "section": "additional",
+      "placeholder": "What are you interested in? (e.g., sightseeing, adventure, relaxation)"
+    }
+  ],
+  "pricing": {
+    "adult_rate": 15000,
+    "child_discount": 0.4,
+    "currency": "INR"
+  }
+}

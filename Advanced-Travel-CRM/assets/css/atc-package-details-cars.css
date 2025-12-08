@@ -1,0 +1,699 @@
+/**
+ * Cars Package Details Page - Premium Rental Style
+ * Enterprise-Level Design for Car Rental Service
+ */
+
+/* ============================================
+   CSS VARIABLES (Service-Specific Colors)
+   ============================================ */
+:root {
+    --atc-cars-primary: #1a1a1a;
+    --atc-cars-secondary: #333333;
+    --atc-cars-accent: #ff6b35;
+    --atc-cars-bg: #f5f5f5;
+    --atc-cars-text: #1a1a1a;
+    --atc-cars-text-light: #666;
+}
+
+/* ============================================
+   MAIN CONTAINER & LAYOUT
+   ============================================ */
+.atc-package-details-cars {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--atc-cars-bg);
+    min-height: 100vh;
+    color: var(--atc-cars-text);
+}
+
+.atc-package-details-cars-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* ============================================
+   BREADCRUMB NAVIGATION
+   ============================================ */
+.atc-cars-breadcrumb {
+    background: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.atc-cars-breadcrumb-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.atc-cars-breadcrumb-inner a {
+    color: var(--atc-cars-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.atc-cars-breadcrumb-inner a:hover {
+    color: var(--atc-cars-primary);
+    text-decoration: underline;
+}
+
+.atc-breadcrumb-separator {
+    color: var(--atc-cars-text-light);
+}
+
+.atc-breadcrumb-current {
+    color: var(--atc-cars-text);
+    font-weight: 500;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.atc-cars-hero {
+    position: relative;
+    width: 100%;
+    min-height: 500px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--atc-cars-primary) 0%, var(--atc-cars-secondary) 100%);
+    margin-bottom: 30px;
+}
+
+.atc-cars-gallery {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.atc-cars-main-image {
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    background: #000;
+}
+
+.atc-cars-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.atc-cars-main-image:hover img {
+    transform: scale(1.05);
+}
+
+.atc-cars-thumbnails {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+}
+
+.atc-cars-thumb {
+    width: 80px;
+    height: 60px;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.atc-cars-thumb:hover,
+.atc-cars-thumb.active {
+    opacity: 1;
+    border-color: var(--atc-cars-accent);
+    transform: scale(1.1);
+}
+
+.atc-cars-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.atc-cars-thumb-more {
+    width: 80px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 107, 53, 0.8);
+    color: #fff;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.atc-cars-thumb-more:hover {
+    background: var(--atc-cars-accent);
+}
+
+/* ============================================
+   CAR HEADER
+   ============================================ */
+.atc-cars-header {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+    padding: 40px 20px 20px;
+    color: #fff;
+}
+
+.atc-cars-header-content {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.atc-cars-title {
+    font-size: 42px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.atc-cars-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.atc-car-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.atc-car-badge:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.atc-car-badge.atc-rental-type {
+    background: var(--atc-cars-accent);
+    border-color: var(--atc-cars-accent);
+}
+
+/* ============================================
+   CONTENT WRAPPER (Two-Column Layout)
+   ============================================ */
+.atc-cars-content-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 30px;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .atc-cars-content-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   MAIN CONTENT (Left Column)
+   ============================================ */
+.atc-cars-main-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.atc-cars-section {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.atc-cars-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.atc-cars-section-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 25px 0;
+    color: var(--atc-cars-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ============================================
+   CAR SPECIFICATIONS GRID
+   ============================================ */
+.atc-cars-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.atc-car-spec-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: linear-gradient(135deg, #f9f9f9 0%, #ffffff 100%);
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.atc-car-spec-item:hover {
+    border-color: var(--atc-cars-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.15);
+}
+
+.atc-spec-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+.atc-spec-content {
+    flex: 1;
+}
+
+.atc-spec-label {
+    font-size: 12px;
+    color: var(--atc-cars-text-light);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.atc-spec-value {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--atc-cars-primary);
+}
+
+/* ============================================
+   CAR FEATURES GRID
+   ============================================ */
+.atc-cars-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.atc-cars-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid var(--atc-cars-accent);
+    transition: all 0.3s ease;
+}
+
+.atc-cars-feature-item:hover {
+    background: #f0f0f0;
+    transform: translateX(5px);
+}
+
+.atc-feature-icon {
+    color: var(--atc-cars-accent);
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+.atc-feature-text {
+    font-size: 15px;
+    color: var(--atc-cars-text);
+}
+
+/* ============================================
+   RENTAL INFORMATION
+   ============================================ */
+.atc-cars-rental-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid var(--atc-cars-accent);
+}
+
+.atc-rental-info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.atc-rental-info-item:last-child {
+    border-bottom: none;
+}
+
+.atc-info-label {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--atc-cars-text);
+}
+
+.atc-info-value {
+    font-size: 15px;
+    color: var(--atc-cars-text-light);
+    text-align: right;
+}
+
+/* ============================================
+   DESCRIPTION & HIGHLIGHTS
+   ============================================ */
+.atc-cars-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--atc-cars-text);
+    margin-top: 20px;
+}
+
+.atc-cars-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.atc-cars-highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid var(--atc-cars-accent);
+}
+
+.atc-highlight-icon {
+    color: var(--atc-cars-accent);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.atc-highlight-text {
+    font-size: 15px;
+    color: var(--atc-cars-text);
+}
+
+/* ============================================
+   INSURANCE & POLICIES
+   ============================================ */
+.atc-cars-insurance,
+.atc-cars-cancellation,
+.atc-cars-terms {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--atc-cars-text);
+    margin-top: 20px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid var(--atc-cars-accent);
+}
+
+/* ============================================
+   BOOKING CARD (Right Column - Sticky)
+   ============================================ */
+.atc-cars-booking-card {
+    position: sticky;
+    top: 20px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e0e0e0;
+}
+
+.atc-cars-price-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.atc-cars-price-label {
+    font-size: 14px;
+    color: var(--atc-cars-text-light);
+    margin-bottom: 10px;
+}
+
+.atc-cars-price-main {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.atc-cars-price-original {
+    font-size: 18px;
+    color: var(--atc-cars-text-light);
+    text-decoration: line-through;
+}
+
+.atc-cars-price-current {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--atc-cars-primary);
+}
+
+.atc-cars-price-unit {
+    font-size: 16px;
+    color: var(--atc-cars-text-light);
+}
+
+.atc-cars-discount-badge {
+    display: inline-block;
+    background: var(--atc-cars-accent);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* ============================================
+   TRUST BADGES
+   ============================================ */
+.atc-cars-trust-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.atc-trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--atc-cars-text);
+}
+
+.atc-badge-icon {
+    font-size: 18px;
+}
+
+/* ============================================
+   BOOKING BUTTON
+   ============================================ */
+.atc-cars-booking-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--atc-cars-primary) 0%, var(--atc-cars-secondary) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 18px 24px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.atc-cars-booking-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.atc-cars-booking-btn:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   SIMILAR CARS SECTION
+   ============================================ */
+.atc-cars-similar {
+    background: #fff;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.atc-similar-cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.atc-similar-loading {
+    text-align: center;
+    padding: 40px;
+    color: var(--atc-cars-text-light);
+}
+
+/* ============================================
+   MOBILE STICKY BOOKING BAR
+   ============================================ */
+.atc-cars-mobile-booking-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-top: 2px solid var(--atc-cars-primary);
+}
+
+@media (max-width: 768px) {
+    .atc-cars-mobile-booking-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+    }
+    
+    .atc-cars-booking-card {
+        display: none;
+    }
+    
+    .atc-cars-content-wrapper {
+        padding-bottom: 100px;
+    }
+    
+    .atc-cars-hero {
+        min-height: 400px;
+    }
+    
+    .atc-cars-main-image {
+        height: 400px;
+    }
+    
+    .atc-cars-title {
+        font-size: 28px;
+    }
+    
+    .atc-cars-thumbnails {
+        flex-wrap: wrap;
+        max-width: 90%;
+    }
+    
+    .atc-cars-thumb {
+        width: 60px;
+        height: 45px;
+    }
+    
+    .atc-cars-specs-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .atc-cars-features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .atc-cars-main-content {
+        padding: 20px;
+    }
+}
+
+.atc-mobile-booking-price {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.atc-mobile-price-label {
+    font-size: 12px;
+    color: var(--atc-cars-text-light);
+}
+
+.atc-mobile-price-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--atc-cars-primary);
+}
+
+.atc-mobile-price-unit {
+    font-size: 12px;
+    color: var(--atc-cars-text-light);
+}
+
+.atc-mobile-booking-btn {
+    background: linear-gradient(135deg, var(--atc-cars-primary) 0%, var(--atc-cars-secondary) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    .atc-cars-section-title {
+        font-size: 20px;
+    }
+}
+

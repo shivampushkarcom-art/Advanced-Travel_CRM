@@ -1,0 +1,280 @@
+{
+  "label": "Car Rentals",
+  "icon": "car",
+  "theme": {
+    "package_details_style": "rental",
+    "color_scheme": {
+      "primary": "#1a1a1a",
+      "secondary": "#333333",
+      "accent": "#ff6b35"
+    },
+    "layout": "two-column"
+  },
+  "subtypes": ["instation", "outstation"],
+  "search_fields": [
+    {
+      "id": "pickup",
+      "label": "Pickup Location",
+      "type": "text",
+      "placeholder": "Enter pickup location",
+      "required": true
+    },
+    {
+      "id": "drop",
+      "label": "Drop Location",
+      "type": "text",
+      "placeholder": "Enter drop location"
+    },
+    {
+      "id": "journey_date",
+      "label": "Journey Date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "id": "journey_time",
+      "label": "Pickup Time",
+      "type": "time",
+      "default": "09:00"
+    },
+    {
+      "id": "rental_type",
+      "label": "Rental Type",
+      "type": "select",
+      "options": ["Local", "Outstation", "Airport Transfer", "Hourly"],
+      "default": "Local"
+    }
+  ],
+  "booking_fields": [
+    {
+      "id": "name",
+      "label": "Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "email",
+      "label": "Email",
+      "type": "email",
+      "required": true
+    },
+    {
+      "id": "phone",
+      "label": "Phone",
+      "type": "tel",
+      "required": true
+    },
+    {
+      "id": "car_type",
+      "label": "Car Type",
+      "type": "select",
+      "options": ["Hatchback", "Sedan", "SUV", "Luxury", "Tempo Traveller", "Bus"],
+      "default": "Sedan"
+    },
+    {
+      "id": "km",
+      "label": "Estimated KM",
+      "type": "number",
+      "min": 0,
+      "default": 100
+    },
+    {
+      "id": "driver_required",
+      "label": "Driver Required",
+      "type": "select",
+      "options": ["Yes", "No"],
+      "default": "Yes"
+    },
+    {
+      "id": "fuel_type",
+      "label": "Fuel Type",
+      "type": "select",
+      "options": ["Petrol", "Diesel", "CNG", "Electric", "No Preference"],
+      "default": "No Preference"
+    }
+  ],
+  "package_fields": [
+    {
+      "id": "car_model",
+      "label": "Car Model",
+      "type": "text",
+      "required": true,
+      "placeholder": "e.g., Swift Dzire, Innova Crysta"
+    },
+    {
+      "id": "car_type",
+      "label": "Car Type",
+      "type": "select",
+      "options": ["Hatchback", "Sedan", "SUV", "Luxury", "Tempo Traveller", "Bus"],
+      "required": true
+    },
+    {
+      "id": "seating_capacity",
+      "label": "Seating Capacity",
+      "type": "number",
+      "min": 1,
+      "required": true,
+      "placeholder": "Number of seats"
+    },
+    {
+      "id": "fuel_type",
+      "label": "Fuel Type",
+      "type": "select",
+      "options": ["Petrol", "Diesel", "CNG", "Electric", "Hybrid"],
+      "required": true
+    },
+    {
+      "id": "transmission",
+      "label": "Transmission",
+      "type": "select",
+      "options": ["Manual", "Automatic", "Both Available"],
+      "default": "Manual"
+    },
+    {
+      "id": "features",
+      "label": "Car Features",
+      "type": "textarea",
+      "placeholder": "AC, Music System, GPS, Bluetooth, etc. (one per line)"
+    },
+    {
+      "id": "rental_type",
+      "label": "Rental Type",
+      "type": "select",
+      "options": ["Local", "Outstation", "Airport Transfer", "Hourly", "Monthly"],
+      "required": true
+    },
+    {
+      "id": "pricing_model",
+      "label": "Pricing Model",
+      "type": "textarea",
+      "placeholder": "Local: ₹X/km, Outstation: ₹Y/day + ₹Z/km"
+    },
+    {
+      "id": "driver_included",
+      "label": "Driver Included",
+      "type": "select",
+      "options": ["Yes", "No", "Optional"],
+      "default": "Yes"
+    },
+    {
+      "id": "driver_charges",
+      "label": "Driver Charges",
+      "type": "text",
+      "placeholder": "e.g., ₹500/day or Included"
+    },
+    {
+      "id": "fuel_policy",
+      "label": "Fuel Policy",
+      "type": "select",
+      "options": ["Self Fuel", "Fuel Included", "To and Fro"],
+      "default": "Self Fuel"
+    },
+    {
+      "id": "toll_charges",
+      "label": "Toll Charges",
+      "type": "select",
+      "options": ["Included", "Extra", "As Per Actual"],
+      "default": "Extra"
+    },
+    {
+      "id": "cancellation_policy",
+      "label": "Cancellation Policy",
+      "type": "textarea",
+      "placeholder": "Cancellation terms and charges"
+    },
+    {
+      "id": "insurance_coverage",
+      "label": "Insurance Coverage",
+      "type": "textarea",
+      "placeholder": "Insurance details and coverage"
+    }
+  ],
+  "query_fields": [
+    {
+      "id": "pickup_location",
+      "label": "Pickup Location",
+      "type": "text",
+      "section": "service_specific",
+      "required": true
+    },
+    {
+      "id": "drop_location",
+      "label": "Drop Location",
+      "type": "text",
+      "section": "service_specific"
+    },
+    {
+      "id": "rental_date",
+      "label": "Rental Date",
+      "type": "date",
+      "section": "service_specific",
+      "required": true
+    },
+    {
+      "id": "return_date",
+      "label": "Return Date",
+      "type": "date",
+      "section": "service_specific"
+    },
+    {
+      "id": "pickup_time",
+      "label": "Pickup Time",
+      "type": "time",
+      "section": "service_specific",
+      "default": "09:00"
+    },
+    {
+      "id": "rental_type",
+      "label": "Rental Type",
+      "type": "select",
+      "section": "service_specific",
+      "options": ["Local", "Outstation", "Airport Transfer", "Hourly"],
+      "default": "Local",
+      "required": true
+    },
+    {
+      "id": "car_type",
+      "label": "Preferred Car Type",
+      "type": "select",
+      "section": "service_specific",
+      "options": ["Hatchback", "Sedan", "SUV", "Luxury", "Tempo Traveller", "Bus"],
+      "default": "Sedan"
+    },
+    {
+      "id": "estimated_km",
+      "label": "Estimated Distance (KM)",
+      "type": "number",
+      "section": "service_specific",
+      "min": 0,
+      "placeholder": "Approximate distance"
+    },
+    {
+      "id": "driver_required",
+      "label": "Driver Required",
+      "type": "select",
+      "section": "service_specific",
+      "options": ["Yes", "No"],
+      "default": "Yes"
+    },
+    {
+      "id": "passengers",
+      "label": "Number of Passengers",
+      "type": "number",
+      "section": "service_specific",
+      "min": 1,
+      "default": 1
+    },
+    {
+      "id": "special_requirements",
+      "label": "Special Requirements",
+      "type": "textarea",
+      "section": "additional",
+      "placeholder": "Child seat, extra luggage space, specific features, etc."
+    }
+  ],
+  "pricing": {
+    "base_fare": 1000,
+    "per_km_rate": 15,
+    "currency": "INR"
+  }
+}

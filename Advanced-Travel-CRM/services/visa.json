@@ -1,0 +1,253 @@
+{
+  "label": "Visa Services",
+  "icon": "passport",
+  "theme": {
+    "package_details_style": "government",
+    "color_scheme": {
+      "primary": "#1e40af",
+      "secondary": "#3b82f6",
+      "accent": "#f59e0b"
+    },
+    "layout": "single-column"
+  },
+  "search_fields": [
+    {
+      "id": "visa_type",
+      "label": "Visa Type",
+      "type": "select",
+      "options": [
+        "Tourist Visa",
+        "Business Visa",
+        "Student Visa",
+        "Work Visa",
+        "Transit Visa",
+        "Medical Visa",
+        "Conference Visa",
+        "Journalist Visa"
+      ],
+      "required": true
+    },
+    {
+      "id": "destination_country",
+      "label": "Destination Country",
+      "type": "select",
+      "options": [
+        "USA",
+        "UK",
+        "Canada",
+        "Australia",
+        "Germany",
+        "France",
+        "Italy",
+        "Spain",
+        "Switzerland",
+        "Japan",
+        "Singapore",
+        "Thailand",
+        "Dubai",
+        "Other"
+      ],
+      "required": true
+    },
+    {
+      "id": "travel_date",
+      "label": "Intended Travel Date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "id": "urgency",
+      "label": "Processing Urgency",
+      "type": "select",
+      "options": [
+        "Normal (15-20 days)",
+        "Express (7-10 days)",
+        "Urgent (3-5 days)",
+        "Super Urgent (1-2 days)"
+      ],
+      "default": "Normal (15-20 days)"
+    }
+  ],
+  "booking_fields": [
+    {
+      "id": "name",
+      "label": "Full Name (as per passport)",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "passport_number",
+      "label": "Passport Number",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "passport_expiry",
+      "label": "Passport Expiry Date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "id": "date_of_birth",
+      "label": "Date of Birth",
+      "type": "date",
+      "required": true
+    },
+    {
+      "id": "nationality",
+      "label": "Nationality",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "email",
+      "label": "Email Address",
+      "type": "email",
+      "required": true
+    },
+    {
+      "id": "phone",
+      "label": "Phone Number",
+      "type": "tel",
+      "required": true
+    },
+    {
+      "id": "address",
+      "label": "Current Address",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "purpose_of_visit",
+      "label": "Purpose of Visit",
+      "type": "textarea",
+      "required": true
+    },
+    {
+      "id": "previous_visa_history",
+      "label": "Previous Visa History",
+      "type": "select",
+      "options": [
+        "First Time",
+        "Previously Visited",
+        "Visa Rejected",
+        "Multiple Visits"
+      ]
+    }
+  ],
+  "package_fields": [
+    {
+      "id": "visa_type",
+      "label": "Visa Type",
+      "type": "select",
+      "required": true
+    },
+    {
+      "id": "destination_country",
+      "label": "Destination Country",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "processing_time",
+      "label": "Processing Time",
+      "type": "text",
+      "placeholder": "e.g., 15-20 working days"
+    },
+    {
+      "id": "validity_period",
+      "label": "Visa Validity Period",
+      "type": "text",
+      "placeholder": "e.g., 6 months, 1 year"
+    },
+    {
+      "id": "stay_duration",
+      "label": "Maximum Stay Duration",
+      "type": "text",
+      "placeholder": "e.g., 30 days, 90 days"
+    },
+    {
+      "id": "entry_type",
+      "label": "Entry Type",
+      "type": "select",
+      "options": [
+        "Single Entry",
+        "Multiple Entry"
+      ]
+    },
+    {
+      "id": "document_checklist",
+      "label": "Document Checklist",
+      "type": "textarea",
+      "placeholder": "List all required documents"
+    },
+    {
+      "id": "fee_structure",
+      "label": "Fee Structure",
+      "type": "textarea",
+      "placeholder": "Visa fee, service charge, etc."
+    },
+    {
+      "id": "eligibility_criteria",
+      "label": "Eligibility Criteria",
+      "type": "textarea"
+    },
+    {
+      "id": "application_process",
+      "label": "Application Process",
+      "type": "textarea",
+      "placeholder": "Step-by-step application process"
+    }
+  ],
+  "query_fields": [
+    {
+      "id": "visa_type",
+      "label": "Visa Type",
+      "type": "select",
+      "required": true
+    },
+    {
+      "id": "travel_date",
+      "label": "Intended Travel Date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "id": "urgency",
+      "label": "Processing Urgency",
+      "type": "select",
+      "required": true
+    },
+    {
+      "id": "passport_validity",
+      "label": "Passport Validity (months remaining)",
+      "type": "number",
+      "min": 0
+    },
+    {
+      "id": "previous_visa",
+      "label": "Previous Visa History",
+      "type": "select",
+      "options": [
+        "First Time",
+        "Previously Visited",
+        "Visa Rejected"
+      ]
+    },
+    {
+      "id": "special_requirements",
+      "label": "Special Requirements",
+      "type": "textarea",
+      "placeholder": "Any special requirements or questions"
+    }
+  ],
+  "pricing": {
+    "base_visa_fee": 0,
+    "service_charge": 0,
+    "express_processing_fee": 0,
+    "urgent_processing_fee": 0,
+    "super_urgent_fee": 0,
+    "currency": "INR"
+  }
+}
+

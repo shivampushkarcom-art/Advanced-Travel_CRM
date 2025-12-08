@@ -1,0 +1,1252 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════
+ * ATC Premium Query Form - Make My Trip Style
+ * Professional, modern query form design with modal support
+ * ═══════════════════════════════════════════════════════════════════
+ */
+
+/* ==================== SIMPLE QUERY TRIGGER BUTTON - NO BACKGROUNDS ==================== */
+/* Removed all glassmorphism, golden backgrounds - Simple button only */
+.atc-query-trigger-wrapper {
+    text-align: center;
+    margin: 0; /* No margin */
+    padding: 0; /* No padding - just the button */
+    background: none !important; /* No background */
+    border: none !important; /* No border */
+    box-shadow: none !important; /* No shadow */
+    position: relative;
+    overflow: visible; /* Allow button to be visible */
+    display: inline-block; /* Only take space of button */
+}
+
+/* Remove all pseudo-elements */
+.atc-query-trigger-wrapper::before,
+.atc-query-trigger-wrapper::after {
+    display: none !important;
+    content: none !important;
+}
+
+/* Premium glowing button - eye-catching */
+.atc-query-trigger-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 18px 40px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    font-size: 17px;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    font-family: inherit;
+    z-index: 1;
+    /* Premium vibrant gradient button */
+    background: linear-gradient(135deg, 
+        #667eea 0%, 
+        #764ba2 50%,
+        #667eea 100%);
+    color: #FFFFFF;
+    box-shadow: 
+        0 10px 40px rgba(102, 126, 234, 0.5),
+        0 5px 20px rgba(118, 75, 162, 0.4),
+        0 0 0 0 rgba(102, 126, 234, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Shimmer effect on button */
+.atc-query-trigger-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.5s;
+}
+
+.atc-query-trigger-btn:hover::before {
+    left: 100%;
+}
+
+/* Premium hover effect with glowing border */
+.atc-query-trigger-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 
+        0 15px 50px rgba(102, 126, 234, 0.6),
+        0 8px 30px rgba(118, 75, 162, 0.5),
+        0 0 0 4px rgba(102, 126, 234, 0.4),
+        0 0 30px rgba(102, 126, 234, 0.5);
+    background: linear-gradient(135deg, 
+        #764ba2 0%, 
+        #667eea 50%,
+        #764ba2 100%);
+}
+
+.atc-query-trigger-premium,
+.atc-package-query-btn {
+    background: linear-gradient(135deg, var(--atc-primary, #667eea) 0%, var(--atc-secondary, #764ba2) 100%);
+    color: white;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.atc-query-trigger-premium:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(102, 126, 234, 0.5);
+}
+
+/* Service-specific color support */
+.atc-query-form-wrapper[data-service] .atc-query-trigger-premium {
+    background: linear-gradient(135deg, var(--atc-primary, #667eea) 0%, var(--atc-secondary, #764ba2) 100%);
+    box-shadow: 0 8px 25px color-mix(in srgb, var(--atc-primary, #667eea) 40%, transparent);
+}
+
+.atc-query-trigger-outline {
+    background: transparent;
+    color: #667eea;
+    border: 3px solid #667eea;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+}
+
+.atc-query-trigger-outline:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.atc-query-trigger-minimal {
+    background: #f8fafc;
+    color: #667eea;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.atc-query-trigger-minimal:hover {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+}
+
+.atc-query-trigger-icon {
+    font-size: 24px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.atc-query-trigger-text {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.atc-query-trigger-arrow {
+    font-size: 20px;
+    transition: transform 0.3s;
+    display: inline-flex;
+    align-items: center;
+}
+
+.atc-query-trigger-btn:hover .atc-query-trigger-arrow {
+    transform: translateX(5px);
+}
+
+/* ==================== QUERY MODAL ==================== */
+.atc-query-modal,
+.atc-package-query-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2147483500;
+    overflow-y: auto;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease-out, visibility 0s linear 0.3s;
+}
+
+.atc-query-modal.active,
+.atc-package-query-modal.active {
+    display: flex !important;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.3s ease-out, visibility 0s linear 0s;
+}
+
+.atc-query-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    z-index: 2147483500;
+}
+
+.atc-query-modal.active .atc-query-modal-overlay,
+.atc-package-query-modal.active .atc-query-modal-overlay {
+    opacity: 1;
+}
+
+.atc-query-modal-content {
+    position: relative;
+    /* Blue-tinted glass background - highly visible */
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.88) 0%, 
+        rgba(240, 244, 255, 0.92) 25%,
+        rgba(237, 242, 255, 0.9) 50%,
+        rgba(240, 244, 255, 0.92) 75%,
+        rgba(255, 255, 255, 0.88) 100%);
+    
+    /* Ultra strong glassmorphism effect */
+    backdrop-filter: blur(30px) saturate(180%) brightness(1.2);
+    -webkit-backdrop-filter: blur(30px) saturate(180%) brightness(1.2);
+    
+    border-radius: 24px;
+    max-width: 900px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 38px 85px rgba(102, 126, 234, 0.28),
+                0 16px 45px rgba(102, 126, 234, 0.2),
+                0 9px 25px rgba(0, 0, 0, 0.16),
+                0 4px 12px rgba(0, 0, 0, 0.12),
+                0 2px 6px rgba(0, 0, 0, 0.1),
+                inset 0 4px 0 rgba(255, 255, 255, 1),
+                inset 0 -4px 0 rgba(255, 255, 255, 0.94),
+                inset 3px 3px 6px rgba(255, 255, 255, 0.98),
+                inset -2px -2px 5px rgba(102, 126, 234, 0.08);
+    border: 3px solid rgba(255, 255, 255, 0.98);
+    margin: 40px auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2147483501;
+}
+
+/* Animate modal content when modal is active */
+.atc-query-modal.active .atc-query-modal-content,
+.atc-package-query-modal.active .atc-query-modal-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Force visibility on mobile */
+@supports not (backdrop-filter: blur(1px)) {
+    .atc-query-modal-content {
+        background: linear-gradient(135deg, 
+            rgba(255, 255, 255, 0.95) 0%, 
+            rgba(240, 244, 255, 0.97) 25%,
+            rgba(237, 242, 255, 0.95) 50%,
+            rgba(240, 244, 255, 0.97) 75%,
+            rgba(255, 255, 255, 0.95) 100%) !important;
+        box-shadow: 0 40px 90px rgba(102, 126, 234, 0.32),
+                    0 18px 50px rgba(102, 126, 234, 0.22),
+                    0 10px 28px rgba(0, 0, 0, 0.18),
+                    inset 0 4px 0 rgba(255, 255, 255, 1),
+                    inset 0 -4px 0 rgba(255, 255, 255, 0.96),
+                    inset 3px 3px 8px rgba(255, 255, 255, 1),
+                    inset -2px -2px 6px rgba(102, 126, 234, 0.1) !important;
+    }
+}
+
+.atc-query-modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.75) 0%, 
+        rgba(240, 244, 255, 0.65) 25%,
+        rgba(237, 242, 255, 0.6) 50%,
+        rgba(230, 238, 255, 0.55) 75%,
+        rgba(255, 255, 255, 0.7) 100%);
+    border-radius: 24px;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 1;
+}
+
+.atc-query-modal-content::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    right: -8px;
+    bottom: -8px;
+    background: radial-gradient(ellipse at center, 
+        rgba(102, 126, 234, 0.14) 0%, 
+        rgba(118, 75, 162, 0.11) 25%,
+        rgba(240, 244, 255, 0.28) 45%,
+        rgba(255, 255, 255, 0.18) 70%,
+        rgba(255, 255, 255, 0.08) 85%,
+        transparent 100%);
+    border-radius: 32px;
+    z-index: -2;
+    filter: blur(22px);
+    -webkit-filter: blur(22px);
+    opacity: 1;
+}
+
+/* Removed duplicate rules - handled above with opacity and transform transitions */
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.atc-query-modal-header {
+    padding: 30px 40px;
+    border-bottom: 2px solid #f1f5f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, var(--atc-primary, #667eea) 0%, var(--atc-secondary, #764ba2) 100%);
+    z-index: 10;
+    border-radius: 20px 20px 0 0;
+}
+
+/* Service-specific modal header colors */
+.atc-query-modal[data-service] .atc-query-modal-header {
+    background: linear-gradient(135deg, var(--atc-primary, #667eea) 0%, var(--atc-secondary, #764ba2) 100%) !important;
+}
+
+.atc-query-modal-header h2 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.atc-query-modal-close {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 28px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    transition: all 0.3s;
+    color: white;
+    line-height: 1;
+    padding: 0;
+}
+
+.atc-query-modal-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+.atc-query-modal-body {
+    padding: 40px;
+}
+
+.atc-query-modal-subtitle {
+    text-align: center;
+    color: #64748b;
+    font-size: 16px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+/* ==================== SIMPLE QUERY MODAL (Account System Style) ==================== */
+.atc-simple-query-modal .atc-query-modal-content {
+    max-width: 500px !important;
+    padding: 50px 40px !important;
+    position: relative;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* Blue-tinted glass background - highly visible */
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.88) 0%, 
+        rgba(240, 244, 255, 0.92) 25%,
+        rgba(237, 242, 255, 0.9) 50%,
+        rgba(240, 244, 255, 0.92) 75%,
+        rgba(255, 255, 255, 0.88) 100%);
+    
+    /* Ultra strong glassmorphism effect */
+    backdrop-filter: blur(30px) saturate(180%) brightness(1.2);
+    -webkit-backdrop-filter: blur(30px) saturate(180%) brightness(1.2);
+    
+    box-shadow: 0 38px 85px rgba(102, 126, 234, 0.28),
+                0 16px 45px rgba(102, 126, 234, 0.2),
+                0 9px 25px rgba(0, 0, 0, 0.16),
+                0 4px 12px rgba(0, 0, 0, 0.12),
+                inset 0 4px 0 rgba(255, 255, 255, 1),
+                inset 0 -4px 0 rgba(255, 255, 255, 0.94),
+                inset 3px 3px 6px rgba(255, 255, 255, 0.98),
+                inset -2px -2px 5px rgba(102, 126, 234, 0.08);
+    border: 3px solid rgba(255, 255, 255, 0.98);
+}
+
+/* Force visibility on mobile */
+@supports not (backdrop-filter: blur(1px)) {
+    .atc-simple-query-modal .atc-query-modal-content {
+        background: linear-gradient(135deg, 
+            rgba(255, 255, 255, 0.95) 0%, 
+            rgba(240, 244, 255, 0.97) 25%,
+            rgba(237, 242, 255, 0.95) 50%,
+            rgba(240, 244, 255, 0.97) 75%,
+            rgba(255, 255, 255, 0.95) 100%) !important;
+        box-shadow: 0 40px 90px rgba(102, 126, 234, 0.32),
+                    0 18px 50px rgba(102, 126, 255, 0.22),
+                    0 10px 28px rgba(0, 0, 0, 0.18),
+                    inset 0 4px 0 rgba(255, 255, 255, 1),
+                    inset 0 -4px 0 rgba(255, 255, 255, 0.96),
+                    inset 3px 3px 8px rgba(255, 255, 255, 1),
+                    inset -2px -2px 6px rgba(102, 126, 234, 0.1) !important;
+    }
+}
+
+.atc-simple-query-modal .atc-query-modal-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.75) 0%, 
+        rgba(240, 244, 255, 0.65) 25%,
+        rgba(237, 242, 255, 0.6) 50%,
+        rgba(230, 238, 255, 0.55) 75%,
+        rgba(255, 255, 255, 0.7) 100%);
+    border-radius: 20px;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 1;
+}
+
+.atc-simple-query-modal .atc-query-modal-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px 20px 0 0;
+    z-index: 1;
+}
+
+.atc-simple-query-modal .atc-auth-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 0;
+}
+
+.atc-simple-query-modal .atc-auth-header h2 {
+    margin: 0 0 10px 0;
+    color: #0f172a;
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.atc-simple-query-modal .atc-auth-header p {
+    margin: 0;
+    color: #64748b;
+    font-size: 16px;
+}
+
+.atc-simple-query-modal .atc-query-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    color: #64748b;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    padding: 0;
+}
+
+.atc-simple-query-modal .atc-query-modal-close:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: #1e293b;
+    transform: rotate(90deg);
+}
+
+/* Simple query form uses account system form styles */
+.atc-simple-query-form {
+    margin-top: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/* Ensure form container contains all fields */
+.atc-simple-query-modal .atc-query-modal-content {
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+.atc-simple-query-form .atc-premium-form-group {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+    padding: 0;
+}
+
+.atc-simple-query-form .atc-premium-form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.atc-simple-query-form .atc-premium-form-group input,
+.atc-simple-query-form .atc-premium-form-group textarea,
+.atc-simple-query-form .atc-premium-form-group select {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s;
+    background: #f8fafc;
+    font-family: inherit;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.atc-simple-query-form .atc-premium-form-group input:focus,
+.atc-simple-query-form .atc-premium-form-group textarea:focus,
+.atc-simple-query-form .atc-premium-form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+/* Select dropdown arrow */
+.atc-simple-query-form .atc-premium-form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L6 6L11 1' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+}
+
+.atc-simple-query-form .atc-premium-form-group small {
+    display: block;
+    margin-top: 8px;
+    color: #64748b;
+    font-size: 13px;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.atc-simple-query-form .atc-premium-form-actions {
+    margin-top: 30px;
+}
+
+.atc-simple-query-form .atc-btn {
+    padding: 14px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    width: 100%;
+}
+
+.atc-simple-query-form .atc-btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.atc-simple-query-form .atc-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* ==================== QUERY FORM WRAPPER ==================== */
+/* No backgrounds - just container for button - completely invisible */
+.atc-query-form-wrapper {
+    max-width: none; /* No max-width constraint */
+    margin: 0; /* No margin */
+    background: none !important; /* No background */
+    border: none !important; /* No border */
+    border-radius: 0 !important; /* No border radius */
+    box-shadow: none !important; /* No shadow */
+    overflow: visible; /* Allow button to be visible */
+    animation: none !important; /* No animation */
+    padding: 0 !important; /* No padding */
+    display: inline-block; /* Only take space of content */
+    width: auto; /* Auto width */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== HERO HEADER ==================== */
+.atc-query-form-hero {
+    background: linear-gradient(135deg, var(--atc-primary, #667eea) 0%, var(--atc-secondary, #764ba2) 100%);
+    padding: 50px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.atc-query-form-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: pulse 15s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.atc-query-form-hero h3 {
+    color: white;
+    font-size: 36px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.atc-query-form-hero p {
+    color: rgba(255,255,255,0.95);
+    font-size: 16px;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* ==================== FORM CONTAINER ==================== */
+.atc-query-form {
+    padding: 40px;
+    background: #ffffff;
+}
+
+/* ==================== MESSAGE CONTAINER ==================== */
+.atc-message-container {
+    margin-bottom: 25px;
+    min-height: 50px;
+}
+
+.atc-alert {
+    padding: 16px 20px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.atc-alert-success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.atc-alert-error {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+.atc-alert::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.atc-alert-success::before {
+    content: '✓';
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.atc-alert-error::before {
+    content: '⚠';
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* ==================== FORM ROWS ==================== */
+.atc-form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-bottom: 25px;
+}
+
+.atc-form-group {
+    position: relative;
+}
+
+.atc-form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+/* ==================== LABELS ==================== */
+.atc-query-form label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    color: #475569;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    position: relative;
+    padding-left: 24px;
+}
+
+.atc-query-form label::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    background-size: contain;
+    opacity: 0.6;
+}
+
+.atc-query-form label[for*="name"]::before {
+    content: '👤';
+    font-size: 14px;
+}
+
+.atc-query-form label[for*="email"]::before {
+    content: '✉';
+    font-size: 14px;
+}
+
+.atc-query-form label[for*="phone"]::before {
+    content: '📞';
+    font-size: 14px;
+}
+
+.atc-query-form label[for*="destination"]::before {
+    content: '📍';
+    font-size: 14px;
+}
+
+.atc-query-form label[for*="date"]::before {
+    content: '📅';
+    font-size: 14px;
+}
+
+.atc-query-form label[for*="adults"],
+.atc-query-form label[for*="children"]::before {
+    content: '👥';
+    font-size: 14px;
+}
+
+.atc-query-form label[for*="budget"]::before {
+    content: '💰';
+    font-size: 14px;
+}
+
+.atc-query-form label[for*="requirements"]::before {
+    content: '⭐';
+    font-size: 14px;
+}
+
+.atc-query-form label[for*="message"]::before {
+    content: '💬';
+    font-size: 14px;
+}
+
+/* ==================== INPUT FIELDS ==================== */
+.atc-query-form input[type="text"],
+.atc-query-form input[type="email"],
+.atc-query-form input[type="tel"],
+.atc-query-form input[type="date"],
+.atc-query-form input[type="number"],
+.atc-query-form textarea {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 15px;
+    font-family: inherit;
+    background: #f8fafc;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #1e293b;
+    box-sizing: border-box;
+}
+
+.atc-query-form input:focus,
+.atc-query-form textarea:focus,
+.atc-package-query-form input:focus,
+.atc-package-query-form textarea:focus {
+    outline: none;
+    border-color: var(--atc-primary, #667eea);
+    background: white;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--atc-primary, #667eea) 10%, transparent);
+    transform: translateY(-2px);
+}
+
+.atc-query-form input:hover:not(:focus),
+.atc-query-form textarea:hover:not(:focus) {
+    border-color: #cbd5e1;
+    background: #f1f5f9;
+}
+
+.atc-query-form textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
+}
+
+/* ==================== BUDGET RANGE ==================== */
+.atc-budget-range {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #f8fafc;
+    padding: 16px 20px;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s;
+}
+
+.atc-budget-range:focus-within {
+    border-color: #667eea;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.atc-budget-range input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 0;
+    font-size: 15px;
+}
+
+.atc-budget-range input:focus {
+    box-shadow: none;
+    transform: none;
+}
+
+.atc-budget-range span {
+    color: #64748b;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/* ==================== SUBMIT BUTTON ==================== */
+.atc-query-form button[type="submit"],
+.atc-package-query-form button[type="submit"],
+.atc-btn-premium-primary {
+    width: 100%;
+    padding: 18px 40px;
+    background: linear-gradient(135deg, var(--atc-primary, #667eea) 0%, var(--atc-secondary, #764ba2) 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 25px color-mix(in srgb, var(--atc-primary, #667eea) 40%, transparent);
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.atc-query-form button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.atc-query-form button[type="submit"]:hover::before {
+    left: 100%;
+}
+
+.atc-query-form button[type="submit"]:hover,
+.atc-package-query-form button[type="submit"]:hover,
+.atc-btn-premium-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px color-mix(in srgb, var(--atc-primary, #667eea) 50%, transparent);
+}
+
+.atc-query-form button[type="submit"]:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.atc-query-form button[type="submit"]:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ==================== FORM SECTIONS ==================== */
+.atc-query-form-section {
+    margin-bottom: 35px;
+    padding-bottom: 35px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.atc-query-form-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.atc-query-form-section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ==================== REQUIRED FIELD INDICATOR ==================== */
+.atc-query-form label:has(+ input[required])::after,
+.atc-query-form label:has(+ textarea[required])::after {
+    content: '*';
+    color: #ef4444;
+    margin-left: 4px;
+    font-weight: 700;
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+@media (max-width: 768px) {
+    .atc-query-form-wrapper {
+        margin: 0; /* No margin */
+        border-radius: 0; /* No border radius */
+        background: none !important; /* No background */
+        box-shadow: none !important; /* No shadow */
+    }
+    
+    .atc-query-form-hero {
+        padding: 35px 25px;
+    }
+    
+    .atc-query-form-hero h3 {
+        font-size: 28px;
+    }
+    
+    .atc-query-form {
+        padding: 30px 25px;
+    }
+    
+    .atc-form-row {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .atc-budget-range {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .atc-budget-range span {
+        text-align: center;
+    }
+    
+    .atc-query-trigger-wrapper {
+        padding: 0 !important; /* No padding */
+        margin: 0 !important; /* No margin */
+        border-radius: 0 !important; /* No border radius */
+        backdrop-filter: none !important; /* No backdrop filter */
+        -webkit-backdrop-filter: none !important;
+        background: none !important; /* No background */
+        box-shadow: none !important; /* No shadow */
+        border: none !important; /* No border */
+    }
+    
+    .atc-query-trigger-wrapper::before,
+    .atc-query-trigger-wrapper::after {
+        display: none !important;
+        content: none !important;
+    }
+    
+    @supports not (backdrop-filter: blur(1px)) {
+        .atc-query-trigger-wrapper {
+            background: none !important; /* No background */
+        }
+    }
+    
+    /* Modal responsive */
+    .atc-query-modal-content {
+        width: 95%;
+        margin: 20px auto;
+        max-height: 95vh;
+        background: linear-gradient(135deg, 
+            rgba(255, 255, 255, 0.9) 0%, 
+            rgba(240, 244, 255, 0.93) 25%,
+            rgba(237, 242, 255, 0.91) 50%,
+            rgba(240, 244, 255, 0.93) 75%,
+            rgba(255, 255, 255, 0.9) 100%);
+        backdrop-filter: blur(28px) saturate(175%) brightness(1.22);
+        -webkit-backdrop-filter: blur(28px) saturate(175%) brightness(1.22);
+        box-shadow: 0 30px 70px rgba(102, 126, 234, 0.26),
+                    0 14px 38px rgba(102, 126, 234, 0.18),
+                    0 7px 20px rgba(0, 0, 0, 0.14),
+                    0 3px 10px rgba(0, 0, 0, 0.11),
+                    inset 0 3px 0 rgba(255, 255, 255, 1),
+                    inset 0 -3px 0 rgba(255, 255, 255, 0.95),
+                    inset 3px 3px 6px rgba(255, 255, 255, 1),
+                    inset -2px -2px 5px rgba(102, 126, 234, 0.1);
+        border: 3px solid rgba(255, 255, 255, 0.98);
+    }
+    
+    @supports not (backdrop-filter: blur(1px)) {
+        .atc-query-modal-content {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.96) 0%, 
+                rgba(240, 244, 255, 0.98) 25%,
+                rgba(237, 242, 255, 0.96) 50%,
+                rgba(240, 244, 255, 0.98) 75%,
+                rgba(255, 255, 255, 0.96) 100%) !important;
+        }
+    }
+    
+    .atc-query-modal-header {
+        padding: 20px 25px;
+    }
+    
+    .atc-query-modal-header h2 {
+        font-size: 22px;
+    }
+    
+    .atc-query-modal-body {
+        padding: 25px 20px;
+    }
+    
+    .atc-query-trigger-btn {
+        padding: 16px 30px;
+        font-size: 16px;
+    }
+    
+    .atc-query-trigger-icon {
+        font-size: 20px;
+    }
+    
+    .atc-simple-query-modal .atc-query-modal-content {
+        backdrop-filter: blur(28px) saturate(175%) brightness(1.22);
+        -webkit-backdrop-filter: blur(28px) saturate(175%) brightness(1.22);
+        background: linear-gradient(135deg, 
+            rgba(255, 255, 255, 0.9) 0%, 
+            rgba(240, 244, 255, 0.93) 25%,
+            rgba(237, 242, 255, 0.91) 50%,
+            rgba(240, 244, 255, 0.93) 75%,
+            rgba(255, 255, 255, 0.9) 100%);
+        box-shadow: 0 30px 70px rgba(102, 126, 234, 0.26),
+                    0 14px 38px rgba(102, 126, 234, 0.18),
+                    0 7px 20px rgba(0, 0, 0, 0.14),
+                    inset 0 3px 0 rgba(255, 255, 255, 1),
+                    inset 0 -3px 0 rgba(255, 255, 255, 0.95),
+                    inset 3px 3px 6px rgba(255, 255, 255, 1),
+                    inset -2px -2px 5px rgba(102, 126, 234, 0.1);
+        border: 3px solid rgba(255, 255, 255, 0.98);
+    }
+    
+    @supports not (backdrop-filter: blur(1px)) {
+        .atc-simple-query-modal .atc-query-modal-content {
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.96) 0%, 
+                rgba(240, 244, 255, 0.98) 25%,
+                rgba(237, 242, 255, 0.96) 50%,
+                rgba(240, 244, 255, 0.98) 75%,
+                rgba(255, 255, 255, 0.96) 100%) !important;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .atc-query-form-hero h3 {
+        font-size: 24px;
+    }
+    
+    .atc-query-form {
+        padding: 25px 20px;
+    }
+    
+    /* Modal mobile */
+    .atc-query-modal-content {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        max-height: 100vh;
+    }
+    
+    .atc-query-modal-header {
+        padding: 20px;
+        border-radius: 0;
+    }
+    
+    .atc-query-modal-header h2 {
+        font-size: 20px;
+    }
+    
+    .atc-query-modal-body {
+        padding: 20px 15px;
+    }
+    
+    .atc-query-trigger-btn {
+        padding: 14px 25px;
+        font-size: 15px;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .atc-query-trigger-icon {
+        font-size: 18px;
+    }
+    
+    .atc-query-trigger-arrow {
+        font-size: 18px;
+    }
+}
+
+/* ==================== LOADING STATE ==================== */
+.atc-query-form.loading button[type="submit"] {
+    position: relative;
+    color: transparent;
+}
+
+.atc-query-form.loading button[type="submit"]::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ==================== FOCUS VISIBLE ==================== */
+.atc-query-form input:focus-visible,
+.atc-query-form textarea:focus-visible,
+.atc-query-form button:focus-visible {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+.atc-query-trigger-wrapper, .atc-package-query-btn, .atc-query-trigger-premium {
+    margin-top: 24px !important;
+}
+

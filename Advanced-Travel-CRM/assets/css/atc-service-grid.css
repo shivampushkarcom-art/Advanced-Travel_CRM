@@ -1,0 +1,766 @@
+/**
+ * ATC Service Grid - Premium Gold & Navy Blue Theme
+ * Modern, scrollable service category grid
+ * Works with shortcode [atc_service_grid] or CSS class .atc-service-grid
+ */
+
+/* ==================== SERVICE GRID CONTAINER ==================== */
+/* Premium Golden Animated Background - Same as Search Widget */
+.atc-service-grid {
+    width: 100%;
+    padding: 15px 15px;
+    background: linear-gradient(135deg, 
+        #F4D03F 0%,      /* Light Gold */
+        #D4AF37 25%,     /* Gold */
+        #F4E4C1 50%,     /* Cream Gold */
+        #D4AF37 75%,     /* Gold */
+        #F4D03F 100%     /* Light Gold */
+    );
+    background-size: 400% 400%;
+    animation: goldenShimmer 8s ease infinite;
+    border-radius: 30px; /* Rounded corners */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 
+        0 20px 60px rgba(212, 175, 55, 0.4),
+        0 8px 30px rgba(212, 175, 55, 0.3),
+        inset 0 2px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -2px 0 rgba(212, 175, 55, 0.2);
+    border: 3px solid rgba(212, 175, 55, 0.5);
+    margin: 20px 0;
+}
+
+/* Golden shimmer animation - Same as Search Widget */
+@keyframes goldenShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.atc-service-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        rgba(30, 58, 95, 0.8) 0%, 
+        rgba(30, 58, 95, 0.6) 50%, 
+        rgba(30, 58, 95, 0.8) 100%);
+    z-index: 1;
+    box-shadow: 0 2px 10px rgba(30, 58, 95, 0.4);
+}
+
+/* ==================== GRID HEADER ==================== */
+/* Restored Better Header Design */
+.atc-service-grid-header {
+    text-align: center;
+    margin-bottom: 25px; /* Better spacing */
+    padding: 0 20px;
+}
+
+.atc-service-grid-header h2 {
+    font-size: 36px; /* Restored larger size */
+    font-weight: 700; /* Restored bold */
+    color: #1E3A5F; /* Dark blue text on light yellow background */
+    margin: 0 0 5px 0; /* Better margin */
+    text-shadow: 0 2px 8px rgba(255, 255, 255, 0.5);
+}
+
+.atc-service-grid-header p {
+    font-size: 16px; /* Restored larger size */
+    color: #0A1F44; /* Dark navy text */
+    margin: 0;
+}
+
+/* ==================== SCROLLABLE GRID ==================== */
+/* Ultra Compact Grid - Minimal Space */
+.atc-service-grid-wrapper {
+    display: flex;
+    gap: 6px; /* Much reduced gap */
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 3px 0 12px 0; /* Much reduced padding */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 #f1f5f9;
+    position: relative;
+}
+
+/* Show scroll hint on mobile/tablet */
+.atc-service-grid-wrapper::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 60px;
+    background: linear-gradient(to left, rgba(248, 250, 252, 0.95), transparent);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+    .atc-service-grid-wrapper::after {
+        opacity: 1;
+    }
+}
+
+/* Hide scrollbar but keep functionality */
+.atc-service-grid-wrapper::-webkit-scrollbar {
+    height: 8px;
+}
+
+.atc-service-grid-wrapper::-webkit-scrollbar-track {
+    background: rgba(244, 208, 63, 0.3); /* Gold to match parent background */
+    border-radius: 10px;
+}
+
+.atc-service-grid-wrapper::-webkit-scrollbar-thumb {
+    background: linear-gradient(90deg, rgba(30, 58, 95, 0.6), rgba(30, 58, 95, 0.8));
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(30, 58, 95, 0.4);
+}
+
+.atc-service-grid-wrapper::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(90deg, rgba(30, 58, 95, 0.8), rgba(10, 31, 68, 0.9));
+    box-shadow: 0 0 15px rgba(30, 58, 95, 0.6);
+}
+
+/* ==================== SERVICE CARD ==================== */
+/* Cards Adjusted for Larger Text - Same Style as Description */
+.atc-service-card {
+    flex: 0 0 auto;
+    width: 120px; /* Slightly wider to accommodate 16px text */
+    min-width: 120px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    padding: 12px 8px; /* More padding for larger text */
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 
+        0 1px 4px rgba(30, 58, 95, 0.08),
+        0 1px 2px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden; /* Prevent text from overflowing card boundaries */
+    border: 1px solid rgba(226, 232, 240, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center content */
+    gap: 6px; /* More gap for larger text */
+    min-height: auto; /* Allow natural height for wrapping text */
+}
+
+/* Subtle gold glow on Hover */
+.atc-service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(244, 208, 63, 0.1) 0%, 
+        rgba(212, 175, 55, 0.15) 50%,
+        rgba(244, 208, 63, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+    border-radius: 20px;
+}
+
+.atc-service-card:hover::before {
+    opacity: 1;
+}
+
+/* MakeMyTrip Style - Subtle hover effect */
+.atc-service-card:hover {
+    transform: translateY(-4px) scale(1.02); /* Reduced transform */
+    box-shadow: 
+        0 4px 12px rgba(30, 58, 95, 0.15),
+        0 2px 6px rgba(0, 0, 0, 0.1),
+        0 0 0 1px rgba(30, 58, 95, 0.2);
+    border-color: rgba(30, 58, 95, 0.4);
+}
+
+/* ==================== SERVICE ICON ==================== */
+/* Removed Blue Background - Clean White/Transparent */
+.atc-service-icon {
+    font-size: 32px;
+    line-height: 1;
+    margin-bottom: 2px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 1px 4px rgba(30, 58, 95, 0.15));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    width: 56px;
+    height: 56px;
+    /* Removed blue background - clean transparent/white */
+    background: transparent;
+    border-radius: 10px;
+    border: none;
+    box-shadow: none;
+}
+
+/* Removed Light Blue Shimmer Animation - No longer needed */
+
+.atc-service-icon-image {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    display: block;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 1px 4px rgba(30, 58, 95, 0.15));
+    /* Support for all image formats: PNG, SVG, JPG, JPEG, GIF, WEBP */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    /* Removed blue background - clean transparent */
+    background: transparent;
+    border-radius: 10px;
+    padding: 4px;
+    border: none;
+    box-shadow: none;
+}
+
+/* SVG specific styling */
+.atc-service-icon-image[src$=".svg"],
+.atc-service-icon-image[src*=".svg"] {
+    width: 48px; /* Retain size */
+    height: 48px;
+    object-fit: contain;
+}
+
+/* Clean icon hover - no blue effects */
+.atc-service-card:hover .atc-service-icon {
+    transform: scale(1.08);
+    filter: drop-shadow(0 3px 8px rgba(30, 58, 95, 0.2));
+}
+
+.atc-service-card:hover .atc-service-icon-image {
+    transform: scale(1.08);
+    filter: drop-shadow(0 3px 8px rgba(30, 58, 95, 0.2));
+}
+
+/* ==================== SERVICE NAME ==================== */
+/* 25% Smaller than Description - "Explore our wide range of travel services" */
+.atc-service-name {
+    font-size: 12px; /* 25% smaller than 16px (16 * 0.75 = 12px) */
+    font-weight: normal; /* Same as description */
+    color: #0A1F44; /* Same as description */
+    margin: 0; /* Same as description */
+    padding: 0; /* No padding */
+    line-height: normal; /* Let it inherit naturally */
+    text-align: center;
+    width: 100%;
+    letter-spacing: normal; /* Normal spacing */
+    word-wrap: break-word; /* Allow wrapping */
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    white-space: normal; /* Allow wrapping */
+    font-family: inherit; /* Same font family as description */
+}
+
+.atc-service-card:hover .atc-service-name {
+    color: #0A1F44;
+    transform: translateY(-1px);
+}
+
+/* ==================== SERVICE DESCRIPTION (Optional) ==================== */
+/* Ultra Small Description */
+.atc-service-description {
+    font-size: 9px; /* Much smaller */
+    color: #64748B;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+    line-height: 1.2; /* Very tight line height */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.atc-service-card:hover .atc-service-description {
+    color: #475569;
+}
+
+/* ==================== ACCENT LINE ==================== */
+.atc-service-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 60%;
+    height: 3px;
+    background: #1E3A5F;
+    transition: transform 0.4s ease;
+    box-shadow: 0 2px 8px rgba(10, 31, 68, 0.2);
+}
+
+.atc-service-card:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* ==================== RESPONSIVE DESIGN ==================== */
+
+/* Desktop: Show all in one line - Ultra Compact */
+@media (min-width: 1025px) {
+    .atc-service-grid-wrapper {
+        display: flex; /* Keep flex for one line */
+        flex-wrap: nowrap; /* Force single line */
+        gap: 6px; /* Minimal gap */
+        overflow-x: visible;
+        padding: 3px; /* Minimal padding */
+        justify-content: center; /* Center all services */
+    }
+    
+    .atc-service-card {
+        width: 100px; /* Fixed small width */
+        min-width: 100px;
+        flex-shrink: 0; /* Prevent shrinking */
+    }
+}
+
+/* ==================== TABLET: PREMIUM GRID LAYOUT ==================== */
+/* Special Premium Design for Tablet - 4x2 Grid (4 columns, 2 rows) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .atc-service-grid {
+        padding: 16px 12px; /* Compact padding */
+        border-radius: 16px;
+    }
+    
+    .atc-service-grid-header {
+        margin-bottom: 20px; /* Better spacing */
+        padding: 0 12px;
+    }
+    
+    .atc-service-grid-header h2 {
+        font-size: 28px; /* Better size */
+        font-weight: 700;
+        margin-bottom: 4px;
+    }
+    
+    .atc-service-grid-header p {
+        font-size: 14px; /* Better size */
+    }
+    
+    /* Grid Layout: 4 columns, 2 rows for 8 services */
+    .atc-service-grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 columns */
+        gap: 8px; /* Compact gap */
+        padding: 8px 0;
+        overflow-x: visible;
+        overflow-y: visible;
+    }
+    
+    .atc-service-card {
+        width: 100%; /* Full grid cell */
+        min-width: auto;
+        padding: 10px 6px; /* Compact padding */
+        gap: 4px; /* Minimal gap */
+        min-height: 90px; /* Compact height */
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; /* Center content */
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden; /* Prevent text from overflowing card boundaries */
+    }
+    
+    .atc-service-card:active {
+        transform: scale(0.96); /* Touch feedback */
+    }
+    
+    .atc-service-card:hover {
+        transform: translateY(-3px) scale(1.02);
+        box-shadow: 
+            0 4px 12px rgba(30, 58, 95, 0.15),
+            0 2px 6px rgba(0, 0, 0, 0.1),
+            0 0 0 1px rgba(30, 58, 95, 0.2);
+        border-color: rgba(30, 58, 95, 0.35);
+    }
+    
+    .atc-service-icon {
+        font-size: 28px;
+        width: 48px;
+        height: 48px;
+        min-height: 48px;
+        margin-bottom: 4px;
+        border-radius: 10px;
+        background: transparent; /* No blue background */
+        border: none;
+        box-shadow: none;
+    }
+    
+    .atc-service-icon-image {
+        width: 40px;
+        height: 40px;
+        padding: 4px;
+        border-radius: 8px;
+        background: transparent; /* No blue background */
+        border: none;
+        box-shadow: none;
+    }
+    
+    .atc-service-name {
+        font-size: 10.5px; /* 25% smaller than 14px (14 * 0.75 = 10.5px) */
+        font-weight: normal; /* Same as description */
+        color: #0A1F44; /* Same as description */
+        margin: 0; /* Same as description */
+        padding: 0;
+        line-height: normal; /* Same as description */
+        text-align: center;
+        width: 100%;
+        letter-spacing: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        display: block;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-family: inherit; /* Same font family */
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .atc-service-description {
+        display: none; /* Hide on tablet grid */
+    }
+    
+    /* Hide scroll hint on tablet */
+    .atc-service-grid-wrapper::after {
+        display: none;
+    }
+}
+
+/* ==================== MOBILE: PREMIUM GRID LAYOUT ==================== */
+/* Special Premium Design for Mobile - 4x2 Grid (4 columns, 2 rows) */
+@media (max-width: 768px) {
+    .atc-service-grid {
+        padding: 14px 10px; /* Compact padding */
+        border-radius: 14px;
+        margin: 15px 0; /* Reduced margin */
+    }
+    
+    .atc-service-grid-header {
+        margin-bottom: 18px; /* Better spacing */
+        padding: 0 8px;
+    }
+    
+    .atc-service-grid-header h2 {
+        font-size: 26px; /* Better size */
+        font-weight: 700;
+        margin-bottom: 4px;
+        line-height: 1.2;
+    }
+    
+    .atc-service-grid-header p {
+        font-size: 13px; /* Better size */
+        line-height: 1.3;
+    }
+    
+    /* Grid Layout: 4 columns, 2 rows for 8 services */
+    .atc-service-grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 columns */
+        gap: 6px; /* Compact gap */
+        padding: 6px 0;
+        overflow-x: visible;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .atc-service-card {
+        width: 100%; /* Full grid cell */
+        min-width: auto;
+        padding: 8px 4px; /* Compact padding */
+        gap: 3px; /* Minimal gap */
+        min-height: 85px; /* Compact height */
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; /* Center content */
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 
+            0 1px 3px rgba(30, 58, 95, 0.08),
+            0 1px 2px rgba(0, 0, 0, 0.05),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
+        overflow: hidden; /* Prevent text from overflowing card boundaries */
+    }
+    
+    .atc-service-card:active {
+        transform: scale(0.95); /* Touch feedback */
+        box-shadow: 
+            0 1px 2px rgba(30, 58, 95, 0.1),
+            inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    }
+    
+    .atc-service-card:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 
+            0 3px 8px rgba(30, 58, 95, 0.12),
+            0 2px 4px rgba(0, 0, 0, 0.08),
+            0 0 0 1px rgba(30, 58, 95, 0.15);
+        border-color: rgba(30, 58, 95, 0.3);
+    }
+    
+    .atc-service-icon {
+        font-size: 24px;
+        width: 44px;
+        height: 44px;
+        min-height: 44px;
+        margin-bottom: 3px;
+        border-radius: 10px;
+        flex-shrink: 0;
+        background: transparent; /* No blue background */
+        border: none;
+        box-shadow: none;
+    }
+    
+    .atc-service-icon-image {
+        width: 36px;
+        height: 36px;
+        padding: 4px;
+        border-radius: 8px;
+        background: transparent; /* No blue background */
+        border: none;
+        box-shadow: none;
+    }
+    
+    .atc-service-name {
+        font-size: 9.75px; /* 25% smaller than 13px (13 * 0.75 = 9.75px) */
+        font-weight: normal; /* Same as description */
+        color: #0A1F44; /* Same as description */
+        margin: 0; /* Same as description */
+        padding: 0;
+        line-height: 1.3; /* Same as description line-height */
+        text-align: center;
+        width: 100%;
+        letter-spacing: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        display: block;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-family: inherit; /* Same font family */
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .atc-service-description {
+        display: none; /* Hide on mobile grid */
+    }
+    
+    /* Hide scroll hint on mobile grid */
+    .atc-service-grid-wrapper::after {
+        display: none;
+    }
+    
+    /* Remove horizontal scrollbar */
+    .atc-service-grid-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .atc-service-grid-wrapper {
+        scrollbar-width: none;
+    }
+}
+
+/* ==================== SMALL MOBILE: PREMIUM GRID LAYOUT ==================== */
+/* Special Premium Design for Small Mobile - 4x2 Grid (4 columns, 2 rows) */
+@media (max-width: 480px) {
+    .atc-service-grid {
+        padding: 12px 8px; /* Compact padding */
+        border-radius: 12px;
+        margin: 12px 0; /* Reduced margin */
+    }
+    
+    .atc-service-grid-header {
+        margin-bottom: 15px; /* Better spacing */
+        padding: 0 6px;
+    }
+    
+    .atc-service-grid-header h2 {
+        font-size: 22px; /* Better size */
+        font-weight: 700;
+        margin-bottom: 3px;
+        line-height: 1.2;
+    }
+    
+    .atc-service-grid-header p {
+        font-size: 12px; /* Better size */
+        line-height: 1.3;
+    }
+    
+    /* Grid Layout: 4 columns, 2 rows for 8 services */
+    .atc-service-grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr); /* 4 columns */
+        gap: 5px; /* Very compact gap */
+        padding: 5px 0;
+        overflow-x: visible;
+        overflow-y: visible;
+    }
+    
+    .atc-service-card {
+        width: 100%; /* Full grid cell */
+        min-width: auto;
+        padding: 7px 3px; /* Compact padding */
+        gap: 2px; /* Minimal gap */
+        min-height: 75px; /* Compact height */
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; /* Center content */
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden; /* Prevent text from overflowing card boundaries */
+    }
+    
+    .atc-service-card:active {
+        transform: scale(0.94); /* Stronger touch feedback */
+    }
+    
+    .atc-service-icon {
+        font-size: 22px;
+        width: 40px;
+        height: 40px;
+        min-height: 40px;
+        margin-bottom: 2px;
+        border-radius: 8px;
+        flex-shrink: 0;
+        background: transparent; /* No blue background */
+        border: none;
+        box-shadow: none;
+    }
+    
+    .atc-service-icon-image {
+        width: 32px;
+        height: 32px;
+        padding: 3px;
+        border-radius: 6px;
+        background: transparent; /* No blue background */
+        border: none;
+        box-shadow: none;
+    }
+    
+    .atc-service-name {
+        font-size: 9px; /* 25% smaller than 12px (12 * 0.75 = 9px) */
+        font-weight: normal; /* Same as description */
+        color: #0A1F44; /* Same as description */
+        margin: 0; /* Same as description */
+        padding: 0;
+        line-height: 1.3; /* Same as description line-height */
+        text-align: center;
+        width: 100%;
+        letter-spacing: normal;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        display: block;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-family: inherit; /* Same font family */
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .atc-service-description {
+        display: none; /* Hide on small mobile */
+    }
+    
+    /* Hide scroll hint */
+    .atc-service-grid-wrapper::after {
+        display: none;
+    }
+}
+
+/* ==================== LOADING STATE ==================== */
+.atc-service-grid-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    color: #64748b;
+}
+
+/* ==================== EMPTY STATE ==================== */
+.atc-service-grid-empty {
+    text-align: center;
+    padding: 60px 20px;
+    color: #94a3b8;
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes atc-service-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.atc-service-card {
+    animation: atc-service-fade-in 0.6s ease-out backwards;
+}
+
+.atc-service-card:nth-child(1) { animation-delay: 0.1s; }
+.atc-service-card:nth-child(2) { animation-delay: 0.2s; }
+.atc-service-card:nth-child(3) { animation-delay: 0.3s; }
+.atc-service-card:nth-child(4) { animation-delay: 0.4s; }
+.atc-service-card:nth-child(5) { animation-delay: 0.5s; }
+.atc-service-card:nth-child(6) { animation-delay: 0.6s; }
+.atc-service-card:nth-child(7) { animation-delay: 0.7s; }
+
+/* ==================== ACCESSIBILITY ==================== */
+.atc-service-card:focus {
+    outline: 3px solid #1E3A5F;
+    outline-offset: 3px;
+}
+
+.atc-service-card:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+    .atc-service-grid-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow: visible;
+    }
+    
+    .atc-service-card {
+        width: 100%;
+        min-width: auto;
+        page-break-inside: avoid;
+    }
+}
+

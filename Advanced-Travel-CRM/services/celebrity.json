@@ -1,0 +1,102 @@
+{
+  "label": "Celebrity Management",
+  "icon": "star",
+  "theme": {
+    "package_details_style": "branding",
+    "color_scheme": {
+      "primary": "#D4AF37",
+      "secondary": "#0A1F44",
+      "accent": "#F4D03F"
+    },
+    "layout": "full-width"
+  },
+  "query_fields": [
+    {
+      "id": "name",
+      "label": "Your Name",
+      "type": "text",
+      "placeholder": "Enter your full name",
+      "required": true
+    },
+    {
+      "id": "phone",
+      "label": "Phone Number",
+      "type": "tel",
+      "placeholder": "Enter your phone number",
+      "required": true
+    },
+    {
+      "id": "email",
+      "label": "Email Address",
+      "type": "email",
+      "placeholder": "Enter your email address",
+      "required": false
+    },
+    {
+      "id": "celebrity_type",
+      "label": "Type of Celebrity",
+      "type": "select",
+      "options": [
+        "Actor/Actress",
+        "Singer/Musician",
+        "Sports Personality",
+        "Influencer",
+        "TV Personality",
+        "Other"
+      ],
+      "required": false
+    },
+    {
+      "id": "event_type",
+      "label": "Event Type",
+      "type": "select",
+      "options": [
+        "Corporate Event",
+        "Wedding",
+        "Product Launch",
+        "Concert/Show",
+        "Brand Endorsement",
+        "Other"
+      ],
+      "required": false
+    },
+    {
+      "id": "event_date",
+      "label": "Event Date",
+      "type": "date",
+      "required": false
+    },
+    {
+      "id": "budget",
+      "label": "Budget Range",
+      "type": "select",
+      "options": [
+        "Under ₹5 Lakhs",
+        "₹5-10 Lakhs",
+        "₹10-25 Lakhs",
+        "₹25-50 Lakhs",
+        "Above ₹50 Lakhs"
+      ],
+      "required": false
+    },
+    {
+      "id": "message",
+      "label": "Additional Details",
+      "type": "textarea",
+      "placeholder": "Tell us about your requirements...",
+      "required": false
+    }
+  ],
+  "landing_page": {
+    "template": "branding",
+    "sections": [
+      "hero",
+      "services",
+      "portfolio",
+      "testimonials",
+      "contact"
+    ]
+  },
+  "description": "Professional celebrity management services for events, endorsements, and brand partnerships"
+}
+

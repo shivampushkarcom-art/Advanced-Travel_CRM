@@ -1,0 +1,180 @@
+/**
+ * ATC Floating Query Form Button
+ * Simple blue pill button - no backgrounds, no glassmorphism
+ */
+
+.atc-floating-query-button {
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 20px !important;
+    z-index: 9999999 !important; /* Very high z-index to appear above everything including cursor */
+    display: inline-flex; /* Changed from flex to inline-flex */
+    align-items: center;
+    gap: 0; /* No gap - close button attached to main button */
+    animation: queryButtonSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: auto !important; /* Ensure buttons are clickable */
+}
+
+/* Simple Blue Pill Button - No Backgrounds */
+.atc-floating-query-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 50px; /* Pill shape */
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative; /* For close button positioning */
+    overflow: visible; /* Allow close button to overflow */
+    text-decoration: none;
+    font-family: inherit;
+    /* Simple blue gradient - no backgrounds */
+    background: linear-gradient(135deg, 
+        #667eea 0%, 
+        #764ba2 100%);
+    color: #FFFFFF;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    border: none;
+}
+
+.atc-floating-query-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+    background: linear-gradient(135deg, 
+        #764ba2 0%, 
+        #667eea 100%);
+}
+
+.atc-floating-query-btn:active {
+    transform: translateY(0);
+}
+
+.atc-floating-query-icon {
+    font-size: 20px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.atc-floating-query-text {
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+/* Close Button - Attached to top-right of button */
+.atc-floating-query-close {
+    position: absolute;
+    top: -6px; /* Position on top half, slightly outside */
+    right: -6px; /* Position on right side, slightly outside */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px; /* Smaller size */
+    height: 20px; /* Smaller size */
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 12px; /* Smaller font */
+    line-height: 1;
+    padding: 0;
+    z-index: 10;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.atc-floating-query-close:hover {
+    background: rgba(0, 0, 0, 0.2);
+    color: #000;
+    transform: scale(1.1);
+}
+
+.atc-floating-query-close:active {
+    transform: scale(0.95);
+}
+
+/* Close button is always visible - removed hiding logic */
+
+@keyframes queryButtonSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* Desktop - Ensure proper positioning */
+@media (min-width: 769px) {
+    .atc-floating-query-button {
+        position: fixed !important;
+        bottom: 20px !important;
+        left: 20px !important;
+        z-index: 9999999 !important;
+    }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .atc-floating-query-button {
+        bottom: 15px !important;
+        left: 15px !important;
+        right: auto !important;
+        position: fixed !important;
+        z-index: 9999999 !important;
+    }
+    
+    .atc-floating-query-btn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+    
+    .atc-floating-query-icon {
+        font-size: 18px;
+    }
+    
+    .atc-floating-query-text {
+        font-size: 13px;
+    }
+    
+    .atc-floating-query-close {
+        width: 18px; /* Smaller on mobile */
+        height: 18px; /* Smaller on mobile */
+        font-size: 12px; /* Smaller font on mobile */
+        top: -5px;
+        right: -5px;
+    }
+}
+
+/* Hide on very small screens if needed */
+@media (max-width: 480px) {
+    .atc-floating-query-btn {
+        padding: 12px 20px;
+        border-radius: 40px;
+    }
+    
+    .atc-floating-query-text {
+        display: inline-block;
+        font-size: 12px;
+    }
+}
+
+/* Accessibility */
+.atc-floating-query-btn:focus,
+.atc-floating-query-close:focus {
+    outline: 3px solid rgba(102, 126, 234, 0.5);
+    outline-offset: 3px;
+}
+

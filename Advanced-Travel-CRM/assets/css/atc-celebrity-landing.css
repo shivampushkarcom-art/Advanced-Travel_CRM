@@ -1,0 +1,315 @@
+/**
+ * ATC Celebrity Management Landing Page Styles
+ * Premium branding-focused design - Gold Background + Blue Accents
+ */
+
+.atc-celebrity-landing {
+    width: 100%;
+    min-height: 100vh;
+    background: #FAFBFC;
+}
+
+/* ==================== HERO SECTION ==================== */
+.atc-celebrity-hero {
+    background: #FAFBFC;
+    padding: 100px 20px;
+    text-align: center;
+    color: var(--atc-primary, #1E3A5F);
+    position: relative;
+    overflow: hidden;
+}
+
+.atc-celebrity-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
+    opacity: 0.3;
+}
+
+.atc-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.atc-hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin: 0 0 20px 0;
+    color: var(--atc-primary, #1E3A5F);
+    text-shadow: 2px 2px 4px rgba(30, 58, 95, 0.1);
+}
+
+.atc-hero-subtitle {
+    font-size: 20px;
+    margin: 0 0 40px 0;
+    color: var(--atc-text-dark, #1E293B);
+    line-height: 1.6;
+}
+
+.atc-hero-cta {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.atc-btn-primary,
+.atc-btn-secondary {
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.atc-btn-primary {
+    background: var(--atc-primary, #1E3A5F);
+    color: var(--atc-white, #FFFFFF);
+    border: 2px solid var(--atc-primary, #1E3A5F);
+}
+
+.atc-btn-primary:hover {
+    background: var(--atc-primary-light, #2E4A7F);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(30, 58, 95, 0.4);
+}
+
+.atc-btn-secondary {
+    background: transparent;
+    color: var(--atc-primary, #1E3A5F);
+    border: 2px solid var(--atc-primary, #1E3A5F);
+}
+
+.atc-btn-secondary:hover {
+    background: var(--atc-primary, #1E3A5F);
+    color: var(--atc-white, #FFFFFF);
+    transform: translateY(-2px);
+}
+
+/* ==================== SECTION CONTAINER ==================== */
+.atc-section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.atc-section-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--atc-primary, #1E3A5F);
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
+.atc-section-subtitle {
+    font-size: 18px;
+    color: #64748b;
+    text-align: center;
+    margin: 0 0 50px 0;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ==================== SERVICES SECTION ==================== */
+.atc-celebrity-services {
+    background: #ffffff;
+}
+
+.atc-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.atc-service-item {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(10, 31, 68, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.atc-service-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(212, 175, 55, 0.2);
+    border-color: var(--atc-primary, #D4AF37);
+}
+
+.atc-service-item .atc-service-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.atc-service-item .atc-service-image {
+    margin-bottom: 20px;
+    width: 100%;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.atc-service-item .atc-service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.atc-feature-item .atc-feature-image {
+    margin-bottom: 15px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.atc-feature-item .atc-feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.atc-service-item h3 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--atc-secondary, #0A1F44);
+    margin: 0 0 15px 0;
+}
+
+.atc-service-item p {
+    font-size: 15px;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ==================== WHY CHOOSE US SECTION ==================== */
+.atc-celebrity-why {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+}
+
+.atc-features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.atc-feature-item {
+    background: #ffffff;
+    padding: 35px 25px;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(10, 31, 68, 0.06);
+    border-left: 4px solid var(--atc-primary, #D4AF37);
+    transition: all 0.3s ease;
+}
+
+.atc-feature-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.15);
+}
+
+.atc-feature-item h3 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--atc-secondary, #0A1F44);
+    margin: 0 0 12px 0;
+}
+
+.atc-feature-item p {
+    font-size: 15px;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* ==================== CONTACT SECTION ==================== */
+.atc-celebrity-contact {
+    background: #ffffff;
+}
+
+.atc-contact-form-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Ensure the contact section content is centrally aligned */
+.atc-celebrity-contact .atc-section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.atc-contact-form-wrapper form {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.atc-contact-info {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .atc-celebrity-hero {
+        padding: 60px 20px;
+    }
+    
+    .atc-hero-title {
+        font-size: 32px;
+    }
+    
+    .atc-hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .atc-hero-cta {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .atc-btn-primary,
+    .atc-btn-secondary {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .atc-section-container {
+        padding: 50px 20px;
+    }
+    
+    .atc-section-title {
+        font-size: 28px;
+    }
+    
+    .atc-services-grid,
+    .atc-features-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+

@@ -1,0 +1,532 @@
+/**
+ * ATC Service Manager - Premium Enhanced Styles
+ * Modern, premium UI matching website theme
+ */
+
+.atc-services-wrap {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    padding: 30px;
+    min-height: 100vh;
+}
+
+.atc-services-wrap h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0A1F44;
+    margin: 0 0 10px 0;
+    background: linear-gradient(135deg, #0A1F44 0%, #D4AF37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.atc-services-wrap .description {
+    font-size: 16px;
+    color: #64748b;
+    margin-bottom: 30px;
+}
+
+/* ==================== SERVICES GRID ==================== */
+.atc-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.atc-service-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(10, 31, 68, 0.08);
+    border: 2px solid transparent;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    position: relative;
+    overflow: hidden;
+}
+
+.atc-service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0A1F44, #D4AF37);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.atc-service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(212, 175, 55, 0.15);
+    border-color: #D4AF37;
+}
+
+.atc-service-card:hover::before {
+    opacity: 1;
+}
+
+.atc-service-active {
+    border-left: 4px solid #10b981;
+}
+
+.atc-service-active::before {
+    background: linear-gradient(90deg, #10b981, #D4AF37);
+    opacity: 1;
+}
+
+.atc-service-inactive {
+    border-left: 4px solid #ef4444;
+    opacity: 0.75;
+}
+
+.atc-service-inactive::before {
+    background: linear-gradient(90deg, #ef4444, #D4AF37);
+}
+
+.atc-service-card.atc-service-custom {
+    border-left-color: #6366f1;
+}
+
+.atc-service-card.atc-service-custom::before {
+    background: linear-gradient(90deg, #6366f1, #D4AF37);
+}
+
+/* ==================== SERVICE ICON ==================== */
+.atc-service-icon {
+    font-size: 4rem;
+    text-align: center;
+    line-height: 1;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    transition: transform 0.3s ease;
+}
+
+.atc-service-card:hover .atc-service-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* ==================== SERVICE CONTENT ==================== */
+.atc-service-content h3 {
+    margin: 0 0 12px 0;
+    color: #0A1F44;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.atc-service-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.atc-service-badge {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.atc-badge-custom {
+    background: linear-gradient(135deg, #eef2ff, #c7d2fe);
+    color: #3730a3;
+    border: 1px solid #c7d2fe;
+}
+
+.atc-service-slug {
+    margin: 8px 0;
+    color: #64748b;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.atc-service-slug code {
+    background: #f1f5f9;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.85em;
+    color: #0A1F44;
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
+}
+
+.atc-service-status {
+    margin: 12px 0;
+}
+
+.atc-status-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 13px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.atc-status-active {
+    background: linear-gradient(135deg, #d1fae5, #a7f3d0);
+    color: #065f46;
+    border: 1px solid #10b981;
+}
+
+.atc-status-inactive {
+    background: linear-gradient(135deg, #fee2e2, #fecaca);
+    color: #991b1b;
+    border: 1px solid #ef4444;
+}
+
+/* ==================== SERVICE ACTIONS ==================== */
+.atc-service-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 18px;
+    border-top: 2px solid #f1f5f9;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.atc-service-actions .button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.atc-service-actions .button-primary {
+    background: linear-gradient(135deg, #0A1F44, #1E3A5F);
+    color: #ffffff;
+    border-color: #0A1F44;
+}
+
+.atc-service-actions .button-primary:hover {
+    background: linear-gradient(135deg, #D4AF37, #F4D03F);
+    border-color: #D4AF37;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+.atc-service-actions .button-secondary {
+    background: #f1f5f9;
+    color: #64748b;
+    border-color: #cbd5e1;
+}
+
+.atc-service-actions .button-secondary:hover {
+    background: #e2e8f0;
+    color: #475569;
+    transform: translateY(-2px);
+}
+
+.atc-service-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.atc-config-status {
+    font-size: 0.85rem;
+    color: #10b981;
+    font-weight: 600;
+    padding: 4px 10px;
+    background: #d1fae5;
+    border-radius: 12px;
+}
+
+.atc-config-missing {
+    color: #f59e0b;
+    background: #fef3c7;
+}
+
+.button-link-delete {
+    color: #dc2626;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.button-link-delete:hover,
+.button-link-delete:focus {
+    color: #991b1b;
+    background: #fee2e2;
+}
+
+/* ==================== ADD SERVICE FORM ==================== */
+.atc-service-add {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(10, 31, 68, 0.08);
+    margin-top: 30px;
+    border: 2px solid #f1f5f9;
+}
+
+.atc-service-add h2 {
+    color: #0A1F44;
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.atc-service-add > p {
+    color: #64748b;
+    margin: 0 0 25px 0;
+    font-size: 15px;
+}
+
+.atc-service-form .atc-form-row {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.atc-service-form label {
+    font-weight: 600;
+    color: #0A1F44;
+    font-size: 14px;
+}
+
+.atc-service-form input[type="text"] {
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background: #ffffff;
+}
+
+.atc-service-form input[type="text"]:focus {
+    outline: none;
+    border-color: #D4AF37;
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+    background: #ffffff;
+}
+
+.atc-service-form .description {
+    margin: 0;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.atc-form-actions {
+    margin-top: 20px;
+}
+
+.atc-form-actions .button-primary {
+    background: linear-gradient(135deg, #0A1F44, #1E3A5F);
+    color: #ffffff;
+    border: 2px solid #0A1F44;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.atc-form-actions .button-primary:hover {
+    background: linear-gradient(135deg, #D4AF37, #F4D03F);
+    border-color: #D4AF37;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+}
+
+/* ==================== INFO SECTION ==================== */
+.atc-services-info {
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(10, 31, 68, 0.08);
+    margin-top: 30px;
+    border: 2px solid #f1f5f9;
+}
+
+.atc-services-info h2 {
+    color: #0A1F44;
+    margin: 0 0 20px 0;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.atc-services-info h3 {
+    color: #1e40af;
+    margin: 30px 0 15px 0;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.atc-services-info ol,
+.atc-services-info ul {
+    line-height: 2;
+    color: #475569;
+    margin: 15px 0;
+    padding-left: 25px;
+}
+
+.atc-services-info li {
+    margin-bottom: 10px;
+}
+
+.atc-services-info pre {
+    background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+    padding: 18px;
+    border-radius: 10px;
+    border-left: 4px solid #D4AF37;
+    overflow-x: auto;
+    margin: 15px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.atc-services-info code {
+    background: #f1f5f9;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    color: #0ea5e9;
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
+}
+
+.atc-services-info table {
+    margin-top: 15px;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+    .atc-services-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .atc-services-wrap {
+        padding: 20px 15px;
+    }
+    
+    .atc-services-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .atc-service-add,
+    .atc-services-info {
+        padding: 25px 20px;
+    }
+    
+    .atc-service-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .atc-service-actions .button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes atc-service-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.atc-service-card {
+    animation: atc-service-fade-in 0.5s ease-out backwards;
+}
+
+.atc-service-card:nth-child(1) { animation-delay: 0.1s; }
+.atc-service-card:nth-child(2) { animation-delay: 0.2s; }
+.atc-service-card:nth-child(3) { animation-delay: 0.3s; }
+.atc-service-card:nth-child(4) { animation-delay: 0.4s; }
+.atc-service-card:nth-child(5) { animation-delay: 0.5s; }
+.atc-service-card:nth-child(6) { animation-delay: 0.6s; }
+.atc-service-card:nth-child(7) { animation-delay: 0.7s; }
+.atc-service-card:nth-child(8) { animation-delay: 0.8s; }
+.atc-service-card:nth-child(9) { animation-delay: 0.9s; }
+
+/* ==================== MODAL ==================== */
+.atc-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.atc-modal-content {
+    background: #ffffff;
+    border-radius: 16px;
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.atc-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.atc-modal-header h2 {
+    margin: 0;
+    color: #0A1F44;
+    font-size: 24px;
+}
+
+.atc-modal-close {
+    background: none;
+    border: none;
+    font-size: 32px;
+    color: #64748b;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.atc-modal-close:hover {
+    color: #0A1F44;
+}
+
+.atc-modal-content .atc-service-form {
+    padding: 30px;
+}
+
+.atc-edit-service-btn {
+    margin-left: 10px;
+}
+

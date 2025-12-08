@@ -1,0 +1,580 @@
+/**
+ * ATC Hero Slider - Premium Hero Banner
+ * Modern, responsive hero slider with fixed aspect ratios and premium design
+ */
+
+.atc-hero-slider-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    background: #000;
+    /* Default aspect ratio for desktop: 16:9 */
+    aspect-ratio: 16 / 9;
+    min-height: 400px;
+    max-height: 600px;
+}
+
+/* Mobile: 3:4 aspect ratio (portrait) */
+@media (max-width: 768px) {
+    .atc-hero-slider-wrapper {
+        aspect-ratio: 3 / 4;
+        border-radius: 16px;
+        min-height: 400px;
+        max-height: none;
+    }
+}
+
+/* Tablet: Slightly taller than desktop */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .atc-hero-slider-wrapper {
+        aspect-ratio: 16 / 10;
+    }
+}
+
+/* Override with custom height if provided (only on desktop/tablet) */
+@media (min-width: 769px) {
+    .atc-hero-slider-wrapper[style*="--slider-height"] {
+        aspect-ratio: auto;
+        height: var(--slider-height, 400px);
+    }
+}
+
+/* On mobile, always use 3:4 aspect ratio for best visual results */
+@media (max-width: 768px) {
+    .atc-hero-slider-wrapper[style*="--slider-height"] {
+        /* On mobile, enforce 3:4 aspect ratio for consistency */
+        aspect-ratio: 3 / 4 !important;
+        height: auto !important;
+    }
+}
+
+.atc-hero-slider-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.atc-hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    border-radius: inherit;
+}
+
+.atc-hero-slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.atc-slide-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    border-radius: inherit;
+}
+
+.atc-slide-media {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: inherit;
+}
+
+.atc-slide-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    border-radius: inherit;
+}
+
+/* Video Container - Mobile First Responsive */
+.atc-slide-video {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: inherit;
+    background: #000;
+}
+
+/* HTML5 Video - Responsive */
+.atc-slide-video .atc-html5-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: inherit;
+}
+
+/* YouTube/Vimeo Iframe - Responsive */
+.atc-slide-video .atc-youtube-iframe,
+.atc-slide-video .atc-vimeo-iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    border: none;
+    border-radius: inherit;
+}
+
+/* Mobile: Ensure videos maintain aspect ratio */
+@media (max-width: 768px) {
+    .atc-slide-video .atc-youtube-iframe,
+    .atc-slide-video .atc-vimeo-iframe {
+        width: 100vw;
+        height: 133.33vw; /* 3:4 aspect ratio for mobile */
+        min-width: 100vw;
+        min-height: 133.33vw;
+    }
+}
+
+/* Tablet: 16:10 aspect ratio */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .atc-slide-video .atc-youtube-iframe,
+    .atc-slide-video .atc-vimeo-iframe {
+        width: 100vw;
+        height: 62.5vw; /* 16:10 aspect ratio */
+        min-width: 100vw;
+        min-height: 62.5vw;
+    }
+}
+
+/* Desktop: 16:9 aspect ratio */
+@media (min-width: 1025px) {
+    .atc-slide-video .atc-youtube-iframe,
+    .atc-slide-video .atc-vimeo-iframe {
+        width: 100%;
+        height: 56.25vw; /* 16:9 aspect ratio */
+        min-width: 100%;
+        min-height: 56.25vw;
+    }
+}
+
+.atc-slide-image::before,
+.atc-slide-video::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: 1;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+.atc-slide-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: inherit;
+}
+
+.atc-hero-slide:hover .atc-slide-image img {
+    transform: scale(1.08);
+}
+
+.atc-slide-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 50px 40px 40px;
+    color: #ffffff;
+    z-index: 3;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.5) 60%, transparent 100%);
+    border-radius: 0 0 20px 20px;
+    /* Ensure content is always visible and properly positioned */
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+@media (max-width: 768px) {
+    .atc-slide-content {
+        padding: 35px 25px 30px;
+        min-height: 160px;
+        border-radius: 0 0 16px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .atc-slide-content {
+        padding: 30px 20px 25px;
+        min-height: 140px;
+    }
+}
+
+/* Premium Typography - Always visible with strong contrast */
+.atc-slide-content {
+    --text-color: #ffffff; /* Default white */
+}
+
+.atc-slide-title {
+    font-size: clamp(24px, 4vw, 42px);
+    font-weight: 800;
+    margin: 0 0 12px 0;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 16px rgba(0, 0, 0, 0.6);
+    line-height: 1.2;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    letter-spacing: -0.8px;
+    /* Ensure title is always visible */
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .atc-slide-title {
+        font-size: clamp(20px, 5vw, 28px);
+        margin-bottom: 10px;
+        letter-spacing: -0.5px;
+    }
+}
+
+.atc-slide-description {
+    font-size: clamp(16px, 2.5vw, 20px);
+    margin: 0 0 20px 0;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8), 0 2px 12px rgba(0, 0, 0, 0.6);
+    line-height: 1.5;
+    opacity: 0.98;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 400;
+    /* Ensure description is always visible */
+    position: relative;
+    z-index: 2;
+    max-width: 90%;
+}
+
+@media (max-width: 768px) {
+    .atc-slide-description {
+        font-size: clamp(14px, 3vw, 18px);
+        margin-bottom: 16px;
+        max-width: 100%;
+    }
+}
+
+.atc-slide-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 32px;
+    background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 100%);
+    color: #0A1F44;
+    font-weight: 700;
+    font-size: clamp(14px, 2vw, 17px);
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.5), 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    /* Ensure button is always visible */
+    margin-top: auto;
+}
+
+.atc-slide-button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.7), 0 4px 12px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #F4D03F 0%, #FFE55C 100%);
+}
+
+.atc-slide-link:hover .atc-slide-button {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.7), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .atc-slide-button {
+        padding: 12px 28px;
+        font-size: clamp(13px, 3vw, 16px);
+    }
+}
+
+/* Premium Dot Navigation */
+.atc-slider-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 15;
+    padding: 12px 16px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 50px;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+    .atc-slider-dots {
+        bottom: 20px;
+        padding: 10px 14px;
+        gap: 10px;
+    }
+}
+
+.atc-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    position: relative;
+}
+
+.atc-dot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.atc-dot:hover {
+    background: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 1);
+    transform: scale(1.3);
+}
+
+.atc-dot:hover::before {
+    width: 20px;
+    height: 20px;
+}
+
+.atc-dot.active {
+    background: #D4AF37;
+    border-color: #D4AF37;
+    width: 32px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.6);
+}
+
+.atc-dot.active::before {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .atc-dot {
+        width: 8px;
+        height: 8px;
+        border-width: 1.5px;
+    }
+    
+    .atc-dot.active {
+        width: 26px;
+    }
+}
+
+/* Premium Arrow Navigation */
+.atc-slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    font-size: 28px;
+    font-weight: 700;
+    color: #0A1F44;
+    cursor: pointer;
+    z-index: 15;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25), 0 2px 8px rgba(0, 0, 0, 0.15);
+    outline: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    line-height: 1;
+}
+
+.atc-slider-arrow:hover {
+    background: #D4AF37;
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 0 6px 24px rgba(212, 175, 55, 0.5), 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-color: #D4AF37;
+}
+
+.atc-slider-arrow:active {
+    transform: translateY(-50%) scale(1.05);
+}
+
+.atc-slider-prev {
+    left: 24px;
+}
+
+.atc-slider-next {
+    right: 24px;
+}
+
+@media (max-width: 768px) {
+    .atc-slider-arrow {
+        width: 44px;
+        height: 44px;
+        font-size: 22px;
+    }
+    
+    .atc-slider-prev {
+        left: 12px;
+    }
+    
+    .atc-slider-next {
+        right: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .atc-slider-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .atc-slider-prev {
+        left: 8px;
+    }
+    
+    .atc-slider-next {
+        right: 8px;
+    }
+}
+
+/* Empty State */
+.atc-hero-slider-empty {
+    padding: 40px 20px;
+    text-align: center;
+    background: #f9f9f9;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    color: #666;
+}
+
+/* Additional Premium Enhancements */
+.atc-hero-slider-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* Smooth loading state */
+.atc-hero-slide:not(.active) .atc-slide-image img {
+    opacity: 0;
+}
+
+.atc-hero-slide.active .atc-slide-image img {
+    opacity: 1;
+    animation: fadeInScale 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Content fade-in animation */
+.atc-hero-slide.active .atc-slide-content {
+    animation: slideUpFade 0.8s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both;
+}
+
+@keyframes slideUpFade {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ensure images maintain aspect ratio on all devices */
+.atc-slide-image {
+    position: relative;
+}
+
+.atc-slide-image img {
+    min-height: 100%;
+    min-width: 100%;
+}
+
+/* Focus states for accessibility */
+.atc-slider-arrow:focus,
+.atc-dot:focus {
+    outline: 3px solid rgba(212, 175, 55, 0.6);
+    outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .atc-hero-slide,
+    .atc-slide-image img,
+    .atc-slide-button,
+    .atc-slider-arrow,
+    .atc-dot {
+        transition: none;
+        animation: none;
+    }
+    
+    .atc-hero-slide:hover .atc-slide-image img {
+        transform: none;
+    }
+}
+

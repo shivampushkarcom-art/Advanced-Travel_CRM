@@ -1,0 +1,242 @@
+{
+  "label": "Hotels",
+  "icon": "building",
+  "theme": {
+    "package_details_style": "booking",
+    "color_scheme": {
+      "primary": "#003580",
+      "secondary": "#006ce4",
+      "accent": "#ffb700"
+    },
+    "layout": "two-column"
+  },
+  "search_fields": [
+    {
+      "id": "destination",
+      "label": "Destination",
+      "type": "text",
+      "placeholder": "Enter city or hotel name",
+      "required": true
+    },
+    {
+      "id": "checkin",
+      "label": "Check-in Date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "id": "checkout",
+      "label": "Check-out Date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "id": "guests",
+      "label": "Guests",
+      "type": "number",
+      "min": 1,
+      "default": 1
+    },
+    {
+      "id": "rooms",
+      "label": "Rooms",
+      "type": "number",
+      "min": 1,
+      "default": 1
+    }
+  ],
+  "booking_fields": [
+    {
+      "id": "name",
+      "label": "Full Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "email",
+      "label": "Email Address",
+      "type": "email",
+      "required": true
+    },
+    {
+      "id": "phone",
+      "label": "Phone Number",
+      "type": "tel",
+      "required": true
+    },
+    {
+      "id": "room_type",
+      "label": "Room Type",
+      "type": "select",
+      "options": ["Standard", "Deluxe", "Suite", "Presidential"],
+      "default": "Standard"
+    },
+    {
+      "id": "adults",
+      "label": "Adults",
+      "type": "number",
+      "min": 1,
+      "default": 1
+    },
+    {
+      "id": "children",
+      "label": "Children",
+      "type": "number",
+      "min": 0,
+      "default": 0
+    },
+    {
+      "id": "special_requests",
+      "label": "Special Requests",
+      "type": "textarea",
+      "placeholder": "Any special requests (e.g., late check-in, extra bed)"
+    }
+  ],
+  "package_fields": [
+    {
+      "id": "hotel_name",
+      "label": "Hotel Name",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "location",
+      "label": "Location",
+      "type": "text",
+      "required": true,
+      "placeholder": "City, Area, Landmark"
+    },
+    {
+      "id": "star_rating",
+      "label": "Star Rating",
+      "type": "select",
+      "options": ["3 Star", "4 Star", "5 Star", "Luxury", "Boutique"],
+      "required": true
+    },
+    {
+      "id": "room_types",
+      "label": "Available Room Types",
+      "type": "textarea",
+      "placeholder": "Standard, Deluxe, Suite (one per line)"
+    },
+    {
+      "id": "amenities",
+      "label": "Amenities",
+      "type": "textarea",
+      "placeholder": "WiFi, Pool, Gym, Spa, Restaurant (one per line)"
+    },
+    {
+      "id": "check_in_time",
+      "label": "Check-in Time",
+      "type": "text",
+      "placeholder": "e.g., 14:00 (2:00 PM)"
+    },
+    {
+      "id": "check_out_time",
+      "label": "Check-out Time",
+      "type": "text",
+      "placeholder": "e.g., 11:00 (11:00 AM)"
+    },
+    {
+      "id": "cancellation_policy",
+      "label": "Cancellation Policy",
+      "type": "textarea",
+      "placeholder": "Cancellation terms and conditions"
+    },
+    {
+      "id": "nearby_attractions",
+      "label": "Nearby Attractions",
+      "type": "textarea",
+      "placeholder": "Popular attractions near the hotel"
+    },
+    {
+      "id": "distance_from_airport",
+      "label": "Distance from Airport",
+      "type": "text",
+      "placeholder": "e.g., 15 km"
+    },
+    {
+      "id": "distance_from_railway",
+      "label": "Distance from Railway Station",
+      "type": "text",
+      "placeholder": "e.g., 5 km"
+    }
+  ],
+  "query_fields": [
+    {
+      "id": "check_in_date",
+      "label": "Check-in Date",
+      "type": "date",
+      "section": "service_specific",
+      "required": true
+    },
+    {
+      "id": "check_out_date",
+      "label": "Check-out Date",
+      "type": "date",
+      "section": "service_specific",
+      "required": true
+    },
+    {
+      "id": "adults",
+      "label": "Number of Adults",
+      "type": "number",
+      "section": "service_specific",
+      "min": 1,
+      "default": 1,
+      "required": true
+    },
+    {
+      "id": "children",
+      "label": "Number of Children",
+      "type": "number",
+      "section": "service_specific",
+      "min": 0,
+      "default": 0
+    },
+    {
+      "id": "rooms",
+      "label": "Number of Rooms",
+      "type": "number",
+      "section": "service_specific",
+      "min": 1,
+      "default": 1,
+      "required": true
+    },
+    {
+      "id": "room_type",
+      "label": "Preferred Room Type",
+      "type": "select",
+      "section": "service_specific",
+      "options": ["Standard", "Deluxe", "Suite", "Presidential"],
+      "default": "Standard"
+    },
+    {
+      "id": "budget_per_night",
+      "label": "Budget per Night",
+      "type": "text",
+      "section": "service_specific",
+      "placeholder": "e.g., ₹3,000 - ₹5,000"
+    },
+    {
+      "id": "special_requests",
+      "label": "Special Requests",
+      "type": "textarea",
+      "section": "additional",
+      "placeholder": "Late check-in, extra bed, room preferences, etc."
+    },
+    {
+      "id": "purpose_of_visit",
+      "label": "Purpose of Visit",
+      "type": "select",
+      "section": "additional",
+      "options": ["Business", "Leisure", "Honeymoon", "Family", "Solo"],
+      "default": "Leisure"
+    }
+  ],
+  "pricing": {
+    "adult_rate": 3500,
+    "child_discount": 0.5,
+    "currency": "INR"
+  }
+}

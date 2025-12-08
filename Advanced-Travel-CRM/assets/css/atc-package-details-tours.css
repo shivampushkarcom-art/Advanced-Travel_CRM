@@ -1,0 +1,1682 @@
+/**
+ * MakeMyTrip-Style Package Details Page for Tours
+ * Premium, Enterprise-Level Design
+ */
+
+/* ============================================
+   MAIN CONTAINER & LAYOUT
+   ============================================ */
+.atc-package-details-tours {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+    min-height: 100vh;
+}
+
+.atc-package-details-tours-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+
+/* Query Section */
+.atc-tours-query-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fb 100%);
+    border-radius: 12px;
+    padding: 30px;
+    margin-top: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.atc-query-section-subtitle {
+    font-size: 16px;
+    color: #6b7280;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.atc-tours-query-form-wrapper {
+    margin-top: 20px;
+}
+
+/* Hide query form wrapper button (form is already visible inline) */
+.atc-tours-query-section .atc-query-trigger-wrapper,
+.atc-tours-query-section .atc-package-query-wrapper .atc-query-trigger-wrapper {
+    display: none !important;
+}
+
+/* Style the inline query form */
+.atc-tours-query-section .atc-package-query-form {
+    margin-top: 0;
+    display: block !important;
+}
+
+/* Ensure form wrapper is visible */
+.atc-tours-query-section .atc-package-query-wrapper {
+    display: block !important;
+}
+
+/* Style query form fields */
+.atc-tours-query-section .atc-query-form-fields {
+    margin-bottom: 20px;
+}
+
+.atc-tours-query-section .atc-premium-form-group {
+    margin-bottom: 20px;
+}
+
+.atc-tours-query-section .atc-premium-form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #374151;
+}
+
+.atc-tours-query-section .atc-premium-form-group input,
+.atc-tours-query-section .atc-premium-form-group textarea,
+.atc-tours-query-section .atc-premium-form-group select {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.atc-tours-query-section .atc-premium-form-group input:focus,
+.atc-tours-query-section .atc-premium-form-group textarea:focus,
+.atc-tours-query-section .atc-premium-form-group select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+}
+
+.atc-tours-query-section .atc-btn-premium-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.atc-tours-query-section .atc-btn-premium-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+/* Responsive query section */
+@media (max-width: 768px) {
+    .atc-tours-query-section {
+        padding: 20px;
+    }
+}
+
+/* ============================================
+   HERO IMAGE SECTION (MakeMyTrip Style)
+   ============================================ */
+.atc-tours-hero {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.atc-tours-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.atc-tours-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.6));
+}
+
+.atc-tours-hero-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px;
+    color: white;
+    z-index: 2;
+}
+
+.atc-tours-hero-title {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.atc-tours-hero-subtitle {
+    font-size: 20px;
+    opacity: 0.95;
+    margin-bottom: 20px;
+}
+
+.atc-tours-hero-meta {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    font-size: 16px;
+}
+
+.atc-tours-hero-meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ============================================
+   IMAGE GALLERY (MakeMyTrip Style)
+   ============================================ */
+.atc-tours-gallery {
+    background: linear-gradient(to bottom, #ffffff 0%, #fafbfc 100%);
+    padding: 30px;
+    margin-top: -50px;
+    position: relative;
+    z-index: 10;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.atc-tours-gallery-main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+    height: 400px;
+}
+
+.atc-tours-gallery-primary {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.atc-tours-gallery-primary:hover {
+    transform: scale(1.02);
+}
+
+.atc-tours-gallery-primary img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.atc-tours-gallery-secondary {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+}
+
+.atc-tours-gallery-secondary-item {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.atc-tours-gallery-secondary-item:hover {
+    transform: scale(1.05);
+}
+
+.atc-tours-gallery-secondary-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.atc-tours-gallery-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+}
+
+.atc-tours-gallery-thumb {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+}
+
+.atc-tours-gallery-thumb:hover {
+    border-color: #ff6b35;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+}
+
+.atc-tours-gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.atc-tours-gallery-view-all {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 5;
+    backdrop-filter: blur(10px);
+}
+
+/* ============================================
+   MAIN CONTENT LAYOUT
+   ============================================ */
+.atc-tours-content-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 30px;
+    padding: 30px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+}
+
+/* ============================================
+   LEFT COLUMN - MAIN CONTENT
+   ============================================ */
+.atc-tours-main-content {
+    background: linear-gradient(to bottom, #ffffff 0%, #f9fafb 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.atc-tours-section {
+    padding: 30px;
+    border-bottom: 1px solid #e8ecf0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 100%);
+}
+
+.atc-tours-section:nth-child(even) {
+    background: linear-gradient(to right, rgba(248, 250, 252, 0.8) 0%, rgba(248, 250, 252, 0.4) 100%);
+}
+
+.atc-tours-section:last-child {
+    border-bottom: none;
+}
+
+.atc-tours-section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.atc-tours-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    margin-top: 15px;
+}
+
+.atc-tours-description p {
+    margin-bottom: 15px;
+}
+
+.atc-tours-description p:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   PRICING CARD (Sticky Right Sidebar)
+   ============================================ */
+.atc-tours-pricing-card {
+    position: sticky;
+    top: 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fb 100%);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    border: 1px solid rgba(102, 126, 234, 0.15);
+}
+
+.atc-tours-price-header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 20px;
+}
+
+.atc-tours-price-label {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.atc-tours-price-main {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.atc-tours-price-original {
+    font-size: 20px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+.atc-tours-price-current {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.atc-tours-price-currency {
+    font-size: 20px;
+    color: #666;
+}
+
+.atc-tours-price-per {
+    font-size: 14px;
+    color: #666;
+    text-align: center;
+}
+
+.atc-tours-discount-badge {
+    display: inline-block;
+    background: #ff6b35;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.atc-tours-booking-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.atc-tours-booking-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+}
+
+.atc-tours-booking-btn:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   HIGHLIGHTS SECTION
+   ============================================ */
+.atc-tours-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.atc-tours-highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.atc-tours-highlight-icon {
+    font-size: 24px;
+}
+
+.atc-tours-highlight-text {
+    font-size: 14px;
+    color: #333;
+}
+
+/* ============================================
+   ITINERARY SECTION (Day-wise)
+   ============================================ */
+.atc-tours-itinerary {
+    margin-top: 20px;
+}
+
+.atc-tours-itinerary-day {
+    border-left: 3px solid #ff6b35;
+    padding-left: 20px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.atc-tours-itinerary-day::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 0;
+    width: 13px;
+    height: 13px;
+    background: #ff6b35;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+.atc-tours-itinerary-day-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.atc-tours-itinerary-day-content {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #555;
+}
+
+.atc-tours-itinerary-day-activities {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.atc-tours-activity-tag {
+    padding: 6px 12px;
+    background: #f0f0f0;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #666;
+}
+
+/* ============================================
+   INCLUSIONS & EXCLUSIONS
+   ============================================ */
+.atc-tours-inclusions-exclusions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.atc-tours-inclusions,
+.atc-tours-exclusions {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.atc-tours-inclusions h3,
+.atc-tours-exclusions h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.atc-tours-inclusions ul,
+.atc-tours-exclusions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.atc-tours-inclusions li,
+.atc-tours-exclusions li {
+    padding: 8px 0;
+    font-size: 14px;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.atc-tours-inclusions li::before {
+    content: '✓';
+    color: #28a745;
+    font-weight: 700;
+}
+
+.atc-tours-exclusions li::before {
+    content: '✗';
+    color: #dc3545;
+    font-weight: 700;
+}
+
+/* ============================================
+   TAGS & CATEGORIES
+   ============================================ */
+.atc-tours-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.atc-tours-tag {
+    padding: 6px 14px;
+    background: #e3f2fd;
+    color: #1976d2;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.atc-tours-category-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+    .atc-tours-content-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .atc-tours-pricing-card {
+        position: relative;
+        top: 0;
+    }
+
+    .atc-tours-gallery-main {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .atc-tours-gallery-secondary {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .atc-tours-hero {
+        height: 350px;
+    }
+
+    .atc-tours-hero-title {
+        font-size: 28px;
+    }
+
+    .atc-tours-hero-subtitle {
+        font-size: 16px;
+    }
+
+    .atc-tours-gallery {
+        margin-top: -30px;
+        padding: 20px;
+    }
+
+    .atc-tours-gallery-thumbnails {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .atc-tours-inclusions-exclusions {
+        grid-template-columns: 1fr;
+    }
+
+    .atc-tours-content-wrapper {
+        padding: 15px;
+    }
+
+    .atc-tours-section {
+        padding: 20px;
+    }
+}
+
+/* ============================================
+   LOADING & ERROR STATES
+   ============================================ */
+.atc-tours-loading {
+    text-align: center;
+    padding: 100px 20px;
+    color: #666;
+}
+
+.atc-tours-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f0f0f0;
+    border-top-color: #ff6b35;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.atc-tours-error {
+    text-align: center;
+    padding: 100px 20px;
+    color: #dc3545;
+}
+
+.atc-tours-error-icon {
+    font-size: 64px;
+    margin-bottom: 20px;
+}
+
+/* ============================================
+   BREADCRUMB NAVIGATION
+   ============================================ */
+.atc-tours-breadcrumb {
+    background: white;
+    padding: 15px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.atc-tours-breadcrumb-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.atc-tours-breadcrumb-inner a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.atc-tours-breadcrumb-inner a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+.atc-breadcrumb-separator {
+    color: #999;
+}
+
+.atc-breadcrumb-current {
+    color: #666;
+    font-weight: 500;
+}
+
+/* ============================================
+   ENHANCED HERO SECTION
+   ============================================ */
+.atc-tours-hero-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+}
+
+.atc-tours-hero-left {
+    flex: 1;
+}
+
+.atc-tours-hero-share {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.atc-share-label {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 5px;
+}
+
+.atc-share-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.atc-share-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.atc-share-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.atc-meta-icon {
+    font-size: 18px;
+}
+
+.atc-tours-gallery-view-all {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.atc-gallery-count {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.atc-gallery-image {
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.atc-gallery-image:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+.atc-gallery-image.atc-gallery-active {
+    border: 3px solid #667eea;
+    border-radius: 8px;
+}
+
+/* ============================================
+   EXPANDABLE ITINERARY
+   ============================================ */
+.atc-itinerary-day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.atc-itinerary-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    color: #667eea;
+    transition: transform 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.atc-itinerary-toggle:hover {
+    transform: scale(1.1);
+}
+
+.atc-itinerary-toggle[aria-expanded="false"] .atc-toggle-icon {
+    transform: rotate(-90deg);
+}
+
+.atc-tours-itinerary-day-content {
+    max-height: 1000px;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, margin 0.3s ease-out, padding 0.3s ease-out;
+    margin-bottom: 15px;
+}
+
+.atc-tours-itinerary-day[aria-expanded="false"] .atc-tours-itinerary-day-content {
+    max-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden;
+}
+
+/* ============================================
+   REVIEWS & RATINGS
+   ============================================ */
+.atc-tours-reviews {
+    margin-top: 20px;
+}
+
+.atc-reviews-summary {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.atc-reviews-rating {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.atc-rating-number {
+    font-size: 48px;
+    font-weight: 700;
+    color: #667eea;
+}
+
+.atc-rating-stars {
+    display: flex;
+    gap: 5px;
+}
+
+.atc-star {
+    font-size: 24px;
+    color: #ddd;
+    transition: color 0.2s;
+}
+
+.atc-star.atc-star-filled {
+    color: #ffc107;
+}
+
+.atc-reviews-count {
+    font-size: 16px;
+    color: #666;
+}
+
+.atc-no-reviews {
+    padding: 20px;
+    text-align: center;
+    color: #999;
+    font-style: italic;
+}
+
+/* ============================================
+   MAP SECTION
+   ============================================ */
+.atc-tours-map {
+    margin-top: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.atc-map-placeholder {
+    position: relative;
+    background: #f1f5f9;
+    min-height: 400px;
+}
+
+.atc-map-placeholder iframe {
+    width: 100%;
+    height: 400px;
+    border: none;
+    display: block;
+}
+
+/* ============================================
+   FAQ SECTION
+   ============================================ */
+.atc-tours-faq {
+    margin-top: 20px;
+}
+
+.atc-faq-item {
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.atc-faq-item:hover {
+    border-color: #667eea;
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+}
+
+.atc-faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    cursor: pointer;
+    background: #f8f9fa;
+    font-weight: 600;
+    font-size: 16px;
+    color: #1a1a1a;
+}
+
+.atc-faq-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #667eea;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s;
+    flex-shrink: 0;
+}
+
+.atc-faq-toggle:hover {
+    background: rgba(102, 126, 234, 0.1);
+    transform: scale(1.1);
+}
+
+.atc-faq-item.atc-faq-expanded .atc-faq-toggle {
+    background: rgba(102, 126, 234, 0.1);
+}
+
+.atc-faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    padding: 0 20px;
+}
+
+.atc-faq-item.atc-faq-expanded .atc-faq-answer {
+    max-height: 500px;
+    padding: 20px;
+}
+
+.atc-faq-answer p {
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* ============================================
+   TERMS & CONDITIONS / CANCELLATION POLICY
+   ============================================ */
+.atc-tours-terms,
+.atc-tours-cancellation {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    line-height: 1.8;
+    color: #555;
+}
+
+.atc-tours-terms p,
+.atc-tours-cancellation p {
+    margin-bottom: 15px;
+}
+
+/* ============================================
+   TRUST BADGES
+   ============================================ */
+.atc-tours-trust-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.atc-trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.atc-badge-icon {
+    font-size: 18px;
+}
+
+/* ============================================
+   ENHANCED PRICING CARD (Glassmorphism)
+   ============================================ */
+.atc-tours-pricing-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px) saturate(180%) brightness(1.05);
+    -webkit-backdrop-filter: blur(20px) saturate(180%) brightness(1.05);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
+        0 2px 8px rgba(102, 126, 234, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.atc-tours-pricing-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.atc-tours-booking-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.atc-tours-booking-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.atc-tours-booking-btn:hover::before {
+    left: 100%;
+}
+
+.atc-tours-booking-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.atc-tours-query-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 12px;
+    background: white;
+    border: 2px solid #667eea;
+    color: #667eea;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.atc-tours-query-btn:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* ============================================
+   SIMILAR PACKAGES
+   ============================================ */
+.atc-tours-similar-packages {
+    background: #f5f5f5;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.atc-similar-packages-grid {
+    margin-top: 20px;
+}
+
+.atc-similar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.atc-similar-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.atc-similar-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.atc-similar-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: #f1f5f9;
+    position: relative;
+}
+
+.atc-similar-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.atc-similar-card:hover .atc-similar-image img {
+    transform: scale(1.05);
+}
+
+.atc-similar-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: #94a3b8;
+}
+
+.atc-similar-content {
+    padding: 20px;
+}
+
+.atc-similar-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.atc-similar-meta {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.atc-similar-price {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.atc-similar-price-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #667eea;
+}
+
+.atc-similar-price-label {
+    font-size: 12px;
+    color: #999;
+}
+
+.atc-similar-view-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+    text-align: center;
+    width: 100%;
+}
+
+.atc-similar-view-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.atc-no-similar {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+    font-style: italic;
+}
+
+/* ============================================
+   MOBILE STICKY BOOKING BAR
+   ============================================ */
+.atc-tours-mobile-booking-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    padding: 15px 20px;
+    z-index: 1000;
+    border-top: 2px solid #e5e5e5;
+}
+
+.atc-mobile-booking-price {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.atc-mobile-price-label {
+    font-size: 12px;
+    color: #666;
+}
+
+.atc-mobile-price-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: #667eea;
+}
+
+.atc-mobile-booking-btn {
+    flex: 1;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.atc-mobile-booking-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* ============================================
+   LIGHTBOX STYLES
+   ============================================ */
+.atc-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.atc-lightbox-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.atc-lightbox-container {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.atc-lightbox-image-container {
+    position: relative;
+    max-width: 100%;
+    max-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.atc-lightbox-image-container.atc-loading {
+    min-height: 400px;
+}
+
+#atc-lightbox-image {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.atc-lightbox-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.atc-lightbox-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.atc-lightbox-close,
+.atc-lightbox-prev,
+.atc-lightbox-next {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    z-index: 2;
+}
+
+.atc-lightbox-close {
+    top: 20px;
+    right: 20px;
+}
+
+.atc-lightbox-prev {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.atc-lightbox-next {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.atc-lightbox-close:hover,
+.atc-lightbox-prev:hover,
+.atc-lightbox-next:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.atc-lightbox-close:hover {
+    transform: scale(1.1);
+}
+
+.atc-lightbox-info {
+    margin-top: 20px;
+    color: white;
+    text-align: center;
+}
+
+.atc-lightbox-counter {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.atc-lightbox-thumbnails {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.atc-lightbox-thumb {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 3px solid transparent;
+    transition: all 0.3s;
+    flex-shrink: 0;
+}
+
+.atc-lightbox-thumb:hover {
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: scale(1.1);
+}
+
+.atc-lightbox-thumb.atc-lightbox-thumb-active {
+    border-color: white;
+}
+
+.atc-lightbox-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.atc-lightbox-error {
+    color: white;
+    padding: 40px;
+    text-align: center;
+    font-size: 18px;
+}
+
+body.atc-lightbox-open {
+    overflow: hidden;
+}
+
+/* ============================================
+   SCROLL ANIMATIONS
+   ============================================ */
+.atc-tours-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.atc-tours-section.atc-fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ensure sections are visible initially (will be animated on scroll) */
+.atc-tours-section:first-child {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   ENHANCED RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 1024px) {
+    .atc-tours-hero-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .atc-tours-hero-share {
+        align-items: flex-start;
+        margin-top: 20px;
+    }
+
+    .atc-tours-pricing-card {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(15px);
+    }
+}
+
+@media (max-width: 768px) {
+    .atc-tours-breadcrumb-inner {
+        padding: 0 15px;
+        font-size: 12px;
+    }
+
+    .atc-tours-hero {
+        height: 400px;
+    }
+
+    .atc-tours-hero-content {
+        padding: 25px 20px;
+    }
+
+    .atc-tours-hero-title {
+        font-size: 24px;
+    }
+
+    .atc-tours-hero-subtitle {
+        font-size: 14px;
+    }
+
+    .atc-tours-hero-meta {
+        gap: 15px;
+        font-size: 14px;
+    }
+
+    .atc-share-buttons {
+        gap: 8px;
+    }
+
+    .atc-share-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .atc-tours-gallery {
+        margin-top: -30px;
+        padding: 15px;
+    }
+
+    .atc-tours-gallery-main {
+        height: 300px;
+    }
+
+    .atc-tours-gallery-thumbnails {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .atc-tours-content-wrapper {
+        padding: 15px;
+        grid-template-columns: 1fr;
+    }
+
+    .atc-tours-pricing-card {
+        position: relative;
+        top: 0;
+        margin-bottom: 80px;
+        /* Space for mobile booking bar */
+    }
+
+    .atc-tours-section {
+        padding: 20px 15px;
+    }
+
+    .atc-tours-mobile-booking-bar {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .atc-mobile-booking-price {
+        flex: 1;
+    }
+
+    .atc-mobile-booking-btn {
+        flex: 0 0 auto;
+        min-width: 120px;
+    }
+
+    .atc-similar-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .atc-lightbox-prev,
+    .atc-lightbox-next {
+        width: 40px;
+        height: 40px;
+    }
+
+    .atc-lightbox-close {
+        top: 10px;
+        right: 10px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .atc-tours-hero {
+        height: 350px;
+    }
+
+    .atc-tours-hero-title {
+        font-size: 20px;
+    }
+
+    .atc-tours-gallery-main {
+        grid-template-columns: 1fr;
+        height: 250px;
+    }
+
+    .atc-tours-gallery-secondary {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        margin-top: 10px;
+    }
+
+    .atc-tours-gallery-thumbnails {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .atc-tours-mobile-booking-bar {
+        padding: 12px 15px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .atc-mobile-booking-price {
+        width: 100%;
+        text-align: center;
+    }
+
+    .atc-mobile-booking-btn {
+        width: 100%;
+    }
+}

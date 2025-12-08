@@ -1,0 +1,282 @@
+{
+  "label": "Flights",
+  "icon": "airplane",
+  "theme": {
+    "package_details_style": "skyscanner",
+    "color_scheme": {
+      "primary": "#1e40af",
+      "secondary": "#3b82f6",
+      "accent": "#f59e0b"
+    },
+    "layout": "single-column"
+  },
+  "search_fields": [
+    {
+      "id": "from",
+      "label": "From",
+      "type": "text",
+      "placeholder": "Departure city or airport code",
+      "required": true
+    },
+    {
+      "id": "to",
+      "label": "To",
+      "type": "text",
+      "placeholder": "Arrival city or airport code",
+      "required": true
+    },
+    {
+      "id": "departure_date",
+      "label": "Departure Date",
+      "type": "date",
+      "required": true
+    },
+    {
+      "id": "return_date",
+      "label": "Return Date",
+      "type": "date"
+    },
+    {
+      "id": "passengers",
+      "label": "Passengers",
+      "type": "number",
+      "min": 1,
+      "default": 1
+    },
+    {
+      "id": "trip_type",
+      "label": "Trip Type",
+      "type": "select",
+      "options": ["One Way", "Round Trip", "Multi City"],
+      "default": "Round Trip"
+    }
+  ],
+  "booking_fields": [
+    {
+      "id": "name",
+      "label": "Full Name (as per passport)",
+      "type": "text",
+      "required": true
+    },
+    {
+      "id": "email",
+      "label": "Email",
+      "type": "email",
+      "required": true
+    },
+    {
+      "id": "phone",
+      "label": "Phone",
+      "type": "tel",
+      "required": true
+    },
+    {
+      "id": "adults",
+      "label": "Adults",
+      "type": "number",
+      "min": 1,
+      "default": 1
+    },
+    {
+      "id": "children",
+      "label": "Children",
+      "type": "number",
+      "min": 0,
+      "default": 0
+    },
+    {
+      "id": "infants",
+      "label": "Infants",
+      "type": "number",
+      "min": 0,
+      "default": 0
+    },
+    {
+      "id": "class",
+      "label": "Class",
+      "type": "select",
+      "options": ["Economy", "Premium Economy", "Business", "First Class"],
+      "default": "Economy"
+    },
+    {
+      "id": "seat_preference",
+      "label": "Seat Preference",
+      "type": "select",
+      "options": ["Window", "Aisle", "Middle", "No Preference"],
+      "default": "No Preference"
+    },
+    {
+      "id": "meal_preference",
+      "label": "Meal Preference",
+      "type": "select",
+      "options": ["Vegetarian", "Non-Vegetarian", "Vegan", "Jain", "No Preference"],
+      "default": "No Preference"
+    }
+  ],
+  "package_fields": [
+    {
+      "id": "airline",
+      "label": "Airline",
+      "type": "text",
+      "required": true,
+      "placeholder": "e.g., IndiGo, Air India, SpiceJet"
+    },
+    {
+      "id": "flight_number",
+      "label": "Flight Number",
+      "type": "text",
+      "placeholder": "e.g., 6E 123"
+    },
+    {
+      "id": "departure_airport",
+      "label": "Departure Airport",
+      "type": "text",
+      "required": true,
+      "placeholder": "Airport code or name"
+    },
+    {
+      "id": "arrival_airport",
+      "label": "Arrival Airport",
+      "type": "text",
+      "required": true,
+      "placeholder": "Airport code or name"
+    },
+    {
+      "id": "departure_time",
+      "label": "Departure Time",
+      "type": "text",
+      "placeholder": "e.g., 10:30 AM"
+    },
+    {
+      "id": "arrival_time",
+      "label": "Arrival Time",
+      "type": "text",
+      "placeholder": "e.g., 2:45 PM"
+    },
+    {
+      "id": "duration",
+      "label": "Flight Duration",
+      "type": "text",
+      "placeholder": "e.g., 2h 15m"
+    },
+    {
+      "id": "stops",
+      "label": "Stops",
+      "type": "select",
+      "options": ["Non-stop", "1 Stop", "2+ Stops"],
+      "default": "Non-stop"
+    },
+    {
+      "id": "baggage_allowance",
+      "label": "Baggage Allowance",
+      "type": "textarea",
+      "placeholder": "Cabin baggage: 7kg, Check-in: 15kg"
+    },
+    {
+      "id": "cancellation_policy",
+      "label": "Cancellation Policy",
+      "type": "textarea",
+      "placeholder": "Cancellation terms and charges"
+    },
+    {
+      "id": "refund_policy",
+      "label": "Refund Policy",
+      "type": "textarea",
+      "placeholder": "Refund terms and conditions"
+    },
+    {
+      "id": "rescheduling_policy",
+      "label": "Rescheduling Policy",
+      "type": "textarea",
+      "placeholder": "Rescheduling terms and charges"
+    }
+  ],
+  "query_fields": [
+    {
+      "id": "departure_city",
+      "label": "Departure City",
+      "type": "text",
+      "section": "service_specific",
+      "required": true
+    },
+    {
+      "id": "arrival_city",
+      "label": "Arrival City",
+      "type": "text",
+      "section": "service_specific",
+      "required": true
+    },
+    {
+      "id": "departure_date",
+      "label": "Departure Date",
+      "type": "date",
+      "section": "service_specific",
+      "required": true
+    },
+    {
+      "id": "return_date",
+      "label": "Return Date",
+      "type": "date",
+      "section": "service_specific"
+    },
+    {
+      "id": "adults",
+      "label": "Number of Adults",
+      "type": "number",
+      "section": "service_specific",
+      "min": 1,
+      "default": 1,
+      "required": true
+    },
+    {
+      "id": "children",
+      "label": "Number of Children",
+      "type": "number",
+      "section": "service_specific",
+      "min": 0,
+      "default": 0
+    },
+    {
+      "id": "class",
+      "label": "Preferred Class",
+      "type": "select",
+      "section": "service_specific",
+      "options": ["Economy", "Premium Economy", "Business", "First Class"],
+      "default": "Economy"
+    },
+    {
+      "id": "flexible_dates",
+      "label": "Flexible with Dates",
+      "type": "select",
+      "section": "service_specific",
+      "options": ["Yes", "No"],
+      "default": "No"
+    },
+    {
+      "id": "budget_range",
+      "label": "Budget Range",
+      "type": "text",
+      "section": "service_specific",
+      "placeholder": "e.g., ₹8,000 - ₹15,000"
+    },
+    {
+      "id": "special_requirements",
+      "label": "Special Requirements",
+      "type": "textarea",
+      "section": "additional",
+      "placeholder": "Wheelchair assistance, special meals, etc."
+    },
+    {
+      "id": "preferred_airlines",
+      "label": "Preferred Airlines",
+      "type": "text",
+      "section": "additional",
+      "placeholder": "Any preferred airlines (optional)"
+    }
+  ],
+  "pricing": {
+    "adult_rate": 8500,
+    "child_discount": 0.3,
+    "currency": "INR"
+  }
+}

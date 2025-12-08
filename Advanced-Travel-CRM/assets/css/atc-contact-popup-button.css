@@ -1,0 +1,362 @@
+/**
+ * ATC Contact Popup Button Styles
+ * Floating contact button with popup modal
+ */
+
+/* ==================== FLOATING BUTTON ==================== */
+.atc-contact-popup-button {
+    position: fixed !important;
+    bottom: 90px !important; /* Positioned above the query button */
+    left: 20px !important; /* Changed from right to left */
+    z-index: 9999998 !important;
+    display: inline-flex; /* Changed from flex to inline-flex */
+    align-items: center;
+    gap: 0; /* No gap - close button attached to main button */
+    pointer-events: auto !important;
+}
+
+/* Button Trigger */
+.atc-contact-popup-trigger {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: 2px solid #D4AF37;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 
+        0 8px 24px rgba(102, 126, 234, 0.4),
+        0 4px 12px rgba(212, 175, 55, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative; /* For close button positioning */
+    overflow: visible; /* Allow close button to overflow */
+}
+
+.atc-contact-popup-trigger::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.atc-contact-popup-trigger:hover::before {
+    left: 100%;
+}
+
+.atc-contact-popup-trigger:hover {
+    transform: translateY(-3px);
+    box-shadow: 
+        0 12px 32px rgba(102, 126, 234, 0.5),
+        0 6px 16px rgba(212, 175, 55, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    border-color: #F4D03F;
+}
+
+.atc-contact-popup-icon {
+    font-size: 20px;
+    line-height: 1;
+}
+
+.atc-contact-popup-text {
+    white-space: nowrap;
+}
+
+/* Close Button - Attached to top-right of button */
+.atc-contact-popup-close {
+    position: absolute;
+    top: -6px; /* Position on top half, slightly outside */
+    right: -6px; /* Position on right side, slightly outside */
+    width: 20px; /* Smaller size - matches query form button */
+    height: 20px; /* Smaller size - matches query form button */
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border: none; /* Removed border to match query form button size */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px; /* Smaller font - matches query form button */
+    line-height: 1;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 10;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    padding: 0; /* Added to match query form button */
+}
+
+.atc-contact-popup-close:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: rotate(90deg);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* ==================== POPUP MODAL ==================== */
+.atc-contact-popup-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2147483500 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: atc-contact-popup-fade-in 0.3s ease-out;
+}
+
+.atc-contact-popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+.atc-contact-popup-content {
+    position: relative;
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFF 50%, #F0F4FF 100%);
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 
+        0 25px 80px rgba(30, 58, 95, 0.3),
+        0 10px 30px rgba(102, 126, 234, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    animation: atc-contact-popup-slide-up 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 2147483501 !important;
+    margin: 20px auto;
+}
+
+.atc-contact-popup-modal-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    border: none;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    color: #1E3A5F;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.atc-contact-popup-modal-close:hover {
+    background: rgba(0, 0, 0, 0.15);
+    transform: rotate(90deg);
+}
+
+/* Header */
+.atc-contact-popup-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.atc-contact-popup-header h2 {
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #1E3A5F 0%, #667eea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+}
+
+.atc-contact-popup-header p {
+    font-size: 16px;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Action Buttons */
+.atc-contact-popup-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.atc-contact-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    color: #1E3A5F;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.atc-contact-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    border-color: #D4AF37;
+    color: #1E3A5F;
+    text-decoration: none;
+}
+
+.atc-contact-action-btn svg {
+    flex-shrink: 0;
+    color: #667eea;
+}
+
+.atc-contact-action-btn span {
+    flex: 1;
+}
+
+/* Specific button colors */
+.atc-contact-phone-btn:hover {
+    background: #f0f9ff;
+    border-color: #0ea5e9;
+}
+
+.atc-contact-phone-btn svg {
+    color: #0ea5e9;
+}
+
+.atc-contact-email-btn:hover {
+    background: #fef2f2;
+    border-color: #ef4444;
+}
+
+.atc-contact-email-btn svg {
+    color: #ef4444;
+}
+
+.atc-contact-whatsapp-btn:hover {
+    background: #f0fdf4;
+    border-color: #22c55e;
+}
+
+.atc-contact-whatsapp-btn svg {
+    color: #22c55e;
+}
+
+.atc-contact-facebook-btn:hover {
+    background: #eff6ff;
+    border-color: #1877F2;
+}
+
+.atc-contact-facebook-btn svg {
+    color: #1877F2;
+}
+
+.atc-contact-page-btn:hover {
+    background: #fef3c7;
+    border-color: #D4AF37;
+}
+
+.atc-contact-page-btn svg {
+    color: #D4AF37;
+}
+
+/* Animations */
+@keyframes atc-contact-popup-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes atc-contact-popup-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .atc-contact-popup-button {
+        bottom: 85px !important; /* Positioned above the query button on mobile */
+        left: 15px !important; /* Changed from right to left */
+    }
+    
+    .atc-contact-popup-trigger {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    .atc-contact-popup-icon {
+        font-size: 18px;
+    }
+    
+    .atc-contact-popup-close {
+        width: 18px; /* Smaller on mobile - matches query form button */
+        height: 18px; /* Smaller on mobile - matches query form button */
+        font-size: 12px; /* Smaller font on mobile - matches query form button */
+        top: -5px;
+        right: -5px;
+    }
+    
+    .atc-contact-popup-content {
+        padding: 30px 25px;
+        max-width: 95%;
+    }
+    
+    .atc-contact-popup-header h2 {
+        font-size: 24px;
+    }
+    
+    .atc-contact-action-btn {
+        padding: 14px 18px;
+        font-size: 14px;
+    }
+}
+
+/* Hide scrollbar but keep functionality */
+.atc-contact-popup-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.atc-contact-popup-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.atc-contact-popup-content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.atc-contact-popup-content::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+

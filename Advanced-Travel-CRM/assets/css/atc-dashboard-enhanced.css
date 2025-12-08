@@ -1,0 +1,410 @@
+/**
+ * ATC Enhanced Dashboard & Analytics Styles
+ * Modern, premium, responsive design
+ */
+
+/* ==================== DASHBOARD LAYOUT ==================== */
+.atc-dashboard-enhanced,
+.atc-analytics-enhanced {
+    background: #f8fafc;
+    padding: 20px;
+    min-height: calc(100vh - 32px);
+}
+
+.atc-dashboard-header,
+.atc-analytics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.atc-dashboard-header h1,
+.atc-analytics-header h1 {
+    margin: 0 0 5px 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #0A1F44;
+}
+
+.atc-dashboard-actions,
+.atc-analytics-filters {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* ==================== METRICS GRID ==================== */
+.atc-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.atc-metric-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.atc-metric-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.atc-metric-card.atc-metric-primary {
+    border-left-color: #3b82f6;
+}
+
+.atc-metric-card.atc-metric-success {
+    border-left-color: #10b981;
+}
+
+.atc-metric-card.atc-metric-warning {
+    border-left-color: #f59e0b;
+}
+
+.atc-metric-card.atc-metric-danger {
+    border-left-color: #ef4444;
+}
+
+.atc-metric-card.atc-metric-info {
+    border-left-color: #06b6d4;
+}
+
+.atc-metric-card.atc-metric-purple {
+    border-left-color: #8b5cf6;
+}
+
+.atc-metric-card.atc-metric-gold {
+    background: linear-gradient(135deg, #D4AF37, #F4D03F);
+    color: #0A1F44;
+    border: 2px solid #D4AF37;
+}
+
+.atc-metric-card.atc-metric-gold .atc-metric-icon {
+    color: #0A1F44;
+}
+
+.atc-metric-card.atc-metric-gold .atc-metric-label {
+    color: #0A1F44;
+    opacity: 0.9;
+}
+
+.atc-metric-card.atc-metric-gold .atc-metric-value {
+    color: #0A1F44;
+}
+
+.atc-metric-card.atc-metric-gold .atc-metric-change {
+    color: #0A1F44;
+    opacity: 0.8;
+}
+
+.atc-metric-icon {
+    font-size: 48px;
+    line-height: 1;
+    opacity: 0.9;
+}
+
+.atc-metric-content {
+    flex: 1;
+}
+
+.atc-metric-label {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.atc-metric-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0A1F44;
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.atc-metric-change {
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.atc-metric-change.positive {
+    color: #10b981;
+}
+
+.atc-metric-change.negative {
+    color: #ef4444;
+}
+
+/* ==================== CHARTS GRID ==================== */
+.atc-charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.atc-chart-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.atc-chart-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.atc-chart-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #0A1F44;
+}
+
+.atc-chart-body {
+    position: relative;
+    height: 300px;
+}
+
+.atc-chart-body canvas {
+    max-height: 100%;
+}
+
+/* ==================== TABLES GRID ==================== */
+.atc-tables-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 20px;
+}
+
+.atc-table-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.atc-table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f1f5f9;
+}
+
+.atc-table-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #0A1F44;
+}
+
+.atc-table-body {
+    overflow-x: auto;
+}
+
+.atc-data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.atc-data-table thead {
+    background: #f8fafc;
+}
+
+.atc-data-table th {
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.atc-data-table td {
+    padding: 15px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #0A1F44;
+}
+
+.atc-data-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.atc-data-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* ==================== STATUS BADGES ==================== */
+.atc-status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.atc-status-badge.atc-status-pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.atc-status-badge.atc-status-confirmed {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.atc-status-badge.atc-status-completed {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.atc-status-badge.atc-status-cancelled {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.atc-score-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+.atc-score-badge.atc-score-hot {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.atc-score-badge.atc-score-warm {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.atc-score-badge.atc-score-cold {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+/* ==================== EMPTY STATE ==================== */
+.atc-empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #94a3b8;
+    font-size: 14px;
+}
+
+/* ==================== FILTERS ==================== */
+.atc-filter-select {
+    padding: 8px 15px;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #fff;
+    color: #0A1F44;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.atc-filter-select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1200px) {
+    .atc-charts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .atc-tables-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .atc-dashboard-enhanced,
+    .atc-analytics-enhanced {
+        padding: 15px;
+    }
+    
+    .atc-dashboard-header,
+    .atc-analytics-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .atc-metrics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .atc-metric-card {
+        padding: 20px;
+    }
+    
+    .atc-metric-value {
+        font-size: 28px;
+    }
+    
+    .atc-chart-body {
+        height: 250px;
+    }
+    
+    .atc-data-table {
+        font-size: 14px;
+    }
+    
+    .atc-data-table th,
+    .atc-data-table td {
+        padding: 10px;
+    }
+}
+
+/* ==================== LOADING STATE ==================== */
+.atc-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    color: #64748b;
+}
+
+.atc-loading::after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 3px solid #e2e8f0;
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+

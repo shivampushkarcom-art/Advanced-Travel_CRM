@@ -1,0 +1,51 @@
+/**
+ * ATC Inline Text Editor Styles
+ */
+
+/* Editable text elements */
+.atc-editable {
+    position: relative;
+    cursor: pointer;
+    border-bottom: 1px dashed transparent;
+    transition: all 0.2s;
+}
+
+.atc-editable:hover {
+    border-bottom-color: #1E3A5F;
+    background: rgba(30, 58, 95, 0.05);
+}
+
+.atc-editable::after {
+    content: '✏️';
+    position: absolute;
+    right: -20px;
+    top: 0;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.atc-editable:hover::after {
+    opacity: 1;
+}
+
+/* Editor modal */
+#atc-text-editor-modal .atc-editor-form {
+    margin-top: 20px;
+}
+
+#atc-text-editor-modal #atc-editor-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    min-height: 100px;
+}
+
+#atc-text-editor-modal .atc-editor-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+}
+

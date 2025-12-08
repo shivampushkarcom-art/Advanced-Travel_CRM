@@ -1,0 +1,279 @@
+/**
+ * ═══════════════════════════════════════════════════════════════════
+ * ATC Astra Hamburger Menu
+ * Red hamburger menu integrated with Astra theme
+ * Works on ALL screen sizes (laptop, tablet, mobile)
+ * Uses WordPress primary menu
+ * ═══════════════════════════════════════════════════════════════════
+ */
+
+/* ==================== RED HAMBURGER BUTTON ==================== */
+.ast-header-wrapper,
+.ast-primary-header,
+header.site-header,
+.site-header {
+    position: relative !important;
+}
+
+/* Red Hamburger Toggle Button - Positioned in Astra Header */
+.atc-hamburger-menu-toggle {
+    display: flex !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 20px !important;
+    transform: translateY(-50%) !important;
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, #DC2626 0%, #EF4444 50%, #DC2626 100%);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    z-index: 10001;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+}
+
+.atc-hamburger-menu-toggle:hover {
+    background: linear-gradient(135deg, #EF4444 0%, #DC2626 50%, #EF4444 100%);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 6px 16px rgba(220, 38, 38, 0.5);
+}
+
+.atc-hamburger-menu-toggle:active {
+    transform: translateY(-50%) scale(0.98);
+}
+
+/* Hamburger Icon Lines - Red */
+.atc-hamburger-menu-toggle .hamburger-icon {
+    width: 24px;
+    height: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.atc-hamburger-menu-toggle .hamburger-icon span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* ==================== MENU OVERLAY ==================== */
+.atc-hamburger-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 10000000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.atc-hamburger-menu-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* ==================== MENU PANEL - RED THEME ==================== */
+.atc-hamburger-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 85%;
+    max-width: 400px;
+    height: 100%;
+    background: linear-gradient(135deg, #FFFFFF 0%, #FEF2F2 20%, #FEE2E2 100%);
+    box-shadow: 4px 0 24px rgba(220, 38, 38, 0.4);
+    z-index: 10000001;
+    overflow-y: auto;
+    overflow-x: hidden;
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.atc-hamburger-menu.active {
+    left: 0;
+}
+
+/* Menu Header - Red */
+.atc-hamburger-menu-header {
+    padding: 24px 20px;
+    background: linear-gradient(135deg, #DC2626 0%, #B91C1C 50%, #DC2626 100%);
+    border-bottom: 3px solid #EF4444;
+    position: relative;
+}
+
+.atc-hamburger-menu-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Close Button - Red */
+.atc-hamburger-menu-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 36px;
+    height: 36px;
+    background: rgba(220, 38, 38, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 24px;
+    line-height: 1;
+    transition: all 0.3s ease;
+}
+
+.atc-hamburger-menu-close:hover {
+    transform: rotate(90deg) scale(1.1);
+    background: rgba(185, 28, 28, 0.95);
+}
+
+/* ==================== MENU ITEMS - RED THEME ==================== */
+.atc-hamburger-menu-items {
+    padding: 20px 0;
+}
+
+.atc-hamburger-menu-items ul,
+.atc-hamburger-menu-items .menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.atc-hamburger-menu-items .menu-item {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid rgba(220, 38, 38, 0.1);
+}
+
+.atc-hamburger-menu-items .menu-item:last-child {
+    border-bottom: none;
+}
+
+.atc-hamburger-menu-items .menu-item a {
+    display: flex;
+    align-items: center;
+    padding: 18px 24px;
+    color: #991B1B;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.atc-hamburger-menu-items .menu-item a:hover,
+.atc-hamburger-menu-items .menu-item.current-menu-item > a {
+    color: #7F1D1D;
+    background: linear-gradient(90deg, rgba(220, 38, 38, 0.1) 0%, rgba(239, 68, 68, 0.15) 100%);
+    border-left-color: #EF4444;
+    padding-left: 28px;
+}
+
+/* Submenu Styling */
+.atc-hamburger-menu-items .sub-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: rgba(254, 226, 226, 0.6);
+    display: none;
+    border-left: 3px solid #FCA5A5;
+}
+
+.atc-hamburger-menu-items .menu-item.menu-item-has-children.active .sub-menu {
+    display: block;
+}
+
+.atc-hamburger-menu-items .sub-menu .menu-item a {
+    padding-left: 40px;
+    font-size: 15px;
+    color: #B91C1C;
+}
+
+/* ==================== RESPONSIVE ==================== */
+/* Desktop/Laptop */
+@media (min-width: 1025px) {
+    .atc-hamburger-menu-toggle {
+        display: flex !important;
+        width: 60px;
+        height: 60px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .atc-hamburger-menu-toggle {
+        width: 52px;
+        height: 52px;
+        left: 18px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .atc-hamburger-menu-toggle {
+        width: 48px;
+        height: 48px;
+        left: 15px;
+    }
+    
+    .atc-hamburger-menu {
+        width: 90%;
+        max-width: 360px;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+    .atc-hamburger-menu-toggle {
+        width: 44px;
+        height: 44px;
+        left: 12px;
+    }
+    
+    .atc-hamburger-menu {
+        width: 95%;
+        max-width: 320px;
+    }
+}
+
+/* Hide horizontal menu on all screens - use hamburger instead */
+.site-header .main-navigation,
+.ast-header-wrapper .main-navigation {
+    display: none !important;
+}
+
+/* Prevent body scroll when menu is open */
+body.atc-menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* Hide floating buttons when menu is open */
+body.atc-menu-open .atc-floating-query-button,
+body.atc-menu-open .atc-contact-popup-button {
+    z-index: 1 !important;
+    opacity: 0.3 !important;
+    pointer-events: none !important;
+}
+

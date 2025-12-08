@@ -1,0 +1,425 @@
+/**
+ * ATC Lead Generation Popup Styles
+ * Theme-aware, responsive, premium design
+ */
+
+:root {
+    --atc-popup-primary: #667eea;
+    --atc-popup-secondary: #764ba2;
+    --atc-popup-text: #0A1F44;
+    --atc-popup-bg: rgba(255, 255, 255, 0.98);
+    --atc-popup-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Lock body scroll when popup is open */
+body.atc-popup-open {
+    overflow: hidden !important;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+/* Popup Overlay */
+.atc-lead-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2147483500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: atc-popup-fade-in 0.3s ease-out;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.atc-popup-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+/* Popup Container */
+.atc-popup-container {
+    position: relative;
+    background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFF 50%, #F0F4FF 100%);
+    border-radius: 24px;
+    padding: 0;
+    max-width: 520px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-shadow: 0 25px 80px rgba(30, 58, 95, 0.3),
+                0 10px 30px rgba(102, 126, 234, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    animation: atc-popup-slide-up 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 2147483501;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    margin: 20px auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.atc-popup-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #F4D03F 0%, #D4AF37 50%, #F4D03F 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Close Button */
+.atc-popup-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 35px;
+    height: 35px;
+    border: none;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+    color: var(--atc-popup-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.atc-popup-close:hover {
+    background: rgba(0, 0, 0, 0.15);
+    transform: rotate(90deg);
+}
+
+/* Offer Badge */
+.atc-popup-badge {
+    background: linear-gradient(135deg, #F4D03F 0%, #D4AF37 50%, #F4D03F 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease infinite;
+    color: #1E3A5F;
+    padding: 12px 20px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 24px 24px 0 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Popup Content */
+.atc-popup-content {
+    padding: 40px 35px;
+}
+
+.atc-popup-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.atc-popup-title {
+    font-size: 32px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #1E3A5F 0%, #667eea 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 10px 0;
+    line-height: 1.3;
+    text-shadow: 0 2px 4px rgba(30, 58, 95, 0.1);
+}
+
+.atc-popup-subtitle {
+    font-size: 16px;
+    color: #64748b;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Form Styles */
+.atc-popup-form {
+    margin-top: 25px;
+}
+
+.atc-form-group {
+    margin-bottom: 18px;
+}
+
+.atc-form-input,
+.atc-form-select,
+.atc-form-textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 15px;
+    color: var(--atc-popup-text);
+    background: #fff;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.atc-form-input:focus,
+.atc-form-select:focus,
+.atc-form-textarea:focus {
+    outline: none;
+    border-color: #D4AF37;
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15),
+                0 4px 12px rgba(102, 126, 234, 0.2);
+    transform: translateY(-1px);
+}
+
+.atc-form-input::placeholder,
+.atc-form-textarea::placeholder {
+    color: #94a3b8;
+}
+
+.atc-form-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px;
+}
+
+.atc-form-textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Privacy Text */
+.atc-privacy-text {
+    text-align: center;
+    margin: 15px 0;
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+.atc-privacy-text small {
+    line-height: 1.5;
+}
+
+/* Submit Button */
+.atc-popup-submit {
+    width: 100%;
+    padding: 18px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+    background-size: 200% 100%;
+    animation: gradientShift 3s ease infinite;
+    color: #fff;
+    border: 2px solid #D4AF37;
+    border-radius: 14px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.5),
+                0 2px 10px rgba(212, 175, 55, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.atc-popup-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.atc-popup-submit:hover::before {
+    left: 100%;
+}
+
+.atc-popup-submit:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(102, 126, 234, 0.6),
+                0 4px 15px rgba(212, 175, 55, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    border-color: #F4D03F;
+}
+
+@keyframes gradientShift {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.atc-popup-submit:active {
+    transform: translateY(0);
+}
+
+.atc-popup-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.atc-submit-loader {
+    animation: atc-spin 1s linear infinite;
+}
+
+/* Success Message */
+.atc-popup-success {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.atc-success-icon {
+    font-size: 60px;
+    margin-bottom: 20px;
+    animation: atc-bounce-in 0.6s ease-out;
+}
+
+.atc-popup-success h3 {
+    font-size: 24px;
+    color: var(--atc-popup-text);
+    margin: 0 0 10px 0;
+}
+
+.atc-popup-success p {
+    color: #64748b;
+    font-size: 16px;
+    margin: 0;
+}
+
+/* Animations */
+@keyframes atc-popup-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes atc-popup-slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes atc-bounce-in {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes atc-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .atc-popup-container {
+        width: 95%;
+        max-height: 95vh;
+        border-radius: 16px;
+    }
+    
+    .atc-popup-content {
+        padding: 30px 25px;
+    }
+    
+    .atc-popup-title {
+        font-size: 24px;
+    }
+    
+    .atc-popup-subtitle {
+        font-size: 14px;
+    }
+    
+    .atc-form-input,
+    .atc-form-select,
+    .atc-form-textarea {
+        padding: 12px 16px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .atc-popup-submit {
+        padding: 14px 25px;
+        font-size: 15px;
+    }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .atc-popup-container {
+        max-width: 450px;
+    }
+}
+
+/* Hide scrollbar but keep functionality */
+.atc-popup-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.atc-popup-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.atc-popup-container::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+.atc-popup-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+

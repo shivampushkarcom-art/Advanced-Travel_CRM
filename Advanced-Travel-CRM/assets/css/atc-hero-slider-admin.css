@@ -1,0 +1,192 @@
+/**
+ * ATC Hero Slider Admin Styles
+ */
+
+.atc-hero-slider-admin {
+    max-width: 1200px;
+}
+
+.atc-slider-selector {
+    margin-bottom: 20px;
+}
+
+#atc-create-slider-form {
+    display: none;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.atc-slide-editor {
+    position: relative;
+}
+
+.atc-slide-editor h3 {
+    color: #0A1F44;
+    font-size: 18px;
+}
+
+.atc-image-preview img {
+    display: block;
+    margin-top: 10px;
+}
+
+.atc-upload-slide-image {
+    margin-left: 10px;
+}
+
+.atc-no-slides {
+    padding: 40px;
+    text-align: center;
+    background: #f9f9f9;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    color: #666;
+}
+
+.atc-shortcode-info {
+    margin-top: 40px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-left: 4px solid #D4AF37;
+    border-radius: 4px;
+}
+
+.atc-shortcode-info h3 {
+    margin-top: 0;
+    color: #0A1F44;
+}
+
+.atc-shortcode-info code {
+    background: #fff;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #0A1F44;
+}
+
+.atc-shortcode-info ul {
+    margin: 15px 0;
+    padding-left: 25px;
+}
+
+.atc-shortcode-info li {
+    margin: 8px 0;
+}
+
+.atc-remove-slide {
+    color: #dc3232;
+}
+
+.atc-remove-slide:hover {
+    color: #a00;
+}
+
+/* Ensure Add Slide button is clickable */
+#atc-add-slide-btn {
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#atc-add-slide-btn:hover {
+    background: #0A1F44;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Ensure slides container is visible */
+#atc-slides-container {
+    min-height: 50px;
+    position: relative;
+}
+
+/* Slide editor animations */
+.atc-slide-editor {
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Form styling */
+#atc-hero-slider-form {
+    position: relative;
+}
+
+/* Ensure buttons don't conflict with form submission */
+#atc-hero-slider-form button[type="button"] {
+    margin-right: 10px;
+}
+
+/* Admin responsive design */
+@media (max-width: 782px) {
+    .atc-slider-selector {
+        padding: 15px !important;
+    }
+    
+    .atc-slider-selector > div {
+        flex-direction: column;
+        align-items: stretch !important;
+    }
+    
+    #atc-slider-select {
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
+    
+    .atc-slide-editor {
+        padding: 15px !important;
+    }
+    
+    .atc-slide-editor table.form-table {
+        display: block;
+    }
+    
+    .atc-slide-editor table.form-table tr {
+        display: block;
+        margin-bottom: 15px;
+    }
+    
+    .atc-slide-editor table.form-table th,
+    .atc-slide-editor table.form-table td {
+        display: block;
+        width: 100%;
+        padding: 5px 0;
+    }
+    
+    .atc-slide-editor table.form-table th {
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+}
+
+/* Better visibility for saved slides */
+#atc-slides-container .atc-slide-editor {
+    margin-bottom: 20px;
+    display: block;
+}
+
+#atc-slides-container .atc-slide-editor:last-child {
+    margin-bottom: 0;
+}
+

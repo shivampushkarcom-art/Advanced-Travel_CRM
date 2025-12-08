@@ -1,0 +1,180 @@
+/**
+ * ATC Floating WhatsApp Button
+ * Mobile-first responsive design
+ */
+
+.atc-whatsapp-button {
+    position: fixed !important;
+    z-index: 9999998 !important; /* Very high z-index to appear above everything including cursor */
+    animation: whatsappSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: auto !important; /* Ensure buttons are clickable */
+}
+
+/* Position Variants */
+.atc-whatsapp-bottom-right {
+    bottom: 20px !important;
+    right: 20px !important;
+    left: auto !important;
+    top: auto !important;
+}
+
+.atc-whatsapp-bottom-left {
+    bottom: 20px !important;
+    left: 20px !important;
+    right: auto !important;
+    top: auto !important;
+}
+
+.atc-whatsapp-top-right {
+    top: 20px !important;
+    right: 20px !important;
+    bottom: auto !important;
+    left: auto !important;
+}
+
+.atc-whatsapp-top-left {
+    top: 20px !important;
+    left: 20px !important;
+    bottom: auto !important;
+    right: auto !important;
+}
+
+.atc-whatsapp-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4),
+                0 2px 8px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: visible;
+}
+
+.atc-whatsapp-link:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.6),
+                0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.atc-whatsapp-link:active {
+    transform: scale(0.95);
+}
+
+.atc-whatsapp-icon {
+    width: 32px;
+    height: 32px;
+    color: #ffffff;
+    z-index: 2;
+    position: relative;
+}
+
+.atc-whatsapp-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Pulse Animation */
+.atc-whatsapp-pulse {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #25D366;
+    opacity: 0.6;
+    animation: whatsappPulse 2s ease infinite;
+    z-index: 1;
+}
+
+@keyframes whatsappSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes whatsappPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 0.3;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+}
+
+/* Desktop - Ensure proper positioning */
+@media (min-width: 769px) {
+    .atc-whatsapp-button {
+        position: fixed !important;
+        z-index: 9999998 !important;
+    }
+    
+    .atc-whatsapp-bottom-right {
+        bottom: 20px !important;
+        right: 20px !important;
+    }
+    
+    .atc-whatsapp-bottom-left {
+        bottom: 20px !important;
+        left: 20px !important;
+    }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .atc-whatsapp-button {
+        bottom: 15px !important;
+        right: 15px !important;
+        left: auto !important;
+        top: auto !important;
+        position: fixed !important;
+        z-index: 9999998 !important;
+    }
+    
+    .atc-whatsapp-link {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .atc-whatsapp-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .atc-whatsapp-pulse {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+/* Hide on mobile if disabled */
+@media (max-width: 768px) {
+    .atc-whatsapp-button.atc-whatsapp-mobile-disabled {
+        display: none !important;
+    }
+}
+
+/* Accessibility */
+.atc-whatsapp-link:focus {
+    outline: 3px solid rgba(37, 211, 102, 0.5);
+    outline-offset: 3px;
+}
+

@@ -1,0 +1,653 @@
+/**
+ * Trains Package Details Page - IRCTC Style
+ * Premium, Enterprise-Level Design
+ */
+
+/* ============================================
+   CSS VARIABLES (Service-Specific Colors)
+   ============================================ */
+:root {
+    --atc-trains-primary: #d32f2f;
+    --atc-trains-secondary: #f44336;
+    --atc-trains-accent: #ff9800;
+    --atc-trains-bg: #f5f5f5;
+    --atc-trains-text: #1a1a1a;
+    --atc-trains-text-light: #666;
+}
+
+/* ============================================
+   MAIN CONTAINER & LAYOUT
+   ============================================ */
+.atc-package-details-trains {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--atc-trains-bg);
+    min-height: 100vh;
+    color: var(--atc-trains-text);
+}
+
+.atc-package-details-trains-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* ============================================
+   BREADCRUMB NAVIGATION
+   ============================================ */
+.atc-trains-breadcrumb {
+    background: #fff;
+    padding: 15px 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.atc-trains-breadcrumb-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.atc-trains-breadcrumb-inner a {
+    color: var(--atc-trains-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.atc-trains-breadcrumb-inner a:hover {
+    color: var(--atc-trains-primary);
+    text-decoration: underline;
+}
+
+.atc-breadcrumb-separator {
+    color: var(--atc-trains-text-light);
+}
+
+.atc-breadcrumb-current {
+    color: var(--atc-trains-text);
+    font-weight: 500;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.atc-trains-hero {
+    position: relative;
+    width: 100%;
+    min-height: 400px;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--atc-trains-primary) 0%, var(--atc-trains-secondary) 100%);
+    margin-bottom: 30px;
+}
+
+.atc-trains-hero-image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.atc-trains-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+}
+
+/* ============================================
+   TRAIN ROUTE CARD
+   ============================================ */
+.atc-trains-route-card {
+    position: relative;
+    background: #fff;
+    border-radius: 16px;
+    padding: 40px;
+    margin: 30px auto;
+    max-width: 900px;
+    box-shadow: 0 8px 32px rgba(211, 47, 47, 0.15);
+    z-index: 2;
+}
+
+.atc-route-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.atc-train-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--atc-trains-primary);
+    margin-bottom: 10px;
+}
+
+.atc-train-name {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--atc-trains-text);
+}
+
+.atc-route-details {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.atc-route-station {
+    flex: 1;
+    text-align: center;
+}
+
+.atc-route-station.atc-departure {
+    text-align: left;
+}
+
+.atc-route-station.atc-arrival {
+    text-align: right;
+}
+
+.atc-station-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--atc-trains-text);
+    margin-bottom: 10px;
+}
+
+.atc-station-time {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--atc-trains-primary);
+}
+
+.atc-route-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    flex: 0 0 auto;
+    min-width: 120px;
+}
+
+.atc-route-line {
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--atc-trains-primary) 0%, var(--atc-trains-secondary) 100%);
+    border-radius: 2px;
+    position: relative;
+}
+
+.atc-route-line::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: var(--atc-trains-primary);
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+.atc-route-line::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    background: var(--atc-trains-secondary);
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+
+.atc-route-duration {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--atc-trains-text-light);
+    background: #f5f5f5;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+
+/* ============================================
+   CONTENT WRAPPER (Two-Column Layout)
+   ============================================ */
+.atc-trains-content-wrapper {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 30px;
+    align-items: start;
+}
+
+@media (max-width: 1024px) {
+    .atc-trains-content-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================
+   MAIN CONTENT (Left Column)
+   ============================================ */
+.atc-trains-main-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.atc-trains-section {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.atc-trains-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.atc-trains-section-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 25px 0;
+    color: var(--atc-trains-primary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ============================================
+   AVAILABLE CLASSES GRID
+   ============================================ */
+.atc-trains-classes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.atc-trains-class-card {
+    background: linear-gradient(135deg, #fff 0%, #f9f9f9 100%);
+    border: 2px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.atc-trains-class-card:hover {
+    border-color: var(--atc-trains-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(211, 47, 47, 0.15);
+}
+
+.atc-class-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.atc-class-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--atc-trains-text);
+}
+
+/* ============================================
+   FACILITIES GRID
+   ============================================ */
+.atc-trains-facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.atc-trains-facility-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.atc-trains-facility-item:hover {
+    background: #f0f0f0;
+    transform: translateX(5px);
+}
+
+.atc-facility-icon {
+    color: var(--atc-trains-primary);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.atc-facility-text {
+    font-size: 15px;
+    color: var(--atc-trains-text);
+}
+
+/* ============================================
+   DESCRIPTION & HIGHLIGHTS
+   ============================================ */
+.atc-trains-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--atc-trains-text);
+    margin-top: 20px;
+}
+
+.atc-trains-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.atc-trains-highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid var(--atc-trains-primary);
+}
+
+.atc-highlight-icon {
+    color: var(--atc-trains-primary);
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.atc-highlight-text {
+    font-size: 15px;
+    color: var(--atc-trains-text);
+}
+
+/* ============================================
+   POLICIES
+   ============================================ */
+.atc-trains-cancellation,
+.atc-trains-rescheduling,
+.atc-trains-refund,
+.atc-trains-terms {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--atc-trains-text);
+    margin-top: 20px;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border-left: 4px solid var(--atc-trains-primary);
+}
+
+/* ============================================
+   BOOKING CARD (Right Column - Sticky)
+   ============================================ */
+.atc-trains-booking-card {
+    position: sticky;
+    top: 20px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(211, 47, 47, 0.15);
+    border: 2px solid #e0e0e0;
+}
+
+.atc-trains-price-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.atc-trains-price-label {
+    font-size: 14px;
+    color: var(--atc-trains-text-light);
+    margin-bottom: 10px;
+}
+
+.atc-trains-price-main {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.atc-trains-price-original {
+    font-size: 18px;
+    color: var(--atc-trains-text-light);
+    text-decoration: line-through;
+}
+
+.atc-trains-price-current {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--atc-trains-primary);
+}
+
+.atc-trains-price-unit {
+    font-size: 16px;
+    color: var(--atc-trains-text-light);
+}
+
+.atc-trains-discount-badge {
+    display: inline-block;
+    background: var(--atc-trains-accent);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+/* ============================================
+   TRUST BADGES
+   ============================================ */
+.atc-trains-trust-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.atc-trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--atc-trains-text);
+}
+
+.atc-badge-icon {
+    font-size: 18px;
+}
+
+/* ============================================
+   BOOKING BUTTON
+   ============================================ */
+.atc-trains-booking-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--atc-trains-primary) 0%, var(--atc-trains-secondary) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 18px 24px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+}
+
+.atc-trains-booking-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(211, 47, 47, 0.4);
+}
+
+.atc-trains-booking-btn:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   SIMILAR TRAINS SECTION
+   ============================================ */
+.atc-trains-similar {
+    background: #fff;
+    padding: 40px 0;
+    margin-top: 40px;
+}
+
+.atc-similar-trains-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.atc-similar-loading {
+    text-align: center;
+    padding: 40px;
+    color: var(--atc-trains-text-light);
+}
+
+/* ============================================
+   MOBILE STICKY BOOKING BAR
+   ============================================ */
+.atc-trains-mobile-booking-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 15px 20px;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-top: 2px solid var(--atc-trains-primary);
+}
+
+@media (max-width: 768px) {
+    .atc-trains-mobile-booking-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+    }
+    
+    .atc-trains-booking-card {
+        display: none;
+    }
+    
+    .atc-trains-content-wrapper {
+        padding-bottom: 100px;
+    }
+    
+    .atc-trains-route-card {
+        padding: 25px;
+        margin: 20px;
+    }
+    
+    .atc-route-details {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .atc-route-station.atc-departure,
+    .atc-route-station.atc-arrival {
+        text-align: center;
+    }
+    
+    .atc-route-connector {
+        transform: rotate(90deg);
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .atc-route-line {
+        width: 50px;
+        height: 3px;
+    }
+}
+
+.atc-mobile-booking-price {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.atc-mobile-price-label {
+    font-size: 12px;
+    color: var(--atc-trains-text-light);
+}
+
+.atc-mobile-price-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--atc-trains-primary);
+}
+
+.atc-mobile-price-unit {
+    font-size: 12px;
+    color: var(--atc-trains-text-light);
+}
+
+.atc-mobile-booking-btn {
+    background: linear-gradient(135deg, var(--atc-trains-primary) 0%, var(--atc-trains-secondary) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(211, 47, 47, 0.3);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+@media (max-width: 768px) {
+    .atc-trains-section-title {
+        font-size: 20px;
+    }
+    
+    .atc-trains-classes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 15px;
+    }
+    
+    .atc-trains-facilities-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .atc-trains-main-content {
+        padding: 20px;
+    }
+}
+
